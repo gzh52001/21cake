@@ -3,7 +3,7 @@ const express = require('express');
 //导入路由
 const AllRouter = require('./routers/index');
 
-const app = express();
+const app = express();//创建实例
 
 app.use(express.static('/home'));//静态资源服务器
 app.use(AllRouter);//启用路由
