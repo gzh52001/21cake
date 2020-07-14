@@ -2,6 +2,14 @@
 const express = require('express');
 const router = express.Router();//router==app
 
+//参数接受和 GET 基本一样，不同的在于 GET 是 request.query 而 POST 的是 request.body
+var bodyParser = require('body-parser');
+
+// 添加json解析
+router.use(bodyParser.json());//转json数据
+router.use(bodyParser.urlencoded({extended: false}));//转键值对数据
+//只要设置两个中间键，无论你是json数据还是键值对数据，对会转成对象形式
+
 //导入子路由
 const userRouter = require('./modules/userRouter');
 const goodsRouter = require('./modules/goodsRouter');
