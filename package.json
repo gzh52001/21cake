@@ -1,0 +1,24 @@
+{
+  "name": "21cake",
+  "version": "1.0.0",
+  "description": "组长：叶文浩 组员：徐立平 李彬 余涵",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gzh52001/21cake.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gzh52001/21cake/issues"
+  },
+  "homepage": "https://github.com/gzh52001/21cake#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "supervisor": "^0.12.0"
+  }
+}
