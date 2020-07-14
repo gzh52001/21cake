@@ -11,15 +11,16 @@ function App() {
         // icon={<i className="iconfont icon-title" ></i>}
         leftContent={[
           <i key="0" className="iconfont icon-title" ></i>,
-          <i key="1" className="city"></i>
+          <i key="1" className="city"></i>,
+          <span style={{ fontSize:'12px',color:'#442818' }}>广州</span>
         ]}
         onLeftClick={() => console.log('onLeftClick')}
         rightContent={[
-          <Icon key="0" type="search" style={{ marginRight: '16px' }} />,
-          <Icon key="1" type="ellipsis" />,
+          <i key="0" className="top-message" ></i>,
+          <i key="1" className="top-cart"></i>
         ]}
       >
-      <i className="iconfont icon-header-center" type="left"></i>
+      <i className="iconfont icon-header-center" type="left" style={{ width:"30px" }}></i>
     </NavBar>
     </div>
   );

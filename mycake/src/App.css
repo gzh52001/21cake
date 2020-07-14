@@ -34,3 +34,21 @@
   margin-right: 4px;
   margin-top: -3px;
 }
+
+.top-message {
+  background: url(https://static.21cake.com/themes/wap/img/header_message.png) no-repeat;
+  display: inline-block;
+  background-size: 19px 19px;
+  height: 22px;
+  width: 20px;
+  vertical-align: middle;
+  margin-right: 10px;
+}
+
+.top-cart {
+  background: url(https://static.21cake.com/themes/wap/img/cart.png) no-repeat;
+  display: inline-block;
+  background-size: cover;
+  height: 19px;
+  width: 19px;
+}
