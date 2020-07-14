@@ -1,0 +1,10 @@
+//注册页面样式
+@function vw($px) {
+    @return ($px / 750) *100vw 
+}
+
+html,body{
+    height: 100%;
+    display: flex;
+	flex-direction: column;
+}
