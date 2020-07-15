@@ -5,38 +5,51 @@ html, body {
   flex-direction: column;
 }
 
-#login-box {
+#sign-box {
   margin-top: 4vw;
   padding: 0vw 7.46667vw;
 }
 
-#login-box h2 {
+#sign-box h2 {
   font-size: 4vw;
   color: #442818;
   text-align: center;
 }
 
-#login-box ul {
+#sign-box ul {
   width: 100%;
   height: 75.2vw;
   margin-top: 6.66667vw;
 }
 
-#login-box ul input {
+#sign-box ul input {
   width: 100%;
   height: 6.66667vw;
   padding: 2.66667vw 0;
   border-bottom: 0.26667vw solid #DFDFDF;
 }
 
-#login-box ul input::-webkit-input-placeholder {
+#sign-box ul input::-webkit-input-placeholder {
   color: #D5BFA7;
 }
 
-#login-box ul button {
+#sign-box ul button {
   width: 100%;
   height: 11.2vw;
   margin-top: 12.53333vw;
   color: white;
   background-color: #442818;
+}
+
+#sign-box ul .gotoLogin {
+  width: 100%;
+  height: 4.8vw;
+  margin-top: 6.66667vw;
+}
+
+#sign-box ul .gotoLogin a {
+  display: block;
+  float: right;
+  font-size: 3.2vw;
+  color: black;
 }
