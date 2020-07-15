@@ -5,12 +5,24 @@
     margin: 0;
     font-size: 24px;
 }
+ol,ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    font-size: vw(12);
+    color: #442818;
+}
+li{
+    padding: 0;
+    font-size: vw(12);
+    color: #442818;
+}
 .new-home-content{
     margin: 0 vw(20);
     .right-box{
         overflow: hidden;
         text-align: center;
-        // margin: 9px 0;
+        margin: 9px 0;
         padding: 0;
         height: 18px;
         list-style: none;
@@ -39,6 +51,31 @@
         li:last-child{
             float: right;
             margin-top: 1px;
+        }
+    }
+}
+.home-menu-box{
+    overflow: hidden;
+    display: flex;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    li{
+        width:19%;
+        line-height: vw(16);
+        text-align: center;
+        margin: vw(5) 0 vw(5) 0;
+        a{
+            width: 25%;
+            text-decoration: none;
+            cursor: pointer;
+            color: #442818;
+            img{
+                width:70%;
+                display: block;
+                min-height: vw(40);
+                margin: 0 auto;
+                border: 0;
+            }
         }
     }
 }
