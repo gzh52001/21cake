@@ -1,55 +1,87 @@
 import React , { Component } from 'react';
 import { NavBar,Icon,Menu, ActivityIndicator,Drawer, List,} from 'antd-mobile';
 import 'antd-mobile/dist/antd-mobile.css';
+import {Switch, Route, Redirect,withRouter} from 'react-router-dom';
 // import './icon/iconfont/iconfont'
 import './App.css'
 import Home from './pages/Home/index';
 import Type from './pages/Type/index';
 import Person from './pages/Person/index';
 
-export default class App extends Component {
+// @withRouter
+class App extends Component {
   state={
     current:'/home',
     menu:[{
       title:'首页',
       path:'/home',
       img:'https://static.21cake.com/themes/wap/img/menu-home.png',
-      Component:Home
+      component:Home
     },{
       title:'分类',
       path:'/type',
       img:'https://static.21cake.com/themes/wap/img/menu-icon-class.png',
-      Component:Type
+      component:Type
     },{
       title:'个人',
       path:'/person',
       img:'https://static.21cake.com/themes/wap/img/menu-icon-per.png',
-      Component:Person
+      component:Person
     }],
     open: false,//抽屉
+  }
+  //第一次渲染之后调用
+  componentDidMount(){
+    console.log('App.props',this.props);
+    //打开页面我们是重定向在home，也就是把props里面的location里面的pathname设置为/home,这里是把pathname解析出来
+    const {location:{pathname}} = this.props;
+    //把解析出来的pathname赋给state的current
+        this.setState({
+            current:pathname
+        })
+       
+  }
+  //传进来的是path：/home /type /person
+  changeMenu=({key,item})=>{
+    // console.log(key);
+    this.goto(key);
+    this.setState({
+      current:key
+    })
+  }
+  goto=(path)=>{
+    // console.log(this.props);
+    this.props.history.push(path);
+    //跳转页面后收起导航栏
+    this.setState({ open: !this.state.open })
+    this.titleMsg()
   }
   //抽屉功能，用于展现首页、分类、个人
   onOpenChange = (...args) => {
     // console.log(args);
     this.setState({ open: !this.state.open });
-    //下拉的时候图标变化成X
+    this.titleMsg()
+  }
+  //导航栏收起的话三横的图片，下拉的话X图片
+  titleMsg=()=>{
     if(!this.state.open){
       let iconTitle = document.getElementsByClassName('icon-title')[0];
       iconTitle.style="background:url(https://static.21cake.com/themes/wap/img/menu-hide.png) no-repeat;background-size: cover;width:16px;height: 16px;"
     }else{
       let iconTitle = document.getElementsByClassName('icon-title')[0];
-      iconTitle.style="background:url(https://static.21cake.com/themes/wap/img/top-icon.png) no-repeat;background-size: cover;width:18px;height: 14px;"
+      iconTitle.style="background:url(https://static.21cake.com/themes/wap/img/top-icon.png) no-repeat;background-size: cover;width:16px;height: 16px;"
     }
   }
   render() {
+    const {menu,current} = this.state;
     // console.log(this.state.menu);
     //抽屉
     const sidebar = (<List>
       {this.state.menu.map((i, index) => {
         if (index === 0) {
           return (<List.Item key={index}
-            // thumb=""
-            // multipleLine
+            // onClick={this.changeMenu}
+            onClick={this.goto.bind(null,i.path)}
           >{
             <div style={{ textAlign:"center"}}>
               <a><img src={i.img} ></img></a>
@@ -59,7 +91,8 @@ export default class App extends Component {
             </List.Item>);
         }
         return (<List.Item key={index}
-          // thumb=""
+          // onClick={this.changeMenu}
+          onClick={this.goto.bind(null,i.path)}
         >{<div style={{ textAlign:"center"}}>
         <a><img src={i.img} ></img></a>
         <p style={{ fontSize:'12px',color:'#442818',margin:0 }}>{i.title}</p>
@@ -97,7 +130,7 @@ export default class App extends Component {
           overlayStyle={{height:0}}
           sidebar={sidebar}
           open={this.state.open}
-          onOpenChange={console.log(this.state)}
+          // onOpenChange={console.log(this.state)}
           position='top'
           sidebarStyle={{minHeight:40,paddingTop:40}}
           // dragHandleStyle={{minHeight:100}}
@@ -108,22 +141,17 @@ export default class App extends Component {
           1111
         </Drawer>
         <div className="container" >
-            1111111
-            112
-            222222222222222222222222
-            333333333333333
-            444444444444
-            55555555555555
-            6666666666
-            7777777777777
-            88888888888
-            9999999999
-            1111111111111111111111111111111111111
+            <Switch>
+              {
+                menu.map(item => <Route key={item.path} path={item.path} component={item.component} />)
+              }
+              <Redirect from='/' to='/home' exact />
+            </Switch>
         </div>
       </div>
       
     );
   }
 }
-
-
+App = withRouter(App)
+ export default App;
