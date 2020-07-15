@@ -1,10 +1,49 @@
-//注册页面样式
+//注册样式
 @function vw($px) {
-    @return ($px / 750) *100vw 
+    @return ($px / 750) *200vw 
 }
 
 html,body{
     height: 100%;
-    display: flex;
-	flex-direction: column;
+    width: 100%;
 }
+// 头部nav
+// #loginNav{
+//     width: 100%;
+//     height: vw(48);
+// }
+
+//login-box
+#login-box{
+    margin-top: vw(15);
+    padding: vw(0) vw(28);
+    h2{
+        font-size: vw(15);
+        color: #442818;
+        text-align: center;
+    }
+    ul{
+        width: 100%;
+        height: vw(282);
+        margin-top: vw(25);
+        input{
+            width: 100%;
+            height: vw(25);
+            padding: vw(10) 0;
+            border-bottom: vw(1) solid #DFDFDF;
+        }
+        input::-webkit-input-placeholder{   // 谷歌
+            color:#D5BFA7;
+            // font-size:12px;
+        }
+        button{
+            width: 100%;
+            height: vw(42);
+            margin-top: vw(47);
+            color: white;
+            background-color: #442818;
+        }
+    }
+    
+}
+
