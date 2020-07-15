@@ -1,0 +1,45 @@
+.am-wingblank.am-wingblank-lg {
+  margin: 0;
+  font-size: 24px;
+}
+
+.new-home-content {
+  margin: 0 5.33333vw;
+}
+
+.new-home-content .right-box {
+  overflow: hidden;
+  text-align: center;
+  padding: 0;
+  height: 18px;
+  list-style: none;
+}
+
+.new-home-content .right-box li {
+  line-height: 4.8vw;
+  color: #C69C6D;
+  display: inline-block;
+  vertical-align: middle;
+  font-size: 3.2vw;
+}
+
+.new-home-content .right-box li i.new-home-icon {
+  height: 3.73333vw;
+  width: 3.73333vw;
+  margin-top: -0.53333vw;
+  display: inline-block;
+  vertical-align: middle;
+  background: url(https://static.21cake.com/themes/wap/img/new-home-icon.png) no-repeat;
+  background-size: 24vw auto;
+  background-position: 0 -4vw;
+}
+
+.new-home-content .right-box li:first-child {
+  float: left;
+  margin-top: 1px;
+}
+
+.new-home-content .right-box li:last-child {
+  float: right;
+  margin-top: 1px;
+}

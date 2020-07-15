@@ -1,0 +1,44 @@
+@function vw($px){
+    @return($px/750)*200vw
+  }
+.am-wingblank.am-wingblank-lg {
+    margin: 0;
+    font-size: 24px;
+}
+.new-home-content{
+    margin: 0 vw(20);
+    .right-box{
+        overflow: hidden;
+        text-align: center;
+        // margin: 9px 0;
+        padding: 0;
+        height: 18px;
+        list-style: none;
+        li{
+            line-height: vw(18);
+            color: #C69C6D;
+            display: inline-block;
+            vertical-align: middle;
+            font-size: vw(12);
+            i.new-home-icon{
+                
+                height: vw(14);
+                width: vw(14);
+                margin-top: vw(-2);
+                display: inline-block;
+                vertical-align: middle;
+                background: url(https://static.21cake.com/themes/wap/img/new-home-icon.png) no-repeat;
+                background-size: vw(90) auto;
+                background-position: 0 vw(-15);
+            }
+        }
+        li:first-child{
+            float: left;
+            margin-top: 1px;
+        }
+        li:last-child{
+            float: right;
+            margin-top: 1px;
+        }
+    }
+}

@@ -32,7 +32,7 @@ class App extends Component {
   }
   //第一次渲染之后调用
   componentDidMount(){
-    console.log('App.props',this.props);
+    // console.log('App.props',this.props);
     //打开页面我们是重定向在home，也就是把props里面的location里面的pathname设置为/home,这里是把pathname解析出来
     const {location:{pathname}} = this.props;
     //把解析出来的pathname赋给state的current
