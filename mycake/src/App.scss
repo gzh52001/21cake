@@ -50,4 +50,45 @@
 .title-box{
   background: #fff;
   box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.10);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  min-height: 0;
+}
+
+//首页抽屉
+.my-drawer {
+  position: relative;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+}
+.my-drawer .am-drawer-sidebar {
+  // background-color: #fff;
+  flex: auto;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+}
+.my-drawer .am-drawer-sidebar .am-list {
+  // width: 300px;
+  padding: 0;
+}
+.am-list-body{
+  display: flex;
+}
+.am-list-item{
+  flex: auto;
+}
+.am-list-content{
+  text-align: center;
+  // background-color: green;
+  padding: 0;
+}
+//首页内容
+.container{
+  width: 100%;
+  margin-top: -50px;
+  // min-height: 350vw;
+  // background-color: red;
 }
