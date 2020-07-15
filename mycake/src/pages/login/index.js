@@ -5,8 +5,7 @@ import './login.css';
 class Login extends Comment{
 
     render(){
-        return(
-            <body>
+        return
                 <div id="login-box">
                     <h2>用户注册</h2>
                     <ul>
@@ -28,7 +27,6 @@ class Login extends Comment{
                         </li>
                     </ul>
                 </div>
-            </body>
         )
     }
 
