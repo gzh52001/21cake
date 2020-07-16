@@ -184,6 +184,47 @@ router.put('/edit/:gid', async(req,res)=>{
 
 })
 
+//新增商品
+router.post('/addgoods',async (req,res)=>{
+    //对传进来的用户名密码进行解构赋值
+    let list = req.body;
+    console.log("管理员新增商品");
+    console.log(list);
+    try{
+        let sql = `INSERT INTO good(title,price,weight) VALUES('${list.title}','${list.price}','${list.weight}')`;
+        console.log(sql);
+        let p = await query(sql);
+        let inf= {};
+        //p.affectedRows数据库传回来的，1表示有一行被影响说明插入成功
+        if(p.affectedRows){
+            inf={
+                code:2000,
+                flag:true,
+                message:'新增成功',
+                data:{
+                    list
+                }
+            }
+        }else{
+            inf={
+                code:3000,
+                flag:false,
+                message:'新增失败'
+            }
+        }
+        res.send(inf) 
+    }catch(err){
+        let inf={
+            code:err.errno,
+            flag:false,
+            message:'操作失败'
+        }
+        res.send(inf)
+    }
+    
+
+});
+
 // router.get('/goodslist',(req,res)=>{
 //     res.send('查询商品列表');
 // });
