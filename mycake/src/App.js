@@ -73,9 +73,13 @@ class App extends Component {
     if(!this.state.open){
       let iconTitle = document.getElementsByClassName('icon-title')[0];
       iconTitle.style="background:url(https://static.21cake.com/themes/wap/img/menu-hide.png) no-repeat;background-size: cover;width:16px;height: 16px;"
+      let amdrawertop =document.getElementsByClassName('am-drawer-top')[0];
+      amdrawertop.style="min-height:55px"
     }else{
       let iconTitle = document.getElementsByClassName('icon-title')[0];
       iconTitle.style="background:url(https://static.21cake.com/themes/wap/img/top-icon.png) no-repeat;background-size: cover;width:16px;height: 16px;"
+      let amdrawertop =document.getElementsByClassName('am-drawer-top')[0];
+      amdrawertop.style="min-height:0"
     }
   }
   render() {
@@ -129,7 +133,7 @@ class App extends Component {
           </NavBar>
           <Drawer
           className="my-drawer"
-          style={{ minHeight:55}}
+          // style={{ minHeight:55}}
           // enableDragHandle
           contentStyle={{height:0,textAlign:"center"}}
           overlayStyle={{height:0}}

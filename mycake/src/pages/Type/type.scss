@@ -1,0 +1,11 @@
+@function vw($px){
+    @return($px/750)*200vw
+  }
+  body{
+      margin: 0;
+      padding: 0;
+  }
+  .container{
+    //   margin-top: vw(100);
+    z-index: 5000;
+  }

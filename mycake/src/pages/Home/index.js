@@ -111,19 +111,50 @@ import Tea from '../Type/Tea/index'
                   </li>
                 </ul>
                 <ul className="home-menu-box" id="home-menu">
-                {this.state.typedata.map((val,index) => (
-                  // console.log(val),
-                  <li
-                    key={val.title}
-                    onClick={this.goto.bind(null,val.path)}
-                  >
-                    <a>
-                      <img src={val.img} />
-                      {val.title}
-                    </a>
-                  </li>))
-                }
+                  {this.state.typedata.map((val,index) => (
+                    // console.log(val),
+                    <li
+                      key={val.title}
+                      onClick={this.goto.bind(null,val.path)}
+                    >
+                      <a>
+                        <img src={val.img} />
+                        {val.title}
+                      </a>
+                    </li>))
+                  }
                 </ul>
+                <div className="mould-goods">
+                  <div className="mould-goods-content">
+                    <h3 className="title-goods">
+                      <span>新品</span>
+                      <a>
+                        更多
+                        <i className="new-home-more"></i>
+                      </a>
+                    </h3>
+                    <ul>
+                      <li>
+                        <a>
+                          <img src='https://static.21cake.com//upload/images/fbbe0ae94fa58f5213de60f5ffdce072.jpg'/>
+                        </a>
+                        <div className='bottom-price-cart'>
+                          <a href=''>
+                            <h4>
+                              <span className="title">蔓生</span>
+                              <span className="price">198.00</span>
+                              <span >元/454g(1.0磅)</span>
+                            </h4>
+                            <p>树莓奶油与浆果慕斯蛋糕</p>
+                          </a>
+                          <button className="add-to-cart_22010">
+                            <i className='new-home-icon'></i>
+                          </button>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
                 <div className="mould-goods">
                   <div className="mould-goods-content">
                     <h3 className="title-goods">
@@ -216,51 +247,51 @@ import Tea from '../Type/Tea/index'
                 </div>
               </div>
               <div className='lost-bottom'>
-          <div>没了</div>
-        </div>
-        <div className='footer'>
-          <ul>
-            <li id='appDownloadLink'>
-              <a href='https://m.21cake.com/appdown.html'>下载APP</a>
-            </li>
-            <li>
-              <a >联系我们</a>
-            </li>
-            <li>
-              <a >全站公告</a>
-            </li>
-            <li>
-              <a >生产经营资质</a>
-            </li>
-          </ul>
-          <p>
-		        Copyright© 21Cake蛋糕官网商城 2007-2020, 
-            <br></br>        
-		        版权所有 
-            <br></br>  
-            京ICP备14006254号-1
-            <br></br>  
-            网站注册公司名称: 北京廿一客食品有限公司
-            <br></br>  
-            网站运营：廿一客（上海）电子商务有限公司
-            <br></br>  
-            上海廿一客食品有限公司分公司
-            <br></br>  
-            杭州廿一客食品有限公司
-            <br></br>  
-            广州廿一客食品有限公司
-            <br></br>  
-            北京廿一客食品有限公司
-            <br></br>  
-            深圳廿一客贸易有限公司
-            <br></br>  
-            天津廿一客食品有限公司
-            <br></br>  
-            广州廿一客食品贸易有限公司
-            <br></br>  
-            举实（上海）食品有限公司
-          </p>
-        </div>
+                <div>没了</div>
+              </div>
+              <div className='footer'>
+                <ul>
+                  <li id='appDownloadLink'>
+                    <a href='https://m.21cake.com/appdown.html'>下载APP</a>
+                  </li>
+                  <li>
+                    <a >联系我们</a>
+                  </li>
+                  <li>
+                    <a >全站公告</a>
+                  </li>
+                  <li>
+                    <a >生产经营资质</a>
+                  </li>
+                </ul>
+                <p>
+                  Copyright© 21Cake蛋糕官网商城 2007-2020, 
+                  <br></br>        
+                  版权所有 
+                  <br></br>  
+                  京ICP备14006254号-1
+                  <br></br>  
+                  网站注册公司名称: 北京廿一客食品有限公司
+                  <br></br>  
+                  网站运营：廿一客（上海）电子商务有限公司
+                  <br></br>  
+                  上海廿一客食品有限公司分公司
+                  <br></br>  
+                  杭州廿一客食品有限公司
+                  <br></br>  
+                  广州廿一客食品有限公司
+                  <br></br>  
+                  北京廿一客食品有限公司
+                  <br></br>  
+                  深圳廿一客贸易有限公司
+                  <br></br>  
+                  天津廿一客食品有限公司
+                  <br></br>  
+                  广州廿一客食品贸易有限公司
+                  <br></br>  
+                  举实（上海）食品有限公司
+                </p>
+              </div>
           </div>
         );
       }
