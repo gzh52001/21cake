@@ -51,7 +51,7 @@ class Person extends Component {
                     </a>
                 </li>
             </ul>
-            <img class="per_img" src="./per_img.jpg" alt=""/>
+            <img class="per_img" src="https://static.21cake.com//upload/images/20200317/7649161442134eb493c5d60fbfe84540.jpeg" alt=""/>
     
             <div class="per_exit">
                 <span>退出登录</span>
