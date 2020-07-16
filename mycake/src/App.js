@@ -129,7 +129,7 @@ class App extends Component {
           </NavBar>
           <Drawer
           className="my-drawer"
-          style={{ minHeight:50}}
+          style={{ minHeight:55}}
           // enableDragHandle
           contentStyle={{height:0,textAlign:"center"}}
           overlayStyle={{height:0}}

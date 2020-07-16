@@ -10,19 +10,18 @@ html, body {
 }
 
 .iconfont {
-  width: 1em;
-  height: 1em;
-  vertical-align: -0.15em;
+  width: 6.4vw;
+  height: 6.4vw;
   fill: currentColor;
   overflow: hidden;
-  font-size: 1.5em;
+  font-size: 6.4vw;
 }
 
 .icon-title {
   background: url(https://static.21cake.com/themes/wap/img/top-icon.png) no-repeat;
   background-size: cover;
-  width: 18px;
-  height: 14px;
+  width: 4.8vw;
+  height: 3.73333vw;
 }
 
 .icon-header-center {
@@ -33,31 +32,31 @@ html, body {
 .city {
   background: url(https://static.21cake.com/themes/wap/img/address.png) no-repeat;
   display: inline-block;
-  height: 15px;
-  width: 12px;
+  height: 4vw;
+  width: 3.2vw;
   background-size: cover;
   vertical-align: middle;
-  margin-left: 10px;
-  margin-right: 4px;
-  margin-top: -3px;
+  margin-left: 2.66667vw;
+  margin-right: 1.06667vw;
+  margin-top: -0.8vw;
 }
 
 .top-message {
   background: url(https://static.21cake.com/themes/wap/img/header_message.png) no-repeat;
   display: inline-block;
-  background-size: 19px 19px;
-  height: 22px;
-  width: 20px;
+  background-size: 5.06667vw 5.06667vw;
+  height: 5.86667vw;
+  width: 5.33333vw;
   vertical-align: middle;
-  margin-right: 10px;
+  margin-right: 2.66667vw;
 }
 
 .top-cart {
   background: url(https://static.21cake.com/themes/wap/img/cart.png) no-repeat;
   display: inline-block;
   background-size: cover;
-  height: 19px;
-  width: 19px;
+  height: 5.06667vw;
+  width: 5.06667vw;
 }
 
 .title-box {
@@ -108,7 +107,7 @@ html, body {
 
 .container {
   width: 100%;
-  margin-top: 50px;
+  margin-top: 10.66667vw;
 }
 
 .lost-bottom {
