@@ -13,9 +13,11 @@ router.use(bodyParser.urlencoded({extended: false}));//转键值对数据
 //导入子路由
 const userRouter = require('./modules/userRouter');
 const goodsRouter = require('./modules/goodsRouter');
+const breadRouter = require('./modules/breadRouter');
 
 router.use('/user',userRouter);//启用路由
 router.use('/good',goodsRouter);//启用路由
+router.use('/bread',breadRouter);//启用路由
 
 //用户管理 userRouter.js
     //验证用户名是否存在

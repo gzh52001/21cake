@@ -16,7 +16,7 @@ const router = express.Router();
 
 //商品信息表：存储商品信息 包含商品信息
 //用户信息表：注册
-// 订单表
+// 商品列表
 router.get('/goodslist',async (req,res)=>{
     let {page,size} = req.query;
     
