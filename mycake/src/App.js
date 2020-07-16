@@ -162,52 +162,7 @@ class App extends Component {
               <Redirect from='/' to='/home' exact />
             </Switch>
         </div>
-        <div className='lost-bottom'>
-          <div>没了</div>
-        </div>
-        <div className='footer'>
-          <ul>
-            <li id='appDownloadLink'>
-              <a href='https://m.21cake.com/appdown.html'>下载APP</a>
-            </li>
-            <li>
-              <a >联系我们</a>
-            </li>
-            <li>
-              <a >全站公告</a>
-            </li>
-            <li>
-              <a >生产经营资质</a>
-            </li>
-          </ul>
-          <p>
-		        Copyright© 21Cake蛋糕官网商城 2007-2020, 
-            <br></br>        
-		        版权所有 
-            <br></br>  
-            京ICP备14006254号-1
-            <br></br>  
-            网站注册公司名称: 北京廿一客食品有限公司
-            <br></br>  
-            网站运营：廿一客（上海）电子商务有限公司
-            <br></br>  
-            上海廿一客食品有限公司分公司
-            <br></br>  
-            杭州廿一客食品有限公司
-            <br></br>  
-            广州廿一客食品有限公司
-            <br></br>  
-            北京廿一客食品有限公司
-            <br></br>  
-            深圳廿一客贸易有限公司
-            <br></br>  
-            天津廿一客食品有限公司
-            <br></br>  
-            广州廿一客食品贸易有限公司
-            <br></br>  
-            举实（上海）食品有限公司
-          </p>
-        </div>
+        
       </div>
       
     );

@@ -407,3 +407,57 @@ a,a:visited,a:link{
         }
     }
 }
+
+.lost-bottom{
+    margin: 0;
+    padding: 0;
+    font-size: vw(12);
+    color: #442818;
+    div{
+      height: vw(72);
+      padding-top: vw(25);
+      margin: 0 vw(20);
+      padding-right: vw(40);
+      background: url(https://static.21cake.com/themes/wap/img/list-empty.png) no-repeat right center;
+      background-size: vw(34) vw(38);
+      text-align: right;
+      line-height: vw(72);
+      color: #d5d5d5;
+    }
+  }
+  .footer{
+    background: #414141;
+    padding: vw(30) vw(10);
+    ul{
+      overflow: hidden;
+      margin-left: -2%;
+      list-style: none;
+      li{
+        margin: 0;
+        padding: 0;
+        font-size: vw(12);
+        color: #442818;
+        float: left;
+        width: 23%;
+        margin-left: 2%;
+        margin-bottom: vw(23);
+      }
+      a:visited,a:link,a{
+        text-decoration: none;
+        cursor: pointer;
+      }
+      a{
+        height: vw(30);
+        display: block;
+        border: vw(1) solid #979797;
+        color: #979797;
+        line-height: vw(30);
+        text-align: center;
+      }
+    }
+    p{
+      text-align: center;
+      color: #a0a0a0;
+      line-height: vw(16);
+    }
+  }

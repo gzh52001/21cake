@@ -42,17 +42,17 @@ class Person extends Component {
     
             <ul className="per_list">
                 <li>
-                    <a href="javascript:;">
+                    <a href="###">
                         <span>待付订单</span><span className="iconfont iconiconfontjiantou5"></span>
                     </a>
                 </li>
                 <li>
-                    <a href="javascript:;">
+                    <a href="###">
                         <span>全部订单</span><span className="iconfont iconiconfontjiantou5"></span>
                     </a>
                 </li>
                 <li>
-                    <a href="javascript:;">
+                    <a href="###">
                         <span>地址管理</span><span className="iconfont iconiconfontjiantou5"></span>
                     </a>
                 </li>

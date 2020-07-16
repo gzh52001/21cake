@@ -458,3 +458,64 @@ a, a:visited, a:link {
   margin: 0 1.33333vw;
   overflow: hidden;
 }
+
+.lost-bottom {
+  margin: 0;
+  padding: 0;
+  font-size: 3.2vw;
+  color: #442818;
+}
+
+.lost-bottom div {
+  height: 19.2vw;
+  padding-top: 6.66667vw;
+  margin: 0 5.33333vw;
+  padding-right: 10.66667vw;
+  background: url(https://static.21cake.com/themes/wap/img/list-empty.png) no-repeat right center;
+  background-size: 9.06667vw 10.13333vw;
+  text-align: right;
+  line-height: 19.2vw;
+  color: #d5d5d5;
+}
+
+.footer {
+  background: #414141;
+  padding: 8vw 2.66667vw;
+}
+
+.footer ul {
+  overflow: hidden;
+  margin-left: -2%;
+  list-style: none;
+}
+
+.footer ul li {
+  margin: 0;
+  padding: 0;
+  font-size: 3.2vw;
+  color: #442818;
+  float: left;
+  width: 23%;
+  margin-left: 2%;
+  margin-bottom: 6.13333vw;
+}
+
+.footer ul a:visited, .footer ul a:link, .footer ul a {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.footer ul a {
+  height: 8vw;
+  display: block;
+  border: 0.26667vw solid #979797;
+  color: #979797;
+  line-height: 8vw;
+  text-align: center;
+}
+
+.footer p {
+  text-align: center;
+  color: #a0a0a0;
+  line-height: 4.26667vw;
+}
