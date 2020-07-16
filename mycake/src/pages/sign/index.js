@@ -1,8 +1,9 @@
 //登录页面
-import React from 'react';
+import React, { Component } from 'react';
 import './sign.css';
+import './base.css'
 
-class Sign extends Comment{
+class Sign extends Component{
 
     render(){
         return(
@@ -29,3 +30,5 @@ class Sign extends Comment{
 
 }
 
+
+export default Sign;

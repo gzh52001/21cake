@@ -1,8 +1,9 @@
 //注册页面
-import React from 'react';
+import React, { Component } from 'react';
 import './login.css';
+import './base.css';
 
-class Login extends Comment{
+class Login extends Component{
 
     render(){
         return(

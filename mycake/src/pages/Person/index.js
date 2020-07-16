@@ -9,6 +9,7 @@ class Person extends Component {
         let phone = '13632945150';
         console.log(phone);
     }
+
     render() {
         return (
             <div>
@@ -68,12 +69,8 @@ class Person extends Component {
             </div>
         </div>
         </div>
-        
         )
     }
-
-    
-
 }
 
 
