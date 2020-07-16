@@ -8,6 +8,12 @@ import Home from './pages/Home/index';
 import Type from './pages/Type/index';
 import Person from './pages/Person/index';
 
+// import Bread from './pages/Type/Bread/index';
+// import Cake from './pages/Type/Cake/index';
+// import CCake from './pages/Type/CCake/index';
+// import Gift from './pages/Type/Gift/index';
+// import IceCream from './pages/Type/IceCream/index';
+// import Tea from './pages/Type/Tea/index'
 // @withRouter
 class App extends Component {
   state={
@@ -104,6 +110,7 @@ class App extends Component {
     return (
       <div>
         <div className="title-box" >
+          {/* 头 */}
           <NavBar
             mode="light"
             // icon={<i className="iconfont icon-title" ></i>}
@@ -119,12 +126,10 @@ class App extends Component {
             ]}
           >
           <i className="iconfont icon-header-center" type="left" style={{ width:"30px" }}></i>
-        </NavBar>
-        
-        </div>
-        <Drawer
+          </NavBar>
+          <Drawer
           className="my-drawer"
-          style={{ minHeight:100}}
+          style={{ minHeight:50}}
           // enableDragHandle
           contentStyle={{height:0,textAlign:"center"}}
           overlayStyle={{height:0}}
@@ -132,7 +137,7 @@ class App extends Component {
           open={this.state.open}
           // onOpenChange={console.log(this.state)}
           position='top'
-          sidebarStyle={{minHeight:40,paddingTop:40}}
+          // sidebarStyle={{paddingTop:40}}
           // dragHandleStyle={{minHeight:100}}
           // docked={true}
           // open={false}
@@ -140,13 +145,68 @@ class App extends Component {
         >
           1111
         </Drawer>
+        </div>
+        {/* 抽屉 */}
+        
         <div className="container" >
             <Switch>
               {
                 menu.map(item => <Route key={item.path} path={item.path} component={item.component} />)
               }
+              {/* <Route path='/bread' component={Bread} />
+              <Route path='/bread' component={Cake} />
+              <Route path='/bread' component={CCake} />
+              <Route path='/bread' component={Gift} />
+              <Route path='/bread' component={IceCream} />
+              <Route path='/bread' component={IceCream} /> */}
               <Redirect from='/' to='/home' exact />
             </Switch>
+        </div>
+        <div className='lost-bottom'>
+          <div>没了</div>
+        </div>
+        <div className='footer'>
+          <ul>
+            <li id='appDownloadLink'>
+              <a href='https://m.21cake.com/appdown.html'>下载APP</a>
+            </li>
+            <li>
+              <a >联系我们</a>
+            </li>
+            <li>
+              <a >全站公告</a>
+            </li>
+            <li>
+              <a >生产经营资质</a>
+            </li>
+          </ul>
+          <p>
+		        Copyright© 21Cake蛋糕官网商城 2007-2020, 
+            <br></br>        
+		        版权所有 
+            <br></br>  
+            京ICP备14006254号-1
+            <br></br>  
+            网站注册公司名称: 北京廿一客食品有限公司
+            <br></br>  
+            网站运营：廿一客（上海）电子商务有限公司
+            <br></br>  
+            上海廿一客食品有限公司分公司
+            <br></br>  
+            杭州廿一客食品有限公司
+            <br></br>  
+            广州廿一客食品有限公司
+            <br></br>  
+            北京廿一客食品有限公司
+            <br></br>  
+            深圳廿一客贸易有限公司
+            <br></br>  
+            天津廿一客食品有限公司
+            <br></br>  
+            广州廿一客食品贸易有限公司
+            <br></br>  
+            举实（上海）食品有限公司
+          </p>
         </div>
       </div>
       
