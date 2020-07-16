@@ -99,6 +99,10 @@ router.get('/login',async (req,res)=>{
             let token = '';
             if(keep == 'true'){
             token = create(psw); 
+            //保留七天
+            }else{
+            token = create(psw,60*60*24); 
+
             }
             console.log(token);
             inf = {
@@ -161,7 +165,7 @@ router.put('/edit/:uid',async (req,res)=>{
     let id = req.params.uid;// 截取id
 
     try{
-        console.log('有人来修改了');
+        console.log('有人来修改了'+str);
         let sql = `UPDATE reg SET ${str} WHERE uid=${id}`;
         let inf = {}
         let p = await query(sql);
@@ -309,5 +313,79 @@ router.get('/userslist',async (req,res)=>{
        res.send(inf)
    }
 })
+
+//查询某个用户信息/:uid
+router.get('/user/:uid', async(req,res)=>{
+    let uid = req.params.uid;
+    try{
+        console.log("有人来查询用户id为:"+uid+"的信息");
+        let sql = `SELECT * FROM reg WHERE uid=${uid}`;
+        let p =await query(sql);
+        let inf={};
+        if(p.length){
+            //查到数据
+            inf={
+                code: 2000,
+                flag: true,
+                message: '查询成功',
+                data: {
+                    p
+                }
+            }
+        }else{
+            inf={
+                code: 3000,
+                flag: false,
+                message: '查询失败'
+            }
+        }
+        res.send(inf);
+    }catch(err){
+        let inf={
+            code: err.errno,
+            flag: false,
+            message: '查询失败'
+           }
+           res.send(inf)
+    }
+})
+
+//查询某个gname的用户信息SELECT * FROM reg WHERE username=15712345678
+router.get('/users/:username', async(req,res)=>{
+    let username = req.params.username;
+    // console.log(username);
+    try{
+        console.log("有人来查询用户username为:"+username+"的信息");
+        let sql = `SELECT * FROM reg WHERE username=${username}`;
+        let p =await query(sql);
+        let inf={};
+        if(p.length){
+            //查到数据
+            inf={
+                code: 2000,
+                flag: true,
+                message: '查询成功',
+                data: {
+                    p
+                }
+            }
+        }else{
+            inf={
+                code: 3000,
+                flag: false,
+                message: '查询失败'
+            }
+        }
+        res.send(inf);
+    }catch(err){
+        let inf={
+            code: err.errno,
+            flag: false,
+            message: '查询失败'
+           }
+           res.send(inf)
+    }
+})
+
 
 module.exports = router;
