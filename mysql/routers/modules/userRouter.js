@@ -58,7 +58,9 @@ router.post('/reg',async (req,res)=>{
         console.log('有人来注册了');
         console.log("账号"+username,"密码"+psw,"生日"+birthday);
         let sql = `INSERT INTO reg(username,psw,birthday) VALUES('${username}','${psw}','${birthday}')`;
+        console.log(sql);
         let p = await query(sql);
+        console.log(p);
         let inf = {}
         if(p.affectedRows){//大于0就是成功
             //查到数据，不能注册
@@ -102,7 +104,6 @@ router.get('/login',async (req,res)=>{
             //保留七天
             }else{
             token = create(psw,60*60*24); 
-
             }
             console.log(token);
             inf = {
@@ -350,7 +351,7 @@ router.get('/user/:uid', async(req,res)=>{
     }
 })
 
-//查询某个gname的用户信息SELECT * FROM reg WHERE username=15712345678
+//查询某个username的用户信息SELECT * FROM reg WHERE username=15712345678
 router.get('/users/:username', async(req,res)=>{
     let username = req.params.username;
     // console.log(username);
