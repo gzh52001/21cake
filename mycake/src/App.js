@@ -51,22 +51,22 @@ class App extends Component {
   }
   //传进来的是path：/home /type /person
   changeMenu=({key,item})=>{
-    // console.log(key);
-    this.goto(key);
     this.setState({
       current:key
     })
   }
   goto=(path)=>{
-    // console.log(this.props);
+    console.log(path);
     this.props.history.push(path);
     //跳转页面后收起导航栏
     this.setState({ open: !this.state.open })
     this.titleMsg()
   }
+  gogogo=(path)=>{
+    this.props.history.push(path);
+  }
   //抽屉功能，用于展现首页、分类、个人
   onOpenChange = (...args) => {
-    // console.log(args);
     this.setState({ open: !this.state.open });
     this.titleMsg()
   }
@@ -86,13 +86,11 @@ class App extends Component {
   }
   render() {
     const {menu,current} = this.state;
-    // console.log(this.state.menu);
     //抽屉
     const sidebar = (<List>
       {this.state.menu.map((i, index) => {
         if (index === 0) {
           return (<List.Item key={index}
-            // onClick={this.changeMenu}
             onClick={this.goto.bind(null,i.path)}
           >{
             <div style={{ textAlign:"center"}}>
@@ -103,14 +101,13 @@ class App extends Component {
             </List.Item>);
         }
         return (<List.Item key={index}
-          // onClick={this.changeMenu}
-          onClick={this.goto.bind(null,i.path)}
-        >{<div style={{ textAlign:"center"}}>
-        <a><img src={i.img} ></img></a>
-        <p style={{ fontSize:'12px',color:'#442818',margin:0 }}>{i.title}</p>
-      </div>
-          }
-          </List.Item>);
+                  onClick={this.goto.bind(null,i.path)}
+                >{<div style={{ textAlign:"center"}}>
+                <a><img src={i.img} ></img></a>
+                <p style={{ fontSize:'12px',color:'#442818',margin:0 }}>{i.title}</p>
+                  </div>
+                  }
+                </List.Item>);
       })}
     </List>);
     return (
@@ -119,19 +116,17 @@ class App extends Component {
           {/* 头 */}
           <NavBar
             mode="light"
-            // icon={<i className="iconfont icon-title" ></i>}
             leftContent={[
-              <i key="0" className="iconfont icon-title" ></i>,
+              <i key="0" onClick={this.onOpenChange} className="iconfont icon-title" ></i>,
               <i key="1" className="city"></i>,
               <span key="2" style={{ fontSize:'12px',color:'#442818' }}>广州</span>
             ]}
-            onLeftClick={this.onOpenChange}
             rightContent={[
-              <i key="0" className="top-message" ></i>,
-              <i key="1" className="top-cart"></i>
+              <i key="3" className="top-message" ></i>,
+              <i key="4" className="top-cart"></i>
             ]}
           >
-          <i className="iconfont icon-header-center" type="left" style={{ width:"30px" }}></i>
+          <i key="5" className="iconfont icon-header-center" onClick={this.gogogo.bind(null,'/home')} type="left" style={{ width:"30px" }}></i>
           </NavBar>
           <Drawer
           className="my-drawer"

@@ -61,5 +61,165 @@
       text-align: center;
 
     }
+    
+    .list-box{
+      padding-left: vw(5);
+      padding-right: vw(20);
+      div{
+        
+        margin: 0;
+        padding: 0;
+        font-size: vw(12);
+        color: #442818
+      }
+      ul{
+        margin: 0;
+        padding: 0;
+        font-size: vw(12);
+        color: #442818;
+        overflow: hidden;
+        margin-bottom: vw(20);
+        display: flex;
+        flex-wrap: wrap;
+        list-style: none;
+        li{
+          margin: 0;
+          padding: 0;
+          font-size: vw(12);
+          color: #442818;
+          width: 50%;
+          float: left;
+          a{
+            display: block;
+            overflow: hidden;
+          }
+          a:visited,a:link,a{
+            text-decoration: none;
+            cursor: pointer;
+            color: #442818;
+          }
+          .list-goods-pdleft{
+              padding-left: vw(15);
+              .list-pro-content{
+                width: 100%;
+                margin: 0 auto;
+                position: relative;
+                a{
+                  border-bottom: 0;
+                }
+                .list-pro-img{
+                  height: vw(180);
+                  width: 100%;
+                  img{
+                    opacity: 1;
+                    width: 100%;
+                    border: 0;
+                  }
+                }
+                h3{
+                  font-size: vw(12);
+                  line-height: 1.2em;
+                  width: 100%;
+                  overflow: hidden;
+                  text-overflow: ellipsis;
+                  white-space: nowrap;
+                  span{
+                    font-size: vw(12);
+                    display: block;
+                    width: 100%;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+                  }
+                  
+                }
+                .price{
+                  color: #bb9772;
+                  display: block;
+                  margin-top: vw(5);
+                  max-width: 80%;
+                  line-height: vw(16);
+                }
+                .label{
+                  position: absolute;
+                  top: vw(15);
+                  left: 0;
+                  img{
+                    width: vw(40);
+                  }
+                }
+                .cart-add{
+                  display: block;
+                  width: 14%;
+                  position: absolute;
+                  right: 0;
+                  bottom:0;
+                  font-size: vw(12);
+                  img{
+                    width: 100%;
+                    vertical-align: bottom;
+                    display: inline-block;
+                  }
+                }
+              }
+          }
+          
+        }
+      }
+    }
+
+  }
+  .lost-bottom{
+    margin: 0;
+    padding: 0;
+    font-size: vw(12);
+    color: #442818;
+    div{
+      height: vw(72);
+      padding-top: vw(25);
+      margin: 0 vw(20);
+      padding-right: vw(40);
+      background: url(https://static.21cake.com/themes/wap/img/list-empty.png) no-repeat right center;
+      background-size: vw(34) vw(38);
+      text-align: right;
+      line-height: vw(72);
+      color: #d5d5d5;
+    }
+  }
+  .footer{
+    background: #414141;
+    padding: vw(30) vw(10);
+    ul{
+      overflow: hidden;
+      margin-left: -2%;
+      list-style: none;
+      li{
+        margin: 0;
+        padding: 0;
+        font-size: vw(12);
+        color: #442818;
+        float: left;
+        width: 23%;
+        margin-left: 2%;
+        margin-bottom: vw(23);
+      }
+      a:visited,a:link,a{
+        text-decoration: none;
+        cursor: pointer;
+      }
+      a{
+        height: vw(30);
+        display: block;
+        border: vw(1) solid #979797;
+        color: #979797;
+        line-height: vw(30);
+        text-align: center;
+      }
+    }
+    p{
+      text-align: center;
+      color: #a0a0a0;
+      line-height: vw(16);
+    }
   }
 }
