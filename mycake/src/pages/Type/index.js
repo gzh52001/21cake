@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
-import { Tabs, WhiteSpace, Badge } from 'antd-mobile';
+import { Tabs } from 'antd-mobile';
+import {withRouter} from 'react-router-dom';
 import './type.css'
 class Type extends Component {
     state={
@@ -11,6 +12,10 @@ class Type extends Component {
                 { title: '常温蛋糕', sub: '5' },
                 { title: '设计师礼品', sub: '6' },
             ]
+    }
+    //对应商品跳转到详情页面
+    gogoods=(gid)=>{
+        this.props.history.push(`/goods/${gid}`)
     }
     render() {
         return (
@@ -36,7 +41,7 @@ class Type extends Component {
                         </div>
                         <div className='list-box'>
                             <ul>
-                            <li id='list-goods-'>
+                            <li id='list-goods-' onClick={this.gogoods.bind(null,1)}>
                                 <div className='list-goods-pdleft'>
                                     <div className='list-pro-content'>
                                         <a title='蔓生'>
@@ -164,6 +169,6 @@ class Type extends Component {
     }
 }
 
-
+Type = withRouter(Type)
 export default Type
 

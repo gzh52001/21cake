@@ -1,13 +1,13 @@
 import React, { Component } from 'react'
 import { Carousel,WingBlank} from 'antd-mobile';
 import './home.css'
-import {withRouter,Switch,Redirect,Route} from 'react-router-dom';
+import {withRouter} from 'react-router-dom';
 
 import Bread from '../Type/Bread/index';
 import Cake from '../Type/Cake/index';
-import CCake from '../Type/CCake/index';
+// import CCake from '../Type/CCake/index';
 import Gift from '../Type/Gift/index';
-import IceCream from '../Type/IceCream/index';
+// import IceCream from '../Type/IceCream/index';
 import Tea from '../Type/Tea/index'
 
  class Home extends Component {

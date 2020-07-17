@@ -10,7 +10,7 @@ import Person from './pages/Person/index';
 
 import Sign from './pages/sign/index';
 import Login from './pages/login/index';
-// import Bread from './pages/Type/Bread/index';
+import Goods from './pages/Goods/index';
 // import Cake from './pages/Type/Cake/index';
 // import CCake from './pages/Type/CCake/index';
 // import Gift from './pages/Type/Gift/index';
@@ -156,6 +156,7 @@ class App extends Component {
               }
               <Route path='/sign' component={Sign} />
               <Route path='/login' component={Login} />
+              <Route path='/goods' component={Goods} />
               {/* <Route path='/bread' component={Bread} />
               <Route path='/bread' component={Cake} />
               <Route path='/bread' component={CCake} />
