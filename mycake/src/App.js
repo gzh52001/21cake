@@ -9,7 +9,7 @@ import Type from './pages/Type/index';
 import Person from './pages/Person/index';
 
 import Sign from './pages/sign/index';
-
+import Login from './pages/login/index';
 // import Bread from './pages/Type/Bread/index';
 // import Cake from './pages/Type/Cake/index';
 // import CCake from './pages/Type/CCake/index';
@@ -160,6 +160,7 @@ class App extends Component {
                 menu.map(item => <Route key={item.path} path={item.path} component={item.component} />)
               }
               <Route path='/sign' component={Sign} />
+              <Route path='/login' component={Login} />
               {/* <Route path='/bread' component={Bread} />
               <Route path='/bread' component={Cake} />
               <Route path='/bread' component={CCake} />

@@ -1,3 +1,5 @@
+//个人中心模块
+
 import React, { Component } from 'react';
 import './base.css';
 import './person.css';
