@@ -38,10 +38,33 @@ html,body{
             color:#D5BFA7;
             // font-size:12px;
         }
+        .erroBox{
+           vertical-align: middle;
+           height: vw(47);
+        //    display: none;
+            >p{
+                >i{
+                    background: url(https://static.21cake.com/themes/wap/img/tip.png);
+                    background-repeat: no-repeat;
+                    background-position: vw(0)  vw(14);
+                    background-size: vw(18) vw(18);
+                    display: block;
+                    width: vw(18);
+                    height: vw(47);
+                    line-height: vw(18);
+                    float: left;
+                }
+                // height: vw(47);
+                line-height: vw(47);
+                color: #FF714D;
+                font-size: vw(12);
+                display: none;
+            }
+        }
         button{
             width: 100%;
             height: vw(42);
-            margin-top: vw(47);
+            // margin-top: vw(47);
             color: white;
             background-color: #442818;
         }
