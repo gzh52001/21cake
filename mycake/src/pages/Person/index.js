@@ -3,11 +3,14 @@ import './base.css';
 import './person.css';
 import './iconfont.css';
 
+
 class Person extends Component {
 
-    phone = ()=>{
-        let phone = '13632945150';
-        console.log(phone);
+    
+
+    goto = (path)=>{
+        this.props.history.push(path);
+        // this.goto.bind(null,'/sign');
     }
 
     render() {
@@ -25,7 +28,7 @@ class Person extends Component {
                 <li>21cake</li>
                 <li className="phone">13632945150</li>
                 <li className="changeMsg">
-                    <button onClick={this.phone}>修改个人信息 &nbsp; {'>'} </button>
+                    <button>修改个人信息 &nbsp; {'>'} </button>
                 </li>
             </ul>
     
@@ -60,7 +63,7 @@ class Person extends Component {
             <img className="per_img" src="https://static.21cake.com//upload/images/20200317/7649161442134eb493c5d60fbfe84540.jpeg" alt=""/>
     
             <div className="per_exit">
-                <span>退出登录</span>
+                <span onClick={this.goto.bind(null,'/sign')}>退出登录</span>
             </div>
     
             <div className="per_footer">

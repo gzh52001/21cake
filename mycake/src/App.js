@@ -8,6 +8,8 @@ import Home from './pages/Home/index';
 import Type from './pages/Type/index';
 import Person from './pages/Person/index';
 
+import Sign from './pages/sign/index';
+
 // import Bread from './pages/Type/Bread/index';
 // import Cake from './pages/Type/Cake/index';
 // import CCake from './pages/Type/CCake/index';
@@ -157,6 +159,7 @@ class App extends Component {
               {
                 menu.map(item => <Route key={item.path} path={item.path} component={item.component} />)
               }
+              <Route path='/sign' component={Sign} />
               {/* <Route path='/bread' component={Bread} />
               <Route path='/bread' component={Cake} />
               <Route path='/bread' component={CCake} />
