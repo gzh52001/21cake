@@ -8,7 +8,11 @@ import './iconfont.css';
 
 class Person extends Component {
 
-    
+    componentWillMount(){
+        this.state = {
+            phone:'13632945150',
+        }
+    }
 
     goto = (path)=>{
         this.props.history.push(path);
@@ -28,7 +32,7 @@ class Person extends Component {
     
             <ul className="per_msg">
                 <li>21cake</li>
-                <li className="phone">13632945150</li>
+                <li className="phone"> {this.state.phone} </li>
                 <li className="changeMsg">
                     <button>修改个人信息 &nbsp; {'>'} </button>
                 </li>
