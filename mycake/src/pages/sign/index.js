@@ -5,6 +5,10 @@ import './base.css'
 
 class Sign extends Component{
 
+    goto = (path)=>{
+        this.props.history.push(path);
+    }
+
     render(){
         return(
             <div id="sign-box">
@@ -21,7 +25,7 @@ class Sign extends Component{
                         <button>登录</button>
                     </li>
                     <div className="gotoLogin">
-                        <a href="javascript:;">去注册</a>
+                        <a href="javascript:;" onClick = {this.goto.bind(null,'/login')}>去注册</a>
                     </div>
                 </ul>
             </div>  
