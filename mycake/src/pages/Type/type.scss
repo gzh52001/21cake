@@ -5,7 +5,61 @@
       margin: 0;
       padding: 0;
   }
+.type{
   .container{
     //   margin-top: vw(100);
     z-index: 5000;
   }
+  div{
+    font-size: vw(14);
+    color: #707070;
+  }
+  a{
+    border-bottom: #442818 vw(2) solid;
+    color: #442818;
+  }
+  .am-tabs-tab-bar-wrap{
+    .am-tabs-default-bar-underline{
+      // width: 5%;
+      // left: 7.25%;
+      border: #442818 vw(1.1) solid;
+    }
+  }
+  .am-tabs *{
+    box-sizing: content-box;
+  }
+  .list-pro-box{
+    display: block;
+
+    transform-origin: 0 0;
+    opacity: 1;
+    transform: scale(1,1);
+    h1,h2,h3,h4,h5,h6{
+      margin: 0;
+      padding: 0;
+      font-size: vw(12);
+      color: #442818;
+    }
+    h2{
+      padding: vw(8) 0;
+      text-align: center;
+      font-size: vw(15);
+      height: vw(30);
+      margin: 0 auto;
+      line-height: vw(15);
+      background: rgba(213,191,167,0.10);
+      border-bottom: vw(1) solid #e9e9e9;
+      span{
+        font-size: vw(10);
+        display: block;
+        line-height: vw(13);
+        margin-top: vw(2);
+        color: #D5BFA7;
+      }
+    }
+    .pro-list-title{
+      text-align: center;
+
+    }
+  }
+}

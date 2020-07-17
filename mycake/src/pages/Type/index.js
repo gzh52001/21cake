@@ -3,11 +3,6 @@ import { Tabs, WhiteSpace, Badge } from 'antd-mobile';
 import './type.css'
 class Type extends Component {
     state={
-        // tabs: [
-        //         { title: <Badge text={'3'}>First Tab</Badge> },
-        //         { title: <Badge text={'今日(20)'}>Second Tab</Badge> },
-        //         { title: <Badge dot>Third Tab</Badge> },
-        //     ],
         tabs:[
                 { title: '蛋糕', sub: '1' },
                 { title: '冰淇淋', sub: '2' },
@@ -19,33 +14,34 @@ class Type extends Component {
     }
     render() {
         return (
-            // <div className='products-list-nav-box'>
-            //     <div className='products-list-nav'>
-            //         <ul className='list-nav'>
-            //             <li>
-            //                 <a></a>
-                            
-            //             </li>
-            //         </ul>
-            //     </div>
-                
-            // </div>
-
-            <div>
+            <div className="type">
                 <Tabs tabs={this.state.tabs}
                 initialPage={0}
+                //高亮字体颜色
+                tabBarActiveTextColor={'#442818'}
                 onChange={(tab, index) => { console.log('onChange', index, tab); }}
                 onTabClick={(tab, index) => { console.log('onTabClick', index, tab); }}
                 >
-                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '150px', backgroundColor: '#fff' }}>
-                    Content of first tab
-                </div>
-                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '150px', backgroundColor: '#fff' }}>
+                {/* {this.state.tabs.map((item,index)=>{
+                    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '150px', backgroundColor: '#fff' }}>
+                        Content of first tab
+                    </div>
+                })} */}
+                    <div className='list-pro-box'>
+                        <div className='pro-list-title' id='list-title-1'>
+                            <h2>
+                                蛋糕
+                                <span>新鲜乳脂奶油蛋糕</span>
+                            </h2>
+                        </div>
+                        <div className='list-box'></div>
+                    </div>
+                {/* <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '150px', backgroundColor: '#fff' }}>
                     Content of second tab
                 </div>
                 <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '150px', backgroundColor: '#fff' }}>
                     Content of third tab
-                </div>
+                </div> */}
                 </Tabs>
             </div>
         )
