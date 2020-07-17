@@ -51,7 +51,7 @@ class Sign extends Component{
                         <button>登录</button>
                     </li>
                     <div className="gotoLogin">
-                        <a href="###" onClick = {this.goto.bind(null,'/login')}>去注册</a>
+                        <a  onClick = {this.goto.bind(null,'/login')}>去注册</a>
                     </div>
                 </ul>
             </div>  
