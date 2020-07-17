@@ -110,9 +110,6 @@ class Type extends Component {
 
                 {/* <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '150px', backgroundColor: '#fff' }}>
                     Content of second tab
-                </div>
-                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '150px', backgroundColor: '#fff' }}>
-                    Content of third tab
                 </div> */}
                 </Tabs>
                 <div className='lost-bottom'>
