@@ -51,6 +51,11 @@ class Login extends Component{
         visible: false,
       }
 
+    birth =(value)=>{
+
+        console.log(value);
+    }  
+
     err1 = ()=>{
         let phone = document.getElementsByClassName("phone")[0].value;
         let rule1 = /^[1][3,4,5,7,8][0-9]{9}$/;
@@ -114,13 +119,13 @@ class Login extends Component{
                             </DatePicker>
                             <DatePicker
                             mode="date"
-                            title="Select Date"
+                            title="请选择生日"
                             extra="Optional"
                             value={this.state.date}
                             onChange={date => this.setState({ date })}
                             minDate={new Date(1930, 1, 1, 23, 59, 59)}
                             >
-                            <List.Item arrow="horizontal">请选择生日</List.Item>
+                            <List.Item arrow="horizontal" onBlur={this.birth(this.state.date)}>请选择生日</List.Item>
                             </DatePicker>
                             </List>
 

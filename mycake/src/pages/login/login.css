@@ -33,6 +33,19 @@ html, body {
   color: #D5BFA7;
 }
 
+#login-box ul .pas2 {
+  border-bottom: none;
+}
+
+#login-box ul .am-list-line {
+  padding-right: 0;
+}
+
+#login-box ul .am-list-item, #login-box ul .am-list-item-middle {
+  padding-left: 0;
+  width: 84.8vw;
+}
+
 #login-box ul .date-picker-list {
   width: 100%;
 }
