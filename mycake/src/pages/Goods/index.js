@@ -12,6 +12,10 @@ class Goods extends Component {
         ],
         open: true,//抽屉
     }
+    //打开商品选择框
+    openchange=(...args)=>{
+        this.setState({open:!this.state.open})
+    }
     render() {
         const sidebar=(<List>{
                 <div className='details-suspension-pop'>
@@ -239,7 +243,7 @@ class Goods extends Component {
                         <a key='0' className='left-buy' data-goods-id='1318'>立即购买</a>
                     ]}
                     rightContent={[
-                        <a key='0' className='join-cart' data-goods-id='1318'>加入购物车</a>
+                        <a key='0' className='join-cart' data-goods-id='1318' onClick={this.openchange}>加入购物车</a>
                     ]}
                 >
                 {/* <i key="5" className="iconfont icon-header-center" onClick={} type="left" style={{ width:"30px" }}></i> */}
