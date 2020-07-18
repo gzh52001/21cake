@@ -33,6 +33,15 @@ html, body {
   color: #D5BFA7;
 }
 
+#login-box ul .date-picker-list {
+  width: 100%;
+}
+
+#login-box ul .am-list-content {
+  color: #D5BFA7;
+  font-size: 3.2vw;
+}
+
 #login-box ul .erroBox {
   vertical-align: middle;
   height: 12.53333vw;
