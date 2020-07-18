@@ -335,17 +335,182 @@ body,html{
         background-size: 100%;
         cursor: pointer;
     }
-    // #details-suspension-pop{
-    //     position: fixed;
-    //     height: 100%;
-    //     width: 100%;
-    //     left: 0;
-    //     z-index: 99999;
-    //     transition: all 1s;
-    //     i{
-    //         display: block;
-    //         height: 100%;
-    //         width: 100%;
-    //     }
-    // }
+    .goods-drawer{
+        position: fixed;
+        width: 100%;
+        bottom: vw(45);
+        .am-drawer-sidebar{
+            height: 50%;
+            .am-list{
+                height: 100%;
+                .am-list-body{
+                    height: 100%;
+                }
+            }
+        }
+    }
+    .details-suspension-pop{
+        // position: fixed;
+        height: 100%;
+        width: 100%;
+        left: 0;
+        bottom: 0;
+        z-index: 99999;
+        transition: all 1s;
+        i{
+            display: block;
+            height: 100%;
+            width: 100%;
+        }
+        .hide-button{
+            height: 0;
+        }
+        .details-suspension{
+            display: block;
+            transform-origin: 0 0;
+            opacity: 1;
+            transform: scale(1,1);
+            background: #fff;
+            width: 100%;
+            z-index: 10000;
+            i{
+                height: 14px;
+                width: 14px;
+                padding: 15px;
+                background: url(https://static.21cake.com/themes/wap/img/list-hide.png) no-repeat center;
+                background-size: 14px 14px;
+                position: absolute;
+                top: 0;
+                right: 0;
+            }
+            .details-suspension-content{
+                box-shadow: 0 vw(-2) vw(4) 0 rgba(0,0,0,0.10);
+                padding: vw(14) vw(24) vw(5) vw(24);
+                .details-price{
+                    font-size: vw(15);
+                    line-height: vw(22);
+                    margin-bottom: vw(15);
+                    font-weight: bold;
+                }
+                .suspension-spec-box{
+                    padding: vw(5) 0 vw(12);
+                    .details-options{
+                        overflow: hidden;
+                        width: 100%;
+                        li{
+                            float: left;
+                            width: 48%;
+                            margin-right: 2%;
+                            margin-bottom: vw(6);
+                            i{
+                                height: 15px;
+                                width: 15px;
+                                display: inline-block;
+                                vertical-align: middle;
+                                margin-right: 8px;
+                                padding: 0;
+                                position: relative;
+                                top: 0;
+                                right: 0;
+                            }
+                        }
+                        .details-options-size{
+                            i{
+                                background: url(https://static.21cake.com/themes/wap/img/size.png) no-repeat center;
+                                background-size: auto 100%;
+                            }
+                        }
+                        .details-options-unmber{
+                            i{
+                                background: url(https://static.21cake.com/themes/wap/img/unmber.png) no-repeat center;
+                                background-size: auto 100%;
+                            }
+                        }
+                        .details-options-laid{
+                            i{
+                                background: url(https://static.21cake.com/themes/wap/img/laid.png) no-repeat center;
+                                background-size: auto 100%;
+                            }
+                        }
+                    }
+                }
+                .extra-box{
+                    display: block;
+                    transform-origin: 0 0;
+                    opacity: 1;
+                    transform: scale(1,1);
+                    .detail-spec-title{
+                        font-size: vw(11);
+                    }
+                    .details-suspension-size-extra{
+                        padding-bottom: 0;
+                        overflow: hidden;
+                        margin-left: -2%;
+                        margin-top: 12px;
+                        margin-bottom: 7px;
+                        .active{
+                            border: 1px solid #000;
+                            box-sizing: border-box;
+                            background: url(https://static.21cake.com/themes/wap/img/icon_selected.png) no-repeat top left;
+                            background-size: 12px 12px;
+                        }
+                        li{
+                            min-width: 23%;
+                            height: vw(32);
+                            float: left;
+                            line-height: vw(32);
+                            text-align: center;
+                            font-size: 15px;
+                            margin-left: 2%;
+                            margin-bottom: vw(8);
+                            background: #f7f7f7;
+                        }
+                    }
+                }
+                .normal-box{
+                    .detail-spec-title{
+                        font-size: 11px;
+                        margin: 0;
+                        padding: 0;
+                        color: #442818;
+                    }
+                    .details-suspension-size{
+                        overflow: hidden;
+                        margin-left: -2%;
+                        margin-top: 12px;
+                        margin-bottom: 7px;
+                        .active{
+                            border: 1px solid #000;
+                            box-sizing: border-box;
+                            background: url(https://static.21cake.com/themes/wap/img/icon_selected.png) no-repeat top left;
+                            background-size: 12px 12px;
+                        }
+                        li{
+                            box-sizing: border-box;
+                            display:flex;
+                            flex-wrap: wrap;
+                            align-items: center;
+                            justify-content: center;
+                            line-height: 14px;
+                            font-size: 12px;
+                            min-width: 23%;
+                            height: 32px;
+                            float: left;
+                            background: #f7f7f7;
+                            float: left;
+                            text-align: center;
+                            margin-left: 2%;
+                            margin-bottom:8px;
+                            span{
+                                width: 100%;
+                                text-align: center;
+                            }
+                        }
+                    }
+
+                }
+            }
+        }
+
+    }
 }

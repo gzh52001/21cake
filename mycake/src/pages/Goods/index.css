@@ -360,3 +360,198 @@ body, html {
   background-size: 100%;
   cursor: pointer;
 }
+
+.goods .goods-drawer {
+  position: fixed;
+  width: 100%;
+  bottom: 12vw;
+}
+
+.goods .goods-drawer .am-drawer-sidebar {
+  height: 50%;
+}
+
+.goods .goods-drawer .am-drawer-sidebar .am-list {
+  height: 100%;
+}
+
+.goods .goods-drawer .am-drawer-sidebar .am-list .am-list-body {
+  height: 100%;
+}
+
+.goods .details-suspension-pop {
+  height: 100%;
+  width: 100%;
+  left: 0;
+  bottom: 0;
+  z-index: 99999;
+  transition: all 1s;
+}
+
+.goods .details-suspension-pop i {
+  display: block;
+  height: 100%;
+  width: 100%;
+}
+
+.goods .details-suspension-pop .hide-button {
+  height: 0;
+}
+
+.goods .details-suspension-pop .details-suspension {
+  display: block;
+  transform-origin: 0 0;
+  opacity: 1;
+  transform: scale(1, 1);
+  background: #fff;
+  width: 100%;
+  z-index: 10000;
+}
+
+.goods .details-suspension-pop .details-suspension i {
+  height: 14px;
+  width: 14px;
+  padding: 15px;
+  background: url(https://static.21cake.com/themes/wap/img/list-hide.png) no-repeat center;
+  background-size: 14px 14px;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.goods .details-suspension-pop .details-suspension .details-suspension-content {
+  box-shadow: 0 -0.53333vw 1.06667vw 0 rgba(0, 0, 0, 0.1);
+  padding: 3.73333vw 6.4vw 1.33333vw 6.4vw;
+}
+
+.goods .details-suspension-pop .details-suspension .details-suspension-content .details-price {
+  font-size: 4vw;
+  line-height: 5.86667vw;
+  margin-bottom: 4vw;
+  font-weight: bold;
+}
+
+.goods .details-suspension-pop .details-suspension .details-suspension-content .suspension-spec-box {
+  padding: 1.33333vw 0 3.2vw;
+}
+
+.goods .details-suspension-pop .details-suspension .details-suspension-content .suspension-spec-box .details-options {
+  overflow: hidden;
+  width: 100%;
+}
+
+.goods .details-suspension-pop .details-suspension .details-suspension-content .suspension-spec-box .details-options li {
+  float: left;
+  width: 48%;
+  margin-right: 2%;
+  margin-bottom: 1.6vw;
+}
+
+.goods .details-suspension-pop .details-suspension .details-suspension-content .suspension-spec-box .details-options li i {
+  height: 15px;
+  width: 15px;
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 8px;
+  padding: 0;
+  position: relative;
+  top: 0;
+  right: 0;
+}
+
+.goods .details-suspension-pop .details-suspension .details-suspension-content .suspension-spec-box .details-options .details-options-size i {
+  background: url(https://static.21cake.com/themes/wap/img/size.png) no-repeat center;
+  background-size: auto 100%;
+}
+
+.goods .details-suspension-pop .details-suspension .details-suspension-content .suspension-spec-box .details-options .details-options-unmber i {
+  background: url(https://static.21cake.com/themes/wap/img/unmber.png) no-repeat center;
+  background-size: auto 100%;
+}
+
+.goods .details-suspension-pop .details-suspension .details-suspension-content .suspension-spec-box .details-options .details-options-laid i {
+  background: url(https://static.21cake.com/themes/wap/img/laid.png) no-repeat center;
+  background-size: auto 100%;
+}
+
+.goods .details-suspension-pop .details-suspension .details-suspension-content .extra-box {
+  display: block;
+  transform-origin: 0 0;
+  opacity: 1;
+  transform: scale(1, 1);
+}
+
+.goods .details-suspension-pop .details-suspension .details-suspension-content .extra-box .detail-spec-title {
+  font-size: 2.93333vw;
+}
+
+.goods .details-suspension-pop .details-suspension .details-suspension-content .extra-box .details-suspension-size-extra {
+  padding-bottom: 0;
+  overflow: hidden;
+  margin-left: -2%;
+  margin-top: 12px;
+  margin-bottom: 7px;
+}
+
+.goods .details-suspension-pop .details-suspension .details-suspension-content .extra-box .details-suspension-size-extra .active {
+  border: 1px solid #000;
+  box-sizing: border-box;
+  background: url(https://static.21cake.com/themes/wap/img/icon_selected.png) no-repeat top left;
+  background-size: 12px 12px;
+}
+
+.goods .details-suspension-pop .details-suspension .details-suspension-content .extra-box .details-suspension-size-extra li {
+  min-width: 23%;
+  height: 8.53333vw;
+  float: left;
+  line-height: 8.53333vw;
+  text-align: center;
+  font-size: 15px;
+  margin-left: 2%;
+  margin-bottom: 2.13333vw;
+  background: #f7f7f7;
+}
+
+.goods .details-suspension-pop .details-suspension .details-suspension-content .normal-box .detail-spec-title {
+  font-size: 11px;
+  margin: 0;
+  padding: 0;
+  color: #442818;
+}
+
+.goods .details-suspension-pop .details-suspension .details-suspension-content .normal-box .details-suspension-size {
+  overflow: hidden;
+  margin-left: -2%;
+  margin-top: 12px;
+  margin-bottom: 7px;
+}
+
+.goods .details-suspension-pop .details-suspension .details-suspension-content .normal-box .details-suspension-size .active {
+  border: 1px solid #000;
+  box-sizing: border-box;
+  background: url(https://static.21cake.com/themes/wap/img/icon_selected.png) no-repeat top left;
+  background-size: 12px 12px;
+}
+
+.goods .details-suspension-pop .details-suspension .details-suspension-content .normal-box .details-suspension-size li {
+  box-sizing: border-box;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  line-height: 14px;
+  font-size: 12px;
+  min-width: 23%;
+  height: 32px;
+  float: left;
+  background: #f7f7f7;
+  float: left;
+  text-align: center;
+  margin-left: 2%;
+  margin-bottom: 8px;
+}
+
+.goods .details-suspension-pop .details-suspension .details-suspension-content .normal-box .details-suspension-size li span {
+  width: 100%;
+  text-align: center;
+}
