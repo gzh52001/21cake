@@ -3,6 +3,9 @@ body, html {
   padding: 0;
   list-style: none;
   touch-action: none;
+}
+
+.goods {
   background: #f6f6f6;
 }
 
