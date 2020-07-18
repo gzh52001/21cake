@@ -11,12 +11,22 @@ class Shopcar extends Component {
                 { title: '面包', sub: '4' },
                 { title: '常温蛋糕', sub: '5' },
                 { title: '设计师礼品', sub: '6' },
-            ]
+            ],
+        goodslist:[1],
+        navbar:'',
     }
-    render() {
-        return (
-            <div className='shopcar'>
-                <NavBar
+    componentDidMount(){
+        this.gogoods()
+    }
+    goto=(path)=>{
+        this.props.history.push(path);
+    }
+    //判断有没有商品，如果没有商品就渲染空页面，有就渲染出来
+    gogoods=()=>{
+        if(this.state.goodslist.length){
+            this.setState({navbar:this.state.navbar = 
+                <div>
+                    <NavBar
                     mode="light"
                     className='bottom-addcart-button'
                     leftContent={[
@@ -24,15 +34,36 @@ class Shopcar extends Component {
                     ]}
                     rightContent={[
                         <a key='0' className='place-order-but'  onClick={this.openchange}>去结算</a>
-                    ]}
-                >
+                    ]}>
+                    {/* 底部 */}
                     <div className='pay-money' id='cart-total-amount'>
-                        <div className='guodudiv' style={{float:'left',height:'100%',textAlign:'right'}}>¥
+                        <div className='guodudiv' style={{float:'right',height:'100%',textAlign:'right'}}>¥
                             <span>999.00</span>
                             <span>商品</span>
                         </div>
                     </div>
-                </NavBar>
+                    </NavBar>
+                    <p className='cart-top-tip' id='top-notice'>
+                    · 满100元免配送服务费 ·
+                    </p>
+                </div>
+               
+               })
+       }else{
+           this.setState({navbar:
+           <div className='emptygood'>
+               <img src='https://static.21cake.com/themes/wap/img/cart-empty.png'></img>
+               <p>您的购物车里还没有商品</p>
+               <a onClick={this.goto.bind(null,'/home')}>去购物 >></a>
+           </div>})
+       }
+    }
+    render() {
+        
+        return (
+            <div className='shopcar'>
+                {this.state.navbar}
+                {/* {this.goodslist.bind(null,1) ?  navbar : <div>想屁吃</div>} */}
             </div>
         )
     }

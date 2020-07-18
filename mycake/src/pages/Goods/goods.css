@@ -362,6 +362,7 @@ body, html {
 }
 
 .goods .goods-drawer {
+  display: none;
   position: fixed;
   width: 100%;
   bottom: 12vw;

@@ -48,7 +48,6 @@ import Tea from '../Type/Tea/index'
         ]
       }
       goto=(path)=>{
-        console.log(Bread);
         this.props.history.push(path)
       }
       componentDidMount() {

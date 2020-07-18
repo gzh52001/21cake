@@ -335,6 +335,7 @@ body,html{
         cursor: pointer;
     }
     .goods-drawer{
+        display: none;
         position: fixed;
         width: 100%;
         bottom: vw(45);

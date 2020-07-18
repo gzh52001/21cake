@@ -52,7 +52,50 @@
 }
 
 .shopcar .bottom-addcart-button .am-navbar-title .pay-money {
+  width: 100%;
   height: 100%;
   float: right;
   margin-right: 3.2vw;
+}
+
+.shopcar .bottom-addcart-button .am-navbar-title .pay-money span:first-child {
+  margin-top: 5px;
+  display: inline-block;
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 4.26667vw;
+}
+
+.shopcar .bottom-addcart-button .am-navbar-title .pay-money span:last-child {
+  display: block;
+  color: #707070;
+  font-size: 10px;
+  line-height: 4.26667vw;
+}
+
+.shopcar .emptygood {
+  max-width: 112vw;
+  margin: 0 auto;
+  margin-top: 48vw;
+}
+
+.shopcar .emptygood img {
+  height: 40vw;
+  width: 40vw;
+  display: block;
+  margin: 0 auto;
+}
+
+.shopcar .emptygood p {
+  margin: 2.66667vw 0;
+  font-size: 14px;
+  color: #D5BFA7;
+  text-align: center;
+}
+
+.shopcar .emptygood a {
+  width: 32vw;
+  margin: 0 auto;
+  display: block;
+  text-align: center;
 }

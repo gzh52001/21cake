@@ -10,11 +10,19 @@ class Goods extends Component {
             'https://static.21cake.com/upload/images/55c58303cb9a37c4005460d7640a6f20.jpg',
             'https://static.21cake.com/upload/images/3b6218417b8c6ebb29d61e381afb3f89.jpg'
         ],
-        open: true,//抽屉
+        open: false,//抽屉
     }
     //打开商品选择框
     openchange=(...args)=>{
+        let goodsdrawer=document.getElementsByClassName("goods-drawer")[0]
+        console.log(goodsdrawer);
+        if(!this.state.open){
+            goodsdrawer.style="display:block"
+        }else{
+            goodsdrawer.style="display:none"
+        }
         this.setState({open:!this.state.open})
+        
     }
     render() {
         const sidebar=(<List>{
