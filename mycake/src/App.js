@@ -1,5 +1,5 @@
 import React , { Component } from 'react';
-import { NavBar,Icon,Menu, ActivityIndicator,Drawer, List,} from 'antd-mobile';
+import { NavBar,Drawer, List,} from 'antd-mobile';
 import 'antd-mobile/dist/antd-mobile.css';
 import {Switch, Route, Redirect,withRouter} from 'react-router-dom';
 // import './icon/iconfont/iconfont'
@@ -113,7 +113,6 @@ class App extends Component {
     return (
       <div>
         <div className="title-box" >
-          {/* 头 */}
           <NavBar
             mode="light"
             leftContent={[
@@ -130,24 +129,15 @@ class App extends Component {
           </NavBar>
           <Drawer
           className="my-drawer"
-          // style={{ minHeight:55}}
-          // enableDragHandle
           contentStyle={{height:0,textAlign:"center"}}
           overlayStyle={{height:0}}
           sidebar={sidebar}
           open={this.state.open}
-          // onOpenChange={console.log(this.state)}
           position='top'
-          // sidebarStyle={{paddingTop:40}}
-          // dragHandleStyle={{minHeight:100}}
-          // docked={true}
-          // open={false}
-          // dragToggleDistance={0}
         >
           1111
         </Drawer>
         </div>
-        {/* 抽屉 */}
         
         <div className="container" >
             <Switch>
@@ -157,12 +147,6 @@ class App extends Component {
               <Route path='/sign' component={Sign} />
               <Route path='/login' component={Login} />
               <Route path='/goods' component={Goods} />
-              {/* <Route path='/bread' component={Bread} />
-              <Route path='/bread' component={Cake} />
-              <Route path='/bread' component={CCake} />
-              <Route path='/bread' component={Gift} />
-              <Route path='/bread' component={IceCream} />
-              <Route path='/bread' component={IceCream} /> */}
               <Redirect from='/' to='/home' exact />
             </Switch>
         </div>

@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Carousel,WingBlank, View} from 'antd-mobile';
+import { Carousel,WingBlank, NavBar,Drawer, List,D} from 'antd-mobile';
 import {withRouter} from 'react-router-dom';
 import './index.css'
 class Goods extends Component {
@@ -9,9 +9,66 @@ class Goods extends Component {
             'https://static.21cake.com/upload/images/282518e0dd85761d7d0e3cf9ff0d7f09.jpg',
             'https://static.21cake.com/upload/images/55c58303cb9a37c4005460d7640a6f20.jpg',
             'https://static.21cake.com/upload/images/3b6218417b8c6ebb29d61e381afb3f89.jpg'
-        ]
+        ],
+        open: true,//抽屉
     }
     render() {
+        const sidebar=(<List>{
+                <div className='details-suspension-pop'>
+                    <i className='hide-button'></i>
+                    <div className='details-suspension'>
+                        <i></i>
+                        <div className='details-suspension-content'>
+                            <p className='details-price'>¥198.00</p>
+                            <div className='suspension-spec-box'>
+                                <ul className='details-options'>
+                                    <li className='details-options-size'>
+                                        <i></i>
+                                        12.5x12.5cm
+                                    </li>
+                                    <li className='details-options-unmber'>
+                                        <i></i>
+                                        3-4人
+                                    </li>
+                                    <li className='details-options-laid'>
+                                        <i></i>
+                                        含5套餐具（蜡烛需单独订购）
+                                    </li>
+                                </ul>
+                            </div>
+                            <div className='extra-box'>
+                                <p className='detail-spec-title'>规格</p>
+                                <ul className='details-suspension-size-extra'>
+                                    <li className='goods-1318'>蔓生(有酒款)</li>
+                                    <li className='goods-1319 active'>蔓生(无酒款)</li>
+                                </ul>
+                            </div>
+                            <div className='normal-box'>
+                                <p className='detail-spec-title'>商品规格</p>
+                                <ul className='details-suspension-size'>
+                                    <li className='active' data-productid='22042'>
+                                        <span>454g</span>
+                                        (1.0磅)
+                                    </li>
+                                    <li data-productid='22050'>
+                                        <span>908g</span>
+                                        (2.0磅)
+                                    </li>
+                                    <li data-productid='22058'>
+                                        <span>1362g</span>
+                                        (3.0磅)
+                                    </li>
+                                    <li data-productid='22066'>
+                                        <span>2270g</span>
+                                        (5.0磅)
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </List>)
         return (
             <div className="goods">
                 <WingBlank>
@@ -129,12 +186,8 @@ class Goods extends Component {
                         <p style={{textAlign:'center',color:'rgb(153,153,153)',fontSize:'x-small'}}>以上图片仅供参考，请以收到实物为准。</p>
                         <p ><font>退改说明：</font></p>
                         <p ><font>1. 北京、上海、杭州、广州地区距配送时间6小时及以上的订单可修改、取消、退订；距配送时间不足5小时，订单不再支持修改、取消、退订。（22点之后不接受次日14点之前配送订单修改、退订）</font></p>
-                        <p ><font>2. 苏州、无锡、深圳、天津距配送时间不足8小时，订单不再支持修改、取消、退订。（22点之后不接受次日16点之前配送订单修改、退订）</font></p>
-                        <p ><font>以上图片仅供参考，请以收到实物为准。</font></p>
+                        <p style={{lineHeight:'20px'}}><font>2. 苏州、无锡、深圳、天津距配送时间不足8小时，订单不再支持修改、取消、退订。（22点之后不接受次日16点之前配送订单修改、退订）</font></p>
                     </div>
-                </div>
-                <div className='lost-bottom'>
-                    <div>没了</div>
                 </div>
                 <div className='footer'>
                     <ul>
@@ -151,7 +204,7 @@ class Goods extends Component {
                         <a >生产经营资质</a>
                     </li>
                     </ul>
-                    <p>
+                    <p style={{marginBottom:'30px'}}>
                     Copyright© 21Cake蛋糕官网商城 2007-2020, 
                     <br></br>        
                     版权所有 
@@ -179,6 +232,82 @@ class Goods extends Component {
                     举实（上海）食品有限公司
                     </p>
                 </div>
+                <NavBar
+                    mode="light"
+                    className='bottom-addcart-button'
+                    leftContent={[
+                        <a key='0' className='left-buy' data-goods-id='1318'>立即购买</a>
+                    ]}
+                    rightContent={[
+                        <a key='0' className='join-cart' data-goods-id='1318'>加入购物车</a>
+                    ]}
+                >
+                {/* <i key="5" className="iconfont icon-header-center" onClick={} type="left" style={{ width:"30px" }}></i> */}
+                </NavBar>
+                <Drawer
+                className="goods-drawer"
+                contentStyle={{height:0,textAlign:"center"}}
+                overlayStyle={{height:0}}
+                sidebar={sidebar}
+                open={this.state.open}
+                position='bottom'
+                >
+                11112222222222
+                </Drawer>
+                <a id='webIm'></a>
+                {/* <div className='details-suspension-pop'>
+                    <i className='hide-button'></i>
+                    <div className='details-suspension'>
+                        <i></i>
+                        <div className='details-suspension-content'>
+                            <p className='details-price'></p>
+                            <div className='suspension-spec-box'>
+                                <ul className='details-options'>
+                                    <li className='details-options-size'>
+                                        <i></i>
+                                        12.5x12.5cm
+                                    </li>
+                                    <li className='details-options-unmber'>
+                                        <i></i>
+                                        3-4人
+                                    </li>
+                                    <li className='details-options-laid'>
+                                        <i></i>
+                                        含5套餐具（蜡烛需单独订购）
+                                    </li>
+                                </ul>
+                            </div>
+                            <div className='extra-box'>
+                                <p className='detail-spec-title'>规格</p>
+                                <ul className='details-suspension-size-extra'>
+                                    <li className='goods-1318'>蔓生(有酒款)</li>
+                                    <li className='goods-1319 active'>蔓生(无酒款)</li>
+                                </ul>
+                            </div>
+                            <div className='normal-box'>
+                                <p className='detail-spec-title'>商品规格</p>
+                                <ul className='details-suspension-size'>
+                                    <li className='active' data-productid='22042'>
+                                        <span>454g</span>
+                                        (1.0磅)
+                                    </li>
+                                    <li data-productid='22050'>
+                                        <span>908g</span>
+                                        (2.0磅)
+                                    </li>
+                                    <li data-productid='22058'>
+                                        <span>1362g</span>
+                                        (3.0磅)
+                                    </li>
+                                    <li data-productid='22066'>
+                                        <span>2270g</span>
+                                        (5.0磅)
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div> */}
             </div>
         )
     }

@@ -252,24 +252,7 @@ body,html{
             }
         }
     }
-    .lost-bottom{
-        margin: 0;
-        padding: 0;
-        font-size: vw(12);
-        color: #442818;
-        div{
-          height: vw(72);
-          padding-top: vw(25);
-          margin: 0 vw(20);
-          padding-right: vw(40);
-          background: url(https://static.21cake.com/themes/wap/img/list-empty.png) no-repeat right center;
-          background-size: vw(34) vw(38);
-          text-align: right;
-          line-height: vw(72);
-          color: #d5d5d5;
-        }
-      }
-      .footer{
+    .footer{
         background: #414141;
         padding: vw(30) vw(10);
         ul{
@@ -304,5 +287,54 @@ body,html{
           color: #a0a0a0;
           line-height: vw(16);
         }
-      }
+    }
+    .bottom-addcart-button{
+          position: fixed;
+          height: vw(46);
+          left: 0;
+          bottom: 0;
+          width: 100%;
+          background: #fff;
+          z-index: 100000;
+          box-shadow: 0 vw(-2) vw(4) 0 rgba(0,0,0,0.10);
+          .am-navbar-title{
+              flex: 0;
+          }
+          .am-navbar-left{
+            a{
+                background: #fff;
+                color: #442818;
+                width: 100%;
+                height: 100%;
+                text-align: center;
+                line-height: vw(50);
+                font-size: vw(14);
+            }
+          }
+          .am-navbar-right{
+            a{
+                background: #442818;
+                color: #fff;
+                width: 100%;
+                height: 100%;
+                text-align: center;
+                line-height: vw(50);
+                font-size: vw(14);
+            }
+          }
+    }
+    #webIm{
+        position: fixed;
+        left: vw(12);
+        bottom: vw(60);
+        display: inline-block;
+        width: vw(50);
+        height: vw(50);
+        background: url(https://static.21cake.com/themes/wap/img/im-icon.png) center center no-repeat;
+        background-size: 100%;
+        cursor: pointer;
+    }
+    #details-suspension-pop{
+        
+    }
 }
