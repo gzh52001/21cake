@@ -61,7 +61,7 @@ class Person extends Component {
                     </a>
                 </li>
                 <li>
-                    <a href="###">
+                    <a  onClick={this.goto.bind(null,'/addlocal')} >
                         <span>地址管理</span><span className="iconfont iconiconfontjiantou5"></span>
                     </a>
                 </li>
