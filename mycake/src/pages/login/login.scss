@@ -38,6 +38,17 @@ html,body{
             color:#D5BFA7;
             // font-size:12px;
         }
+        .pas2{
+            border-bottom: none;
+        }
+        
+        .am-list-line{
+            padding-right: 0;
+        }
+        .am-list-item, .am-list-item-middle{
+            padding-left: 0;
+            width: vw(318);
+        }
         .date-picker-list{
             width: 100%;
         } 
