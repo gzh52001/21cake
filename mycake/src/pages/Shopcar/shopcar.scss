@@ -1,0 +1,55 @@
+@function vw($px){
+    @return($px/750)*200vw
+}
+
+.shopcar{
+    margin: 0;
+    padding: 0;
+    .bottom-addcart-button{
+        position: fixed;
+        height: vw(46);
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        background: #fff;
+        z-index: 100000;
+        box-shadow: 0 vw(-2) vw(4) 0 rgba(0,0,0,0.10);
+        .am-navbar-left{
+            padding: 0;
+            margin: 0;
+            flex: 1;
+          a{
+              background: url(https://static.21cake.com/themes/wap/img/cart-order-delete.png) no-repeat center center;
+              color: #442818;
+              width: vw(44);
+              height: 100%;
+              text-align: center;
+              line-height: vw(50);
+              font-size: vw(14);
+              background-size: vw(14) auto;
+          }
+        }
+        .am-navbar-right{
+            padding: 0;
+            margin: 0;
+            flex: 2;
+          a{
+              background: #442818;
+              color: #fff;
+              width: vw(96);
+              height: 100%;
+              text-align: center;
+              line-height: vw(50);
+              font-size: vw(14);
+          }
+        }
+        .am-navbar-title{
+            flex: 5;
+            .pay-money{
+                height: 100%;
+                float: right;
+                margin-right: vw(12);
+            }
+        }
+    }
+}

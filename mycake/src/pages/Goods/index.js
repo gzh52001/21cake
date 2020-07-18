@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Carousel,WingBlank, NavBar,Drawer, List,D} from 'antd-mobile';
 import {withRouter} from 'react-router-dom';
-import './index.css'
+import './goods.css'
 class Goods extends Component {
     state={
         data:[
@@ -246,7 +246,6 @@ class Goods extends Component {
                         <a key='0' className='join-cart' data-goods-id='1318' onClick={this.openchange}>加入购物车</a>
                     ]}
                 >
-                {/* <i key="5" className="iconfont icon-header-center" onClick={} type="left" style={{ width:"30px" }}></i> */}
                 </NavBar>
                 <Drawer
                 className="goods-drawer"
@@ -259,59 +258,6 @@ class Goods extends Component {
                 11112222222222
                 </Drawer>
                 <a id='webIm'></a>
-                {/* <div className='details-suspension-pop'>
-                    <i className='hide-button'></i>
-                    <div className='details-suspension'>
-                        <i></i>
-                        <div className='details-suspension-content'>
-                            <p className='details-price'></p>
-                            <div className='suspension-spec-box'>
-                                <ul className='details-options'>
-                                    <li className='details-options-size'>
-                                        <i></i>
-                                        12.5x12.5cm
-                                    </li>
-                                    <li className='details-options-unmber'>
-                                        <i></i>
-                                        3-4人
-                                    </li>
-                                    <li className='details-options-laid'>
-                                        <i></i>
-                                        含5套餐具（蜡烛需单独订购）
-                                    </li>
-                                </ul>
-                            </div>
-                            <div className='extra-box'>
-                                <p className='detail-spec-title'>规格</p>
-                                <ul className='details-suspension-size-extra'>
-                                    <li className='goods-1318'>蔓生(有酒款)</li>
-                                    <li className='goods-1319 active'>蔓生(无酒款)</li>
-                                </ul>
-                            </div>
-                            <div className='normal-box'>
-                                <p className='detail-spec-title'>商品规格</p>
-                                <ul className='details-suspension-size'>
-                                    <li className='active' data-productid='22042'>
-                                        <span>454g</span>
-                                        (1.0磅)
-                                    </li>
-                                    <li data-productid='22050'>
-                                        <span>908g</span>
-                                        (2.0磅)
-                                    </li>
-                                    <li data-productid='22058'>
-                                        <span>1362g</span>
-                                        (3.0磅)
-                                    </li>
-                                    <li data-productid='22066'>
-                                        <span>2270g</span>
-                                        (5.0磅)
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div> */}
             </div>
         )
     }

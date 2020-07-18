@@ -1,0 +1,58 @@
+.shopcar {
+  margin: 0;
+  padding: 0;
+}
+
+.shopcar .bottom-addcart-button {
+  position: fixed;
+  height: 12.26667vw;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background: #fff;
+  z-index: 100000;
+  box-shadow: 0 -0.53333vw 1.06667vw 0 rgba(0, 0, 0, 0.1);
+}
+
+.shopcar .bottom-addcart-button .am-navbar-left {
+  padding: 0;
+  margin: 0;
+  flex: 1;
+}
+
+.shopcar .bottom-addcart-button .am-navbar-left a {
+  background: url(https://static.21cake.com/themes/wap/img/cart-order-delete.png) no-repeat center center;
+  color: #442818;
+  width: 11.73333vw;
+  height: 100%;
+  text-align: center;
+  line-height: 13.33333vw;
+  font-size: 3.73333vw;
+  background-size: 3.73333vw auto;
+}
+
+.shopcar .bottom-addcart-button .am-navbar-right {
+  padding: 0;
+  margin: 0;
+  flex: 2;
+}
+
+.shopcar .bottom-addcart-button .am-navbar-right a {
+  background: #442818;
+  color: #fff;
+  width: 25.6vw;
+  height: 100%;
+  text-align: center;
+  line-height: 13.33333vw;
+  font-size: 3.73333vw;
+}
+
+.shopcar .bottom-addcart-button .am-navbar-title {
+  flex: 5;
+}
+
+.shopcar .bottom-addcart-button .am-navbar-title .pay-money {
+  height: 100%;
+  float: right;
+  margin-right: 3.2vw;
+}

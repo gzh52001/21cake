@@ -8,6 +8,7 @@ import Home from './pages/Home/index';
 import Type from './pages/Type/index';
 import Person from './pages/Person/index';
 
+import Shopcar from './pages/Shopcar/index'
 import Sign from './pages/sign/index';
 import Login from './pages/login/index';
 import Goods from './pages/Goods/index';
@@ -122,7 +123,7 @@ class App extends Component {
             ]}
             rightContent={[
               <i key="3" className="top-message" ></i>,
-              <i key="4" className="top-cart"></i>
+              <i key="4" className="top-cart" onClick={this.gogogo.bind(null,'/shopcar')}></i>
             ]}
           >
           <i key="5" className="iconfont icon-header-center" onClick={this.gogogo.bind(null,'/home')} type="left" style={{ width:"30px" }}></i>
@@ -147,6 +148,7 @@ class App extends Component {
               <Route path='/sign' component={Sign} />
               <Route path='/login' component={Login} />
               <Route path='/goods' component={Goods} />
+              <Route path='/shopcar' component={Shopcar} />
               <Redirect from='/' to='/home' exact />
             </Switch>
         </div>
