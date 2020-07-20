@@ -56,8 +56,22 @@ class Login extends Component{
         console.log(value);
     }  
 
+    //注册按钮的点击事件
+    login =()=>{
+        
+        let phone= document.getElementsByClassName("phone")[0].value;
+        let psw= document.getElementsByClassName("pas2")[0].value;
+        console.log(phone,psw);
+        
+    }
+
+
+
+
+    //三个err函数用于正则提示信息的显示隐藏
     err1 = ()=>{
         let phone = document.getElementsByClassName("phone")[0].value;
+        console.log(phone);
         let rule1 = /^[1][3,4,5,7,8][0-9]{9}$/;
         if(rule1.test(phone)==false){
             document.getElementsByClassName("errmsg-pho")[0].style.display = "block";
@@ -135,7 +149,7 @@ class Login extends Component{
                             <p className="errmsg-pas2"><i></i> &nbsp; 两次密码不一致</p>
                         </div>
                         <li>
-                            <button>注册</button>
+                            <button onClick={this.login}>注册</button>
                         </li>
                     </ul>
                 </div>

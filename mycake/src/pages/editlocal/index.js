@@ -18,8 +18,9 @@ class Editlocal extends Component{
         
     }
             
-
+    
     componentDidMount(){
+    //识别当前页面若为地址编辑页，则隐藏nav
         if(this.setState.path == '/editlocal'){
             console.log('1');
             document.getElementsByClassName("title-box")[0].style.setProperty('top','-100px');
@@ -29,6 +30,7 @@ class Editlocal extends Component{
 
 
     goto = (path)=>{
+        //跳转到其他页面时，再次显示nav
         document.getElementsByClassName("title-box")[0].style.setProperty('top','0');
         document.getElementsByClassName("container")[0].style.setProperty('margin','vw(40)');
         this.props.history.push(path);
