@@ -79,6 +79,10 @@ body {
   border: none;
 }
 
+.box .editInput > li:nth-child(4) textarea:-ms-input-placeholder {
+  color: #D5BFA7;
+}
+
 .box .editInput > li:nth-child(5) {
   border: none;
 }

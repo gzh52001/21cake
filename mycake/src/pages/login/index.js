@@ -52,8 +52,8 @@ class Login extends Component{
       }
 
     birth =(value)=>{
-
         console.log(value);
+        
     }  
 
     //注册按钮的点击事件
@@ -61,9 +61,16 @@ class Login extends Component{
         
         let phone= document.getElementsByClassName("phone")[0].value;
         let psw= document.getElementsByClassName("pas2")[0].value;
+        
+       
         console.log(phone,psw);
         
     }
+
+    //http中封装好的post请求函数
+    // export function post(url,data,options={method:'post'}){
+    //     return request(url,data,options)
+    // }
 
 
 

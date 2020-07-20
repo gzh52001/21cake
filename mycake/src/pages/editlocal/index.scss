@@ -81,6 +81,9 @@ body{
                 float: right;
                 border: none;
             }
+            textarea:-ms-input-placeholder {
+                color:#D5BFA7;
+            }
             
         }
         >li:nth-child(5){
