@@ -22,7 +22,7 @@ class Editlocal extends Component{
     componentDidMount(){
     //识别当前页面若为地址编辑页，则隐藏nav
         if(this.setState.path == '/editlocal'){
-            console.log('1');
+            // console.log('1');
             document.getElementsByClassName("title-box")[0].style.setProperty('top','-100px');
             document.getElementsByClassName("container")[0].style.setProperty('margin','0');
         }
