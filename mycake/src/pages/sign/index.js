@@ -31,6 +31,16 @@ class Sign extends Component{
         }
     }
 
+
+    //点击登录按钮事件
+    sign(){
+        let spho = document.getElementsByClassName("spho")[0].value;
+        let spsw = document.getElementsByClassName("spsw")[0].value;
+        
+        console.log(spho,spsw);
+
+    }
+
     render(){
         return(
             <div id="sign-box">
@@ -48,7 +58,7 @@ class Sign extends Component{
                             <p className="errmsg-pas1"><i></i> &nbsp; 请输入正确密码</p>
                         </div>
                     <li>
-                        <button>登录</button>
+                        <button onClick={this.sign}>登录</button>
                     </li>
                     <div className="gotoLogin">
                         <a  onClick = {this.goto.bind(null,'/login')}>去注册</a>

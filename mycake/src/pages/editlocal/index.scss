@@ -13,7 +13,8 @@ body{
 
 .box{
     width: vw(375);
-    height: vw(352);
+    height: 100%;
+    background: #F6F6F6;
     
     .editTitle{
         width: 100%;
@@ -80,6 +81,9 @@ body{
                 height: vw(76);
                 float: right;
                 border: none;
+            }
+            textarea::-webkit-input-placeholder {
+                color:#D5BFA7;
             }
             
         }
