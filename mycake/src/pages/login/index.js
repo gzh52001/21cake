@@ -5,6 +5,7 @@ import './base.css';
 
 import 'antd-mobile/dist/antd-mobile.css';
 import { DatePicker, List } from 'antd-mobile';
+import http from '../../utils/http';
 
 const nowTimeStamp = Date.now();
 const now = new Date(nowTimeStamp);
@@ -51,9 +52,11 @@ class Login extends Component{
         visible: false,
       }
 
+    
+
     birth =(value)=>{
         console.log(value);
-        
+       
     }  
 
     //注册按钮的点击事件
@@ -111,6 +114,11 @@ class Login extends Component{
             document.getElementsByClassName("errmsg-pas2")[0].style.display = "none";
         }
     }
+
+
+    // async componentDidMount(){
+    //     const {data} = await http.post('/login/index',{})
+    // }
 
     render(){
         return(
