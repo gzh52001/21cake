@@ -26,6 +26,7 @@ class Shopcar extends Component {
         if(this.state.goodslist.length){
             this.setState({navbar:this.state.navbar = 
                 <div>
+                    {/* 底部 */}
                     <NavBar
                     mode="light"
                     className='bottom-addcart-button'
@@ -35,7 +36,6 @@ class Shopcar extends Component {
                     rightContent={[
                         <a key='0' className='place-order-but'  onClick={this.openchange}>去结算</a>
                     ]}>
-                    {/* 底部 */}
                     <div className='pay-money' id='cart-total-amount'>
                         <div className='guodudiv' style={{float:'right',height:'100%',textAlign:'right'}}>¥
                             <span>999.00</span>
@@ -46,6 +46,33 @@ class Shopcar extends Component {
                     <p className='cart-top-tip' id='top-notice'>
                     · 满100元免配送服务费 ·
                     </p>
+                    <ul className='cart-pro-list'>
+                        <li className='cart-object-goods-item scene_area'>
+                            <div className='cart-pro-box'>
+                                <a>
+                                    <img src='https://static.21cake.com/public/images/f5/5d/b7/b83cb087b6a4c85a2a88cc73f8811853.jpg'></img>
+                                </a>
+                                <div className='cart-pro-title'>
+                                    <div>
+                                        <h2>
+                                            <span>Framboise Cake</span>
+                                            <span>蔓生</span>
+                                        </h2>
+                                    </div>
+                                    <span className='cart-select-pound'>
+                                        规格：908g(2.0磅)
+                                        <i></i>
+                                    </span>
+                                    <span className='cart-price'>
+                                        ￥596.00
+                                    </span>
+                                </div>
+                            </div>
+                            <div className='cart-pro-number'></div>
+                            <p className='laid-count'>每份含免费餐具10套</p>
+                            <a className='birthday-brand'>+添加生日牌</a>
+                        </li>
+                    </ul>
                 </div>
                
                })

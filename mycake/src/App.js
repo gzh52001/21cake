@@ -60,7 +60,7 @@ class App extends Component {
     })
   }
   goto=(path)=>{
-    console.log(path);
+    // console.log(path);
     this.props.history.push(path);
     //跳转页面后收起导航栏
     this.setState({ open: !this.state.open })

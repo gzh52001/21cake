@@ -9,10 +9,11 @@ import Cake from '../Type/Cake/index';
 import Gift from '../Type/Gift/index';
 // import IceCream from '../Type/IceCream/index';
 import Tea from '../Type/Tea/index'
+import http from '../../utils/http'
 
  class Home extends Component {
     state = {
-        data: [
+        lbtdata: [
         'https://static.21cake.com//upload/images/8dd6c441b4acda5e0651af43a81b9731.jpg',
         'https://static.21cake.com//upload/images/f85354a7eb45dc3725b5b595a393d6ae.jpg',
         'https://static.21cake.com//upload/images/350655c7460cc54297919171f6ebae9c.jpeg',
@@ -45,25 +46,64 @@ import Tea from '../Type/Tea/index'
             img:'https://static.21cake.com//upload/images/760d7a2fe4c5e1bede87389fc843de7f.png',
             component:Gift
           }
-        ]
+        ],
       }
       goto=(path)=>{
         this.props.history.push(path)
       }
-      componentDidMount() {
-        // simulate img loading
-        setTimeout(() => {
-          this.setState({
-            // data: ['https://static.21cake.com//upload/images/8dd6c441b4acda5e0651af43a81b9731.jpg',
-            // 'https://static.21cake.com//upload/images/f85354a7eb45dc3725b5b595a393d6ae.jpg',
-            // 'https://static.21cake.com//upload/images/350655c7460cc54297919171f6ebae9c.jpeg',
-            // 'https://static.21cake.com//upload/images/ca9e0211b2910589238cd68ed38dc3c3.jpg',
-            // 'https://static.21cake.com//upload/images/ce9c53ee52de5d6bcb1e6747e8e25dd7.jpg'],
-          });
-        }, 100);
+      async componentDidMount() {
+        //请求数据
+        const {data} = await http.get('/good/goodslist',{page:1,size:5})
+        // const cakedata=data;
+        //把数据添加到state
+        this.setState({
+          cakedata:[...data]
+        })
+      }
+      showdata=()=>{
+        //数据没到就不渲染，数据到了就渲染
+        if(this.state.cakedata){
+          return (
+            this.state.cakedata.map((item,index)=>(
+              <div className="mould-goods" key={item.gid} >
+                      <div className="mould-goods-content">
+                        <h3 className="title-goods">
+                          <span>新品</span>
+                          <a>
+                            更多
+                            <i className="new-home-more"></i>
+                          </a>
+                        </h3>
+                        <ul>
+                          <li>
+                            <a>
+                              <img src={item.img}/>
+                            </a>
+                            <div className='bottom-price-cart'>
+                              <a href=''>
+                                <h4>
+                                  <span className="title">蔓生</span>
+                                  <span className="price">198.00</span>
+                                  <span >元/454g(1.0磅)</span>
+                                </h4>
+                                <p>树莓奶油与浆果慕斯蛋糕</p>
+                              </a>
+                              <button className="add-to-cart_22010">
+                                <i className='new-home-icon'></i>
+                              </button>
+                            </div>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+            ))
+          )
+        }
       }
       render() {
         const {typedata} = this.state;
+        const {cakedata}=this.state;
+        console.log(this.state.cakedata);
         return (
           <div>
               <WingBlank>
@@ -74,14 +114,14 @@ import Tea from '../Type/Tea/index'
               //   beforeChange={(from, to) => console.log(`slide from ${from} to ${to}`)}
               //   afterChange={index => console.log('slide to', index)}
               >
-                {this.state.data.map((val,index) => (
+                {this.state.lbtdata.map((val,index) => (
                   <a
                     key={val}
                     href=""
                     style={{ display: 'inline-block', width: '100%', height: this.state.imgHeight }}
                   >
                     <img
-                      src={this.state.data[index]}
+                      src={this.state.lbtdata[index]}
                       alt=""
                       style={{ width: '100%', verticalAlign: 'top' }}
                       onLoad={() => {
@@ -123,68 +163,40 @@ import Tea from '../Type/Tea/index'
                     </li>))
                   }
                 </ul>
-                <div className="mould-goods">
-                  <div className="mould-goods-content">
-                    <h3 className="title-goods">
-                      <span>新品</span>
-                      <a>
-                        更多
-                        <i className="new-home-more"></i>
-                      </a>
-                    </h3>
-                    <ul>
-                      <li>
-                        <a>
-                          <img src='https://static.21cake.com//upload/images/fbbe0ae94fa58f5213de60f5ffdce072.jpg'/>
-                        </a>
-                        <div className='bottom-price-cart'>
-                          <a href=''>
-                            <h4>
-                              <span className="title">蔓生</span>
-                              <span className="price">198.00</span>
-                              <span >元/454g(1.0磅)</span>
-                            </h4>
-                            <p>树莓奶油与浆果慕斯蛋糕</p>
+                {this.showdata()}
+                {/* {
+                    <div className="mould-goods">
+                      <div className="mould-goods-content">
+                        <h3 className="title-goods">
+                          <span>新品</span>
+                          <a>
+                            更多
+                            <i className="new-home-more"></i>
                           </a>
-                          <button className="add-to-cart_22010">
-                            <i className='new-home-icon'></i>
-                          </button>
-                        </div>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-                <div className="mould-goods">
-                  <div className="mould-goods-content">
-                    <h3 className="title-goods">
-                      <span>新品</span>
-                      <a>
-                        更多
-                        <i className="new-home-more"></i>
-                      </a>
-                    </h3>
-                    <ul>
-                      <li>
-                        <a>
-                          <img src='https://static.21cake.com//upload/images/fbbe0ae94fa58f5213de60f5ffdce072.jpg'/>
-                        </a>
-                        <div className='bottom-price-cart'>
-                          <a href=''>
-                            <h4>
-                              <span className="title">蔓生</span>
-                              <span className="price">198.00</span>
-                              <span >元/454g(1.0磅)</span>
-                            </h4>
-                            <p>树莓奶油与浆果慕斯蛋糕</p>
-                          </a>
-                          <button className="add-to-cart_22010">
-                            <i className='new-home-icon'></i>
-                          </button>
-                        </div>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
+                        </h3>
+                        <ul>
+                          <li>
+                            <a>
+                              <img src='https://static.21cake.com//upload/images/fbbe0ae94fa58f5213de60f5ffdce072.jpg'/>
+                            </a>
+                            <div className='bottom-price-cart'>
+                              <a href=''>
+                                <h4>
+                                  <span className="title">蔓生</span>
+                                  <span className="price">198.00</span>
+                                  <span >元/454g(1.0磅)</span>
+                                </h4>
+                                <p>树莓奶油与浆果慕斯蛋糕</p>
+                              </a>
+                              <button className="add-to-cart_22010">
+                                <i className='new-home-icon'></i>
+                              </button>
+                            </div>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                } */}
                 <div className='home-mould mould-activity'>
                   <h3>
                     <span>廿一客·活动</span>
