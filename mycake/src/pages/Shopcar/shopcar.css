@@ -1,6 +1,7 @@
 .shopcar {
   margin: 0;
   padding: 0;
+  background-color: #f8f8f8;
 }
 
 .shopcar .bottom-addcart-button {
@@ -98,4 +99,85 @@
   margin: 0 auto;
   display: block;
   text-align: center;
+}
+
+.shopcar .cart-top-tip {
+  height: 10.13333vw;
+  line-height: 10.13333vw;
+  text-align: center;
+}
+
+.shopcar .cart-pro-list li {
+  background: #fff;
+  margin-bottom: 4vw;
+  padding: 0 5.33333vw;
+  padding-bottom: 4vw;
+  position: relative;
+}
+
+.shopcar .cart-pro-list li .cart-pro-box {
+  height: 32vw;
+  overflow: hidden;
+  line-height: 4vw;
+  display: block;
+}
+
+.shopcar .cart-pro-list li .cart-pro-box img {
+  display: block;
+  float: left;
+  width: 29.06667vw;
+  height: 32vw;
+}
+
+.shopcar .cart-pro-list li .cart-pro-box span {
+  display: block;
+  font-size: 2.93333vw;
+  color: #969696;
+}
+
+.shopcar .cart-pro-list li .cart-pro-box h2 {
+  padding-top: 4vw;
+  padding-bottom: 1.6vw;
+}
+
+.shopcar .cart-pro-list li .cart-pro-box h2 span {
+  font-size: 3.2vw;
+  color: #442818;
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  display: block;
+}
+
+.shopcar .cart-pro-list li .cart-pro-box .cart-pro-title {
+  padding-left: 34.13333vw;
+}
+
+.shopcar .cart-pro-list li .cart-pro-box .cart-pro-title .cart-select-pound {
+  display: inline-block;
+}
+
+.shopcar .cart-pro-list li .cart-pro-box .cart-pro-title .cart-price {
+  margin-top: 2.66667vw;
+  display: block;
+  font-size: 2.93333vw;
+}
+
+.shopcar .cart-pro-list li .laid-count {
+  height: 12.26667vw;
+  line-height: 12.26667vw;
+  background: url(https://static.21cake.com/themes/wap/img/cart-laid.png) no-repeat left;
+  background-size: 12.26667vw 12.26667vw;
+  padding-left: 14.66667vw;
+}
+
+.shopcar .cart-pro-list li .birthday-brand {
+  display: block;
+  line-height: 8vw;
+  padding-left: 21.33333vw;
+  height: 8vw;
+  background: url(https://static.21cake.com/themes/wap/img/cart-birthday.jpg) no-repeat left, url(https://static.21cake.com/themes/wap/img/go-right.png) right center no-repeat;
+  background-size: 17.6vw 8vw, 2.13333vw 3.2vw;
+  color: #707070;
 }
