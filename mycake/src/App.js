@@ -13,6 +13,7 @@ import Sign from './pages/sign/index';
 import Login from './pages/login/index';
 import Goods from './pages/Goods/index';
 import AddLocal from './pages/addlocal';
+import Editlocal from './pages/editlocal';
 // import Cake from './pages/Type/Cake/index';
 // import CCake from './pages/Type/CCake/index';
 // import Gift from './pages/Type/Gift/index';
@@ -148,9 +149,10 @@ class App extends Component {
               }
               <Route path='/sign' component={Sign} />
               <Route path='/login' component={Login} />
-              <Route path='/addlocal' component={AddLocal} />
               <Route path='/goods' component={Goods} />
               <Route path='/shopcar' component={Shopcar} />
+              <Route path='/addlocal' component={AddLocal} />
+              <Route path='/editlocal' component={Editlocal} />
               <Redirect from='/' to='/home' exact />
             </Switch>
         </div>
