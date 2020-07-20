@@ -1,7 +1,6 @@
 body {
   width: 100%;
   height: 100%;
-  background-color: #F6F6F6;
 }
 
 .box {
@@ -31,6 +30,7 @@ body {
 
 .box .editTitle h2 {
   line-height: 11.73333vw;
+  font-size: 4.26667vw;
 }
 
 .box .editInput {
@@ -72,8 +72,9 @@ body {
 }
 
 .box .editInput > li:nth-child(4) > textarea {
+  margin-top: 2.66667vw;
   width: 78.4vw;
-  height: 22.93333vw;
+  height: 20.26667vw;
   float: right;
   border: none;
 }

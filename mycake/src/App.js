@@ -50,8 +50,9 @@ class App extends Component {
         this.setState({
             current:pathname
         })
-       
   }
+
+
   //传进来的是path：/home /type /person
   changeMenu=({key,item})=>{
     this.setState({
