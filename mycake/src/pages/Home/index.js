@@ -76,14 +76,14 @@ import http from '../../utils/http'
                         </h3>
                         <ul>
                           <li>
-                            <a>
+                            <a href={'http://localhost:3000/#/goods/'+item.gid}>
                               <img src={item.img}/>
                             </a>
                             <div className='bottom-price-cart'>
-                              <a href=''>
+                              <a href={'http://localhost:3000/#/goods/'+item.gid}>
                                 <h4>
-                                  <span className="title">蔓生</span>
-                                  <span className="price">198.00</span>
+                                  <span className="title">{item.chtitle}</span>
+                                  <span className="price">{item.price}</span>
                                   <span >元/454g(1.0磅)</span>
                                 </h4>
                                 <p>树莓奶油与浆果慕斯蛋糕</p>
@@ -164,39 +164,6 @@ import http from '../../utils/http'
                   }
                 </ul>
                 {this.showdata()}
-                {/* {
-                    <div className="mould-goods">
-                      <div className="mould-goods-content">
-                        <h3 className="title-goods">
-                          <span>新品</span>
-                          <a>
-                            更多
-                            <i className="new-home-more"></i>
-                          </a>
-                        </h3>
-                        <ul>
-                          <li>
-                            <a>
-                              <img src='https://static.21cake.com//upload/images/fbbe0ae94fa58f5213de60f5ffdce072.jpg'/>
-                            </a>
-                            <div className='bottom-price-cart'>
-                              <a href=''>
-                                <h4>
-                                  <span className="title">蔓生</span>
-                                  <span className="price">198.00</span>
-                                  <span >元/454g(1.0磅)</span>
-                                </h4>
-                                <p>树莓奶油与浆果慕斯蛋糕</p>
-                              </a>
-                              <button className="add-to-cart_22010">
-                                <i className='new-home-icon'></i>
-                              </button>
-                            </div>
-                          </li>
-                        </ul>
-                      </div>
-                    </div>
-                } */}
                 <div className='home-mould mould-activity'>
                   <h3>
                     <span>廿一客·活动</span>
