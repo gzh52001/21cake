@@ -1,5 +1,5 @@
 import React , { Component } from 'react';
-import { NavBar,Drawer, List,} from 'antd-mobile';
+import { NavBar,Drawer, List} from 'antd-mobile';
 import 'antd-mobile/dist/antd-mobile.css';
 import {Switch, Route, Redirect,withRouter} from 'react-router-dom';
 // import './icon/iconfont/iconfont'
@@ -46,7 +46,7 @@ class App extends Component {
     // console.log('App.props',this.props);
     //打开页面我们是重定向在home，也就是把props里面的location里面的pathname设置为/home,这里是把pathname解析出来
     const {location:{pathname}} = this.props;
-    //把解析出来的pathname赋给state的current
+    //把解析出来的pathname赋给state的current,然后用来路由跳转
         this.setState({
             current:pathname
         })
@@ -75,12 +75,13 @@ class App extends Component {
   }
 
 
-  //传进来的是path：/home /type /person
+  //传进来的是path：/home /type /person，根据pathname跳转
   changeMenu=({key,item})=>{
     this.setState({
       current:key
     })
   }
+  //菜单栏跳转事件
   goto=(path)=>{
     // console.log(path);
     this.props.history.push(path);
@@ -88,10 +89,11 @@ class App extends Component {
     this.setState({ open: !this.state.open })
     this.titleMsg()
   }
+  //根据路由跳转
   gogogo=(path)=>{
     this.props.history.push(path);
   }
-  //抽屉功能，用于展现首页、分类、个人
+  //抽屉功能，用于展现首页、分类、个人，展示菜单功能
   onOpenChange = (...args) => {
     this.setState({ open: !this.state.open });
     this.titleMsg()
@@ -187,4 +189,4 @@ class App extends Component {
   }
 }
 App = withRouter(App)
- export default App;
+export default App;
