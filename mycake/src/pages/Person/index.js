@@ -9,7 +9,9 @@ import './iconfont.css';
 class Person extends Component {
 
     componentWillMount(){
+        //将登录状态的账号信息存储到state中
        this.setState({phone:localStorage.getItem('phone')})
+        //console.log(this.state.phone);
     }
 
     goto = (path)=>{
