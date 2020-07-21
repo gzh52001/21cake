@@ -1,8 +1,14 @@
 import React, { Component } from 'react'
-import { Carousel,WingBlank, NavBar,Drawer, List,D} from 'antd-mobile';
+import { Carousel,WingBlank, NavBar,Drawer, List,Toast} from 'antd-mobile';
 import {withRouter} from 'react-router-dom';
 import './goods.css'
 import http from '../../utils/http'
+
+//成功提示框
+function successToast() {
+    Toast.success('成功添加到购物车！', 1);
+  }
+
 class Goods extends Component {
     state={
         datalbt:null,
@@ -13,7 +19,6 @@ class Goods extends Component {
     //打开商品选择框
     openchange=(...args)=>{
         let goodsdrawer=document.getElementsByClassName("goods-drawer")[0]
-        // console.log(goodsdrawer);
         //要先判断有没有选了规格，选了的话havechange就是true，那么就加入购物车，没有的话得选规格然后havechange变为true
         if(this.state.havechange){
             if(!this.state.open){
@@ -75,13 +80,11 @@ class Goods extends Component {
     checkweight=(idx)=>{
         //改变高亮
         let cakelis=document.getElementsByClassName('cakeweight');
-        // console.log(cakelis,idx);
         for(var i=0;i<cakelis.length;i++){
             //移除所有高亮
             cakelis[i].classList.remove('active')
         }
         //给目标设置高亮
-        console.log(idx);
         cakelis[idx-1].classList.add('active');
         //改变弹出框规格各个值
         var str=`
@@ -103,58 +106,6 @@ class Goods extends Component {
         let cakeprice = document.getElementsByClassName('details-price')[0]
         cakeprice.innerHTML=`¥${this.state.datamsg[0].price*idx}.00`;
         //改变seletecard的各个值
-        // let seletecard = document.getElementsByClassName('select-card')[0]
-        // console.log(seletecard);
-        
-        var svr=`
-        <ul className='select-specifications'>
-            <li>
-                <a className='J-specifications'>
-                已选择：454g(1.0磅)
-                <i></i>
-                </a>
-            </li>
-        </ul>
-        <div className='details-options-card'>
-            <ul className='details-options'>
-                <li className='details-options-size'>
-                    <i></i>
-                12.5x12.5cm
-                </li>
-                <li className='details-options-unmber'>
-                    <i></i>
-                    3-4人
-                </li>
-                <li className='details-options-laid'>
-                    <i></i>
-                    含5套餐具（蜡烛需单独订购）
-                </li>
-                <li className='details-options-time'></li>
-            </ul>
-        </div>
-        <ul className='store-info'>
-            <li>
-                <img src='https://static.21cake.com/themes/wap/img/fresh.png' alt="保鲜条件"></img>
-                <span>保鲜条件</span>
-                <div>
-                    <p>0－4℃保藏10小时，5℃食用为佳</p>
-                </div>
-            </li>
-            <li data-sweet='3' id='sweetList'>
-                <img src='https://m.21cake.com/themes/wap/img/sweet.png'></img>
-                <span>参考甜度</span>
-                <div>
-                    <p className='sweet-list'>
-                        <i className='active'></i>
-                        <i className='active'></i>
-                        <i className='active'></i>
-                        <i ></i>
-                        <i></i>
-                    </p>
-                </div>
-            </li>
-        </ul>`;
-        // seletecard.innerHTML=svr;
     }
     showlbt=()=>{
         if(this.state.datalbt.length){
@@ -197,7 +148,7 @@ class Goods extends Component {
                         <span>{this.state.datamsg[0].chtitle}</span>
                     </div>
                     <p className='price-label'>
-                        <span className='top-price'>{"￥"+this.state.datamsg[0].price+".00"}</span>
+                        <span className='top-price'>{"￥"+this.state.datamsg[0].price*this.state.weight+".00"}</span>
                     </p>
                     <div className='pro-details-label'>
                         <a>新品 ›</a>
@@ -219,9 +170,9 @@ class Goods extends Component {
                     <div className='select-card'>
                         <ul className='select-specifications'>
                             <li>
-                                <a className='J-specifications'>
-                                已选择：454g(1.0磅)
-                                <i></i>
+                                <a className='J-specifications' style={{color:'#442818'}}>
+                                {`已选择：${454*this.state.weight}g(${1*this.state.weight}.0磅)`}
+                                <i onClick={this.openchange}></i>
                                 </a>
                             </li>
                         </ul>
@@ -286,6 +237,25 @@ class Goods extends Component {
             )
         }
     }
+    //添加商品
+    add=(gid)=>{
+        console.log(gid);
+        //根据商品id先查询这个商品信息，然后加到购物车
+        http.get('/good/getgood/'+gid).then(res=>{
+          //获取改商品信息
+          let goodmsg= res.data.p[0];
+          goodmsg.num++;
+          //然后存到数据库，购物车那边再调用
+          console.log(goodmsg);
+          http.post('/shopcar/addgoods',{gid:goodmsg.gid,img:goodmsg.img,num:goodmsg.num,cname:goodmsg.chtitle,ename:goodmsg.egtitle,weight:goodmsg.weight,price:goodmsg.price}).then(res=>{
+            console.log(res);
+          //成功后弹出提醒
+          if(res.flag){
+            successToast()
+          }
+          })
+        });
+      }
     render() {
         let {aa}=this.state
         const {datalbt,datamsg} = this.state;
@@ -298,27 +268,8 @@ class Goods extends Component {
                             <p className='details-price'>¥198.00</p>
                             <div className='suspension-spec-box'>
                                 <ul className='details-options'>
-                                    {/* <li className='details-options-size'>
-                                        <i></i>
-                                        12.5x12.5cm
-                                    </li>
-                                    <li className='details-options-unmber'>
-                                        <i></i>
-                                        3-4人
-                                    </li>
-                                    <li className='details-options-laid'>
-                                        <i></i>
-                                        含5套餐具（蜡烛需单独订购）
-                                    </li> */}
                                 </ul>
                             </div>
-                            {/* <div className='extra-box'>
-                                <p className='detail-spec-title'>规格</p>
-                                <ul className='details-suspension-size-extra'>
-                                    <li className='goods-1318'>蔓生(有酒款)</li>
-                                    <li className='goods-1319 active'>蔓生(无酒款)</li>
-                                </ul>
-                            </div> */}
                             <div className='normal-box'>
                                 <p className='detail-spec-title'>商品规格</p>
                                 <ul className='details-suspension-size'>
@@ -346,13 +297,10 @@ class Goods extends Component {
             }
         </List>)
         return (
-            
             <div className="goods">
                 {/* 有数据才渲染没数据不渲染 */}
                 {datalbt ? this.showlbt(): null}
                 {datamsg ? this.showdatamsg(): null}
-                
-                
                 <div className='footer'>
                     <ul>
                     <li id='appDownloadLink'>
@@ -400,7 +348,7 @@ class Goods extends Component {
                     mode="light"
                     className='bottom-addcart-button'
                     leftContent={[
-                        <a key='0' className='left-buy' data-goods-id='1318'>立即购买</a>
+                        <a key='0' className='left-buy' data-goods-id='1318' onClick={datamsg ? this.add.bind(null,this.state.datamsg[0].gid) : null}>立即购买</a>
                     ]}
                     rightContent={[
                         <a key='0' className='join-cart' data-goods-id='1318' onClick={this.openchange}>加入购物车</a>

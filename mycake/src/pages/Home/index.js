@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Carousel,WingBlank} from 'antd-mobile';
+import { Carousel,WingBlank,Toast,WhiteSpace,Button } from 'antd-mobile';
 import './home.css'
 import {withRouter} from 'react-router-dom';
 
@@ -10,6 +10,11 @@ import Gift from '../Type/Gift/index';
 // import IceCream from '../Type/IceCream/index';
 import Tea from '../Type/Tea/index'
 import http from '../../utils/http'
+
+//成功提示框
+function successToast() {
+  Toast.success('成功添加到购物车！', 1);
+}
 
  class Home extends Component {
     state = {
@@ -136,6 +141,11 @@ import http from '../../utils/http'
           console.log(goodmsg);
           http.post('/shopcar/addgoods',{gid:goodmsg.gid,img:goodmsg.img,num:goodmsg.num,cname:goodmsg.chtitle,ename:goodmsg.egtitle,weight:goodmsg.weight,price:goodmsg.price}).then(res=>{
             console.log(res);
+          //成功后弹出提醒
+          if(res.flag){
+            successToast()
+          }
+          
           })
         });
       }
@@ -295,3 +305,8 @@ import http from '../../utils/http'
 }
 Home = withRouter(Home)
 export default Home
+
+
+
+
+

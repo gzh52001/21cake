@@ -8,7 +8,6 @@ ol, ul, div {
   margin: 0;
   padding: 0;
   font-size: 3.2vw;
-  color: #442818;
 }
 
 li {
@@ -58,7 +57,6 @@ a, a:visited, a:link {
   line-height: 4.8vw;
   color: #C69C6D;
   display: inline-block;
-  vertical-align: middle;
   font-size: 3.2vw;
 }
 
@@ -213,7 +211,6 @@ a, a:visited, a:link {
   color: #C69C6D;
   display: inline-block;
   vertical-align: middle;
-  margin-top: -1.06667vw;
 }
 
 .mould-goods .mould-goods-content ul li .bottom-price-cart h4 span {
