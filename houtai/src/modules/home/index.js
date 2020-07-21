@@ -16,6 +16,7 @@ import logo from '#/images/logo.png';
 import header from '#/images/header.png';
 
 import Login from '../login'
+// import PropsMange from './pages/props/index';
 import MemberMange from './pages/memberMange/index';
 import GoodsMange from './pages/goodsMange/index';
 
@@ -79,15 +80,19 @@ class Home extends React.Component {
             });
         }
     };
-    //退出
+    // 退出
     logout = ()=>{
         this.props.history.push('/login');
     }
+    // 个人资料
+    // about = ()=>{
+    //     this.props.history.push('/props');
+    // }
     //导航下拉菜单
     avatarMenu = (
         <Menu onClick={this.onClick} style={{ top: '18px', background: '#000' }}>
-            <Menu.Item key="1" style={{color:'#F09'}}>个人资料</Menu.Item>
-            <Menu.Item key="2" style={{color:'#F09'}}>修改密码</Menu.Item>
+            {/* <Menu.Item key="1" style={{color:'#F09'}}>个人资料</Menu.Item> */}
+            {/* <Menu.Item key="2" style={{color:'#F09'}}>修改密码</Menu.Item> */}
             <Menu.Item key="3" style={{ color: '#F09' }} onClick={this.logout}>退出登录</Menu.Item>
         </Menu>
     );
@@ -147,7 +152,6 @@ class Home extends React.Component {
                         <Switch>
                             {
                                 this.state.menu.map(item => (
-                                    // <Route key={item.path} path={'/home' + item.path} component={item.component} exact />
                                     item.children ?
                                         item.children.map(child=>(
                                             <Route key={'home' + item.path +child.path} path={'/home' + item.path + child.path} component={child.component} exact />
@@ -157,6 +161,7 @@ class Home extends React.Component {
                                 ))
                             }
                             <Route path="/login" component={Login}/>
+                            {/* <Route path="/props" component={PropsMange} /> */}
                             <Redirect from="/" to="/home"/>
                             <Redirect to="/404"/>
                         </Switch>
