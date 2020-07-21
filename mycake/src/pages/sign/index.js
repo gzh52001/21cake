@@ -1,7 +1,8 @@
 //登录页面
 import React, { Component } from 'react';
 import './sign.css';
-import './base.css'
+import './base.css';
+import http from '../../utils/http';
 
 class Sign extends Component{
 
@@ -39,6 +40,9 @@ class Sign extends Component{
         
         console.log(spho,spsw);
 
+        http.get('/user/login',{username:spho,psw:spsw}).then((res)=>{
+            console.log(res);
+        })
     }
 
     render(){

@@ -73,7 +73,7 @@ body {
   position: relative;
 }
 
-.box .editInput > li:nth-child(3) .ant-cascader-picker {
+.box .editInput > li:nth-child(3) > .ant-cascader-picker {
   height: 10.66667vw;
   width: 72vw;
   margin-left: 10.66667vw;
@@ -82,15 +82,15 @@ body {
   vertical-align: middle;
 }
 
-.box .editInput > li:nth-child(3) .ant-cascader-picker .ant-cascader-picker-label {
+.box .editInput > li:nth-child(3) > .ant-cascader-picker .ant-cascader-picker-label {
   margin-top: -4vw;
 }
 
-.box .editInput > li:nth-child(3) .ant-cascader-picker input {
+.box .editInput > li:nth-child(3) > .ant-cascader-picker > input {
   border: none;
 }
 
-.box .editInput > li:nth-child(3) .ant-cascader-picker .ant-cascader-picker-arrow {
+.box .editInput > li:nth-child(3) > .ant-cascader-picker .ant-cascader-picker-arrow {
   margin-top: -2.66667vw;
 }
 
