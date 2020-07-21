@@ -68,6 +68,7 @@ import http from '../../utils/http'
         // console.log(this.state);
         //数据没到就不渲染，数据到了就渲染
         if(this.state.cakedata){
+          //传过来的商品
           return (
             this.state.cakedata.map((item,index)=>(
               <div className="mould-goods" key={item.gid} >
@@ -94,7 +95,7 @@ import http from '../../utils/http'
                           <p>树莓奶油与浆果慕斯蛋糕</p>
                         </a>
                         <button className="add-to-cart_22010">
-                          <i className='new-home-icon'></i>
+                          <i className='new-home-icon' onClick={this.add.bind(null,item.gid)}></i>
                         </button>
                       </div>
                     </li>
@@ -105,13 +106,14 @@ import http from '../../utils/http'
           )
         }
       }
+      //首页底部文章活动
       showwenzhang=()=>{
         
         if(this.state.wenzhang){
-          console.log(this.state.wenzhang);
+          // console.log(this.state.wenzhang);
           return (
             this.state.wenzhang.map((item,index)=>(
-              console.log(item),
+              // console.log(item),
                 <div className='left-img-div' key={index}>
                   <a>
                     <div className='wzimg' style={{background:"url("+item.img+") no-repeat",backgroundSize:'100%'}}></div>
@@ -121,6 +123,21 @@ import http from '../../utils/http'
             ))
           )
         }
+      }
+      //添加商品
+      add=(gid)=>{
+        // console.log(gid);
+        //根据商品id先查询这个商品信息，然后加到购物车
+        http.get('/good/getgood/'+gid).then(res=>{
+          //获取改商品信息
+          let goodmsg= res.data.p[0];
+          goodmsg.num++;
+          //然后存到数据库，购物车那边再调用
+          console.log(goodmsg);
+          http.post('/shopcar/addgoods',{gid:goodmsg.gid,img:goodmsg.img,num:goodmsg.num,cname:goodmsg.chtitle,ename:goodmsg.egtitle,weight:goodmsg.weight,price:goodmsg.price}).then(res=>{
+            console.log(res);
+          })
+        });
       }
       render() {
         const {typedata} = this.state;
