@@ -84,3 +84,13 @@ html, body {
   color: white;
   background-color: #442818;
 }
+
+#login-box .gotosign {
+  color: black;
+  float: right;
+  margin-top: 5.33333vw;
+}
+
+#login-box .gotosign > a {
+  color: black;
+}

@@ -146,6 +146,11 @@ class Login extends Component{
     }
 
 
+    //跳转到登录页面
+    gotosign=()=>{
+        this.props.history.push('/sign');
+    }
+
     // async componentDidMount(){
     //     const {data} = await http.post('/login/index',{})
     // }
@@ -197,6 +202,9 @@ class Login extends Component{
                         <li>
                             <button onClick={this.login}>注册</button>
                         </li>
+                        <div className="gotosign">
+                            <a onClick={this.gotosign}>去登录</a>
+                        </div>
                     </ul>
                 </div>
         )
