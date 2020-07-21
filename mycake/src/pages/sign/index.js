@@ -52,7 +52,11 @@ class Sign extends Component{
             console.log(res);
             if(res.flag ==true){
                 
-                this.props.history.push('/home');
+                localStorage.setItem('phone',spho);
+                localStorage.setItem('psw',spsw);
+                localStorage.setItem('token',res.data.token);
+
+                this.props.history.push('/person');
                 
             }else{
                 alert("登录失败，用户名或密码错误");

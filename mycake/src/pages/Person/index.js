@@ -9,15 +9,14 @@ import './iconfont.css';
 class Person extends Component {
 
     componentWillMount(){
-
-        console.log(this.props)
-
-       this.setState({phone:13632945150})
+       this.setState({phone:localStorage.getItem('phone')})
     }
 
     goto = (path)=>{
         this.props.history.push(path);
-        
+        localStorage.removeItem('phone');
+        localStorage.removeItem('psw');
+        localStorage.removeItem('token');
     }
 
     render() {
