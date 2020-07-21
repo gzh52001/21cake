@@ -52,50 +52,72 @@ import http from '../../utils/http'
         this.props.history.push(path)
       }
       async componentDidMount() {
-        //请求数据
-        const {data} = await http.get('/good/goodslist',{page:1,size:5})
+        //请求商品数据
+        const {data} = await http.get('/good/goodslist',{page:1,size:5});
+        //请求底部文章数据
+        const wenzhang = await http.get('/wz/wenzhang',{id:'pdx'})
+        // console.log(wenzhang);
         // const cakedata=data;
         //把数据添加到state
         this.setState({
-          cakedata:[...data]
+          cakedata:[...data],
+          wenzhang:[...wenzhang.data]
         })
       }
       showdata=()=>{
+        // console.log(this.state);
         //数据没到就不渲染，数据到了就渲染
         if(this.state.cakedata){
           return (
             this.state.cakedata.map((item,index)=>(
               <div className="mould-goods" key={item.gid} >
-                      <div className="mould-goods-content">
-                        <h3 className="title-goods">
-                          <span>新品</span>
-                          <a>
-                            更多
-                            <i className="new-home-more"></i>
-                          </a>
-                        </h3>
-                        <ul>
-                          <li>
-                            <a href={'http://localhost:3000/#/goods/'+item.gid}>
-                              <img src={item.img}/>
-                            </a>
-                            <div className='bottom-price-cart'>
-                              <a href={'http://localhost:3000/#/goods/'+item.gid}>
-                                <h4>
-                                  <span className="title">{item.chtitle}</span>
-                                  <span className="price">{item.price}</span>
-                                  <span >元/454g(1.0磅)</span>
-                                </h4>
-                                <p>树莓奶油与浆果慕斯蛋糕</p>
-                              </a>
-                              <button className="add-to-cart_22010">
-                                <i className='new-home-icon'></i>
-                              </button>
-                            </div>
-                          </li>
-                        </ul>
+                <div className="mould-goods-content">
+                  <h3 className="title-goods">
+                    <span>新品</span>
+                    <a>
+                      更多
+                      <i className="new-home-more"></i>
+                    </a>
+                  </h3>
+                  <ul>
+                    <li>
+                      <a href={'http://localhost:3000/#/goods/'+item.gid}>
+                        <img src={item.img}/>
+                      </a>
+                      <div className='bottom-price-cart'>
+                        <a href={'http://localhost:3000/#/goods/'+item.gid}>
+                          <h4>
+                            <span className="title">{item.chtitle}</span>
+                            <span className="price">{item.price}</span>
+                            <span >元/454g(1.0磅)</span>
+                          </h4>
+                          <p>树莓奶油与浆果慕斯蛋糕</p>
+                        </a>
+                        <button className="add-to-cart_22010">
+                          <i className='new-home-icon'></i>
+                        </button>
                       </div>
-                    </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            ))
+          )
+        }
+      }
+      showwenzhang=()=>{
+        
+        if(this.state.wenzhang){
+          console.log(this.state.wenzhang);
+          return (
+            this.state.wenzhang.map((item,index)=>(
+              console.log(item),
+                <div className='left-img-div' key={index}>
+                  <a>
+                    <div className='wzimg' style={{background:"url("+item.img+") no-repeat",backgroundSize:'100%'}}></div>
+                    <h6>{item.title}</h6>
+                  </a>
+                </div>
             ))
           )
         }
@@ -103,7 +125,8 @@ import http from '../../utils/http'
       render() {
         const {typedata} = this.state;
         const {cakedata}=this.state;
-        console.log(this.state.cakedata);
+        const {wenzhang}=this.state
+        // console.log(this.state.cakedata);
         return (
           <div>
               <WingBlank>
@@ -193,36 +216,14 @@ import http from '../../utils/http'
                 <div className='home-community-content'>
                   <div className='community-list'>
                     <div className='left-img'>
-                      <div className='left-img-div'>
-                        <a>
-                          <div className='wzimg'></div>
-                          <h6>冬季刊·进博会</h6>
-                        </a>
-                      </div>
-                      <div className='left-img-div'>
-                        <a>
-                          <div className='wzimg'></div>
-                          <h6>冬季刊·进博会</h6>
-                        </a>
-                      </div>
-                      <div className='left-img-div'>
-                        <a>
-                          <div className='wzimg'></div>
-                          <h6>冬季刊·进博会</h6>
-                        </a>
-                      </div>
-                      <div className='left-img-div'>
-                        <a>
-                          <div className='wzimg'></div>
-                          <h6>冬季刊·进博会</h6>
-                        </a>
-                      </div>
+                      {this.showwenzhang()}
                     </div>
                     <div className='look_more'>
                       <a href='https://m.21cake.com/magazine.html'>查看更多</a>
                     </div>
                   </div>
                 </div>
+               
               </div>
               <div className='lost-bottom'>
                 <div>没了</div>
