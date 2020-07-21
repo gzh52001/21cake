@@ -2,12 +2,12 @@
 import React,{Component} from 'react';
 
 
-import './base.css'
-import './index.css'
 
 import { Cascader } from 'antd';
 import 'antd/dist/antd.css';
 
+import './base.css'
+import './index.css'
 const options = [
     {
       value: '广州市',

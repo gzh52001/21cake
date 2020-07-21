@@ -78,7 +78,7 @@ body{
             vertical-align: middle;
             position: relative;
 
-            .ant-cascader-picker{
+            >.ant-cascader-picker{
                 
                 height: vw(40);
                 width: vw(270);
@@ -90,7 +90,7 @@ body{
                 .ant-cascader-picker-label{
                     margin-top: vw(-15);
                 }
-                input{
+                >input{
                     border: none;
                 }
                 .ant-cascader-picker-arrow{

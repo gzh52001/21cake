@@ -1,11 +1,11 @@
 //注册页面
 import React, { Component } from 'react';
+import 'antd-mobile/dist/antd-mobile.css';
 import './login.css';
 import './base.css';
-
-import 'antd-mobile/dist/antd-mobile.css';
-import { DatePicker, List } from 'antd-mobile';
 import http from '../../utils/http';
+
+import { DatePicker, List } from 'antd-mobile';
 
 const nowTimeStamp = Date.now();
 const now = new Date(nowTimeStamp);
@@ -57,36 +57,58 @@ class Login extends Component{
     
     //注册按钮的点击事件
     login =()=>{
-        
         let phone= document.getElementsByClassName("phone")[0].value;
         let psw= document.getElementsByClassName("pas2")[0].value;
         let birthday = document.getElementsByClassName("am-list-extra")[0].innerHTML;
     
-       
         console.log(phone,psw,birthday);
         
+        //判断四个报错信息是否出现
+        let m1234 = this.state.m1&&this.state.m2&&this.state.m3&&this.state.m4;
+
+        if(phone&&psw&&m1234){//填写了账号密码，且无报错信息才可注册
+            http.post('/user/reg',{username:phone,psw:psw,birthday:birthday}).then((res)=>{
+                console.log(res);
+                if(res.flag == true){
+                    this.props.history.push('/sign');
+                }
+            })
+        }
     }
 
-    //http中封装好的post请求函数
-    // export function post(url,data,options={method:'post'}){
-    //     return request(url,data,options)
-    // }
-
-
-
+    
 
     //三个err函数用于正则提示信息的显示隐藏
     err1 = ()=>{
         let phone = document.getElementsByClassName("phone")[0].value;
-        // console.log(phone);
+        // 正则验证手机号码
         let rule1 = /^[1][3,4,5,7,8][0-9]{9}$/;
         if(rule1.test(phone)==false){
             document.getElementsByClassName("errmsg-pho")[0].style.display = "block";
             document.getElementsByClassName("errmsg-pas1")[0].style.display = "none";
             document.getElementsByClassName("errmsg-pas2")[0].style.display = "none";
+            document.getElementsByClassName("repeat")[0].style.display = "none";
+            this.setState({m1:false});
         }else{
             document.getElementsByClassName("errmsg-pho")[0].style.display = "none";
+            this.setState({m1:true});
         }
+
+        //验证账号是否已被注册
+        if(phone){//验证账号是否为空
+            http.get('/user/checkname',{username:phone}).then((res)=>{
+                console.log(res.flag);
+                //向后台验证账号
+                if(res.flag == false){
+                    document.getElementsByClassName("repeat")[0].style.display = "block";
+                    this.setState({m2:false})
+                }else{
+                    document.getElementsByClassName("repeat")[0].style.display = "none";
+                    this.setState({m2:true})
+                }
+            })
+        }
+
     }
 
     err2 = ()=>{
@@ -96,8 +118,10 @@ class Login extends Component{
             document.getElementsByClassName("errmsg-pho")[0].style.display = "none";
             document.getElementsByClassName("errmsg-pas1")[0].style.display = "block";
             document.getElementsByClassName("errmsg-pas2")[0].style.display = "none";
+            this.setState({m3:false})
         }else{
             document.getElementsByClassName("errmsg-pas1")[0].style.display = "none";
+            this.setState({m3:true})
         }
     }
     err3 = ()=>{
@@ -107,8 +131,11 @@ class Login extends Component{
             document.getElementsByClassName("errmsg-pho")[0].style.display = "none";
             document.getElementsByClassName("errmsg-pas1")[0].style.display = "none";
             document.getElementsByClassName("errmsg-pas2")[0].style.display = "block";
+            this.setState({m4:false})
         }else{
             document.getElementsByClassName("errmsg-pas2")[0].style.display = "none";
+            this.setState({m4:true})
+            
         }
     }
 
@@ -156,6 +183,7 @@ class Login extends Component{
                             </List>
 
                         <div className="erroBox">
+                            <p className="repeat"><i></i>&nbsp; 该账号已被注册 </p>
                             <p className="errmsg-pho"><i></i> &nbsp; 请输入正确的手机号码</p>
                             <p className="errmsg-pas1"><i></i> &nbsp; 密码：8～20字符，需同时包含英文和数字</p>
                             <p className="errmsg-pas2"><i></i> &nbsp; 两次密码不一致</p>
