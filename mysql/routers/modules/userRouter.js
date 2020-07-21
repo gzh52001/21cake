@@ -53,7 +53,7 @@ router.get('/checkname',async (req,res)=>{
 
 //注册  /user/reg
 router.post('/reg',async (req,res)=>{
-    let {username,psw,birthday} = req.body;
+    let {username,psw,birthday} = req.query;
     try{
         console.log('有人来注册了');
         console.log("账号"+username,"密码"+psw,"生日"+birthday);
