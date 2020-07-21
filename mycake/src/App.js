@@ -154,6 +154,7 @@ class App extends Component {
               <Route path='/shopcar' component={Shopcar} />
               <Route path='/addlocal' component={AddLocal} />
               <Route path='/editlocal' component={Editlocal} />
+              <Route path='/home' component={Home} />
               <Redirect from='/' to='/home' exact />
             </Switch>
         </div>

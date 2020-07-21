@@ -3,13 +3,20 @@ import React, { Component } from 'react';
 import './sign.css';
 import './base.css';
 import http from '../../utils/http';
+import {withRouter} from 'react-router-dom';
 
 class Sign extends Component{
+
+    componentDidMount(){
+        console.log(this.props);
+    }
 
     goto = (path)=>{
         this.props.history.push(path);
     }
 
+
+    //两个正则提示的判断函数
     serr1 = ()=>{
         let spho = document.getElementsByClassName("spho")[0].value;
         let rule1 = /^[1][3,4,5,7,8][0-9]{9}$/;
@@ -34,14 +41,22 @@ class Sign extends Component{
 
 
     //点击登录按钮事件
-    sign(){
+    sign=()=>{
         let spho = document.getElementsByClassName("spho")[0].value;
         let spsw = document.getElementsByClassName("spsw")[0].value;
         
         console.log(spho,spsw);
-
+        
+        let props=this.props;
         http.get('/user/login',{username:spho,psw:spsw}).then((res)=>{
             console.log(res);
+            if(res.flag ==true){
+                
+                this.props.history.push('/home');
+                
+            }else{
+                alert("登录失败，用户名或密码错误");
+            }
         })
     }
 
@@ -74,5 +89,5 @@ class Sign extends Component{
 
 }
 
-
+Sign = withRouter(Sign);
 export default Sign;

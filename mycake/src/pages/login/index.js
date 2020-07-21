@@ -70,6 +70,9 @@ class Login extends Component{
             http.post('/user/reg',{username:phone,psw:psw,birthday:birthday}).then((res)=>{
                 console.log(res);
                 if(res.flag == true){
+                    
+                    setTimeout( alert("注册成功"), 1000);
+                    
                     this.props.history.push('/sign');
                 }
             })
@@ -101,6 +104,9 @@ class Login extends Component{
                 //向后台验证账号
                 if(res.flag == false){
                     document.getElementsByClassName("repeat")[0].style.display = "block";
+                    document.getElementsByClassName("errmsg-pho")[0].style.display = "none";
+                    document.getElementsByClassName("errmsg-pas1")[0].style.display = "none";
+                    document.getElementsByClassName("errmsg-pas2")[0].style.display = "none";
                     this.setState({m2:false})
                 }else{
                     document.getElementsByClassName("repeat")[0].style.display = "none";

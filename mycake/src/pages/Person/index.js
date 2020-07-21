@@ -9,14 +9,15 @@ import './iconfont.css';
 class Person extends Component {
 
     componentWillMount(){
-        this.state = {
-            phone:'13632945150',
-        }
+
+        console.log(this.props)
+
+       this.setState({phone:13632945150})
     }
 
     goto = (path)=>{
         this.props.history.push(path);
-        // this.goto.bind(null,'/sign');
+        
     }
 
     render() {
