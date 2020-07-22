@@ -25,7 +25,8 @@ class Goods extends Component {
                 goodsdrawer.style="display:block"
             }else{
                 //把商品加入购物车,弹出加入成功
-                console.log("成功加入购物车");
+                // console.log(this.state.datamsg[0].gid);
+                this.add(this.state.datamsg[0].gid)
                 goodsdrawer.style="display:none"
             }
             
@@ -61,6 +62,7 @@ class Goods extends Component {
     changeweight=(idx)=>{
         //设置规格
         this.setState({weight:idx});
+        // console.log(this.state);
         // console.log(this.state.weight);这state设置是等我们点击事件结束才设置，所以此处log出来的还是原来的
         // console.log(idx);
         switch(idx){
@@ -105,7 +107,22 @@ class Goods extends Component {
         //改变弹出框价格
         let cakeprice = document.getElementsByClassName('details-price')[0]
         cakeprice.innerHTML=`¥${this.state.datamsg[0].price*idx}.00`;
-        //改变seletecard的各个值
+        //改变datamsg[0]的weight值
+        // this.setState({
+        //     datamsg:{}
+        // });
+        switch(idx){
+            case 1: this.state.datamsg[0].weight1=1 ;this.state.datamsg[0].weight2=0 ;this.state.datamsg[0].weight3=0;this.state.datamsg[0].weight4=0
+                break;
+            case 2: this.state.datamsg[0].weight2=1 ;this.state.datamsg[0].weight1=0;this.state.datamsg[0].weight3=0;this.state.datamsg[0].weight4=0
+                break;
+            case 3: this.state.datamsg[0].weight3=1 ;this.state.datamsg[0].weight1=0;this.state.datamsg[0].weight2=0;this.state.datamsg[0].weight4=0
+                break;
+            case 4: this.state.datamsg[0].weight4=1 ;this.state.datamsg[0].weight1=0;this.state.datamsg[0].weight2=0;this.state.datamsg[0].weight3=0
+                break;
+        }
+        // console.log(this.state.datamsg[0]);
+        this.setState({datamsg:this.state.datamsg});
     }
     showlbt=()=>{
         if(this.state.datalbt.length){
@@ -239,22 +256,25 @@ class Goods extends Component {
     }
     //添加商品
     add=(gid)=>{
-        console.log(gid);
+        // console.log(this.state.datamsg[0]);
         //根据商品id先查询这个商品信息，然后加到购物车
-        http.get('/good/getgood/'+gid).then(res=>{
-          //获取改商品信息
-          let goodmsg= res.data.p[0];
-          goodmsg.num++;
-          //然后存到数据库，购物车那边再调用
-          console.log(goodmsg);
-          http.post('/shopcar/addgoods',{gid:goodmsg.gid,img:goodmsg.img,num:goodmsg.num,cname:goodmsg.chtitle,ename:goodmsg.egtitle,weight:goodmsg.weight,price:goodmsg.price}).then(res=>{
+          http.post('/shopcar/addgoods',{
+              gid:this.state.datamsg[0].gid,
+              img:this.state.datamsg[0].img,
+              cname:this.state.datamsg[0].chtitle,
+              ename:this.state.datamsg[0].egtitle,
+              weight:this.state.weight,
+              weight1:this.state.datamsg[0].weight1,
+              weight2:this.state.datamsg[0].weight2,
+              weight3:this.state.datamsg[0].weight3,
+              weight4:this.state.datamsg[0].weight4,
+              price:this.state.datamsg[0].price}).then(res=>{
             console.log(res);
           //成功后弹出提醒
           if(res.flag){
             successToast()
           }
           })
-        });
       }
     render() {
         let {aa}=this.state

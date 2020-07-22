@@ -171,6 +171,7 @@ body {
   display: block;
   width: 14%;
   position: absolute;
+  z-index: 1000000;
   right: 0;
   bottom: 0;
   font-size: 3.2vw;

@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Carousel,WingBlank,Toast,WhiteSpace,Button } from 'antd-mobile';
+import { Carousel,WingBlank,Toast} from 'antd-mobile';
 import './home.css'
 import {withRouter} from 'react-router-dom';
 
