@@ -112,6 +112,9 @@ class App extends Component {
       amdrawertop.style="min-height:0"
     }
   }
+
+  
+
   render() {
     const {menu,current} = this.state;
     //抽屉
