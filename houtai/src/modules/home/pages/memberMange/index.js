@@ -1,5 +1,5 @@
 import React,{ useState}  from 'react';
-import {  Breadcrumb,Input,Select,Button,Modal,Form,Radio,DatePicker } from 'antd';
+import {  Breadcrumb,Input,Select,Button,Modal,Form,Radio,DatePicker,Table,Tag,Space } from 'antd';
 import { HomeOutlined, UserOutlined } from '@ant-design/icons';
 
 const { Option } = Select;
@@ -103,9 +103,155 @@ const CollectionsPage = () => {
 function onChange(date, dateString) {
     console.log(date, dateString);
 }
+
+// 表格
+const columns = [
+    {
+      title: 'Name',
+      dataIndex: 'name',
+      key: 'name',
+      render: text => <a>{text}</a>,
+    },
+    {
+      title: 'Age',
+      dataIndex: 'age',
+      key: 'age',
+    },
+    {
+      title: 'Address',
+      dataIndex: 'address',
+      key: 'address',
+    },
+    {
+      title: 'Tags',
+      key: 'tags',
+      dataIndex: 'tags',
+      render: tags => (
+        <>
+          {tags.map(tag => {
+            let color = tag.length > 5 ? 'geekblue' : 'green';
+            if (tag === 'loser') {
+              color = 'volcano';
+            }
+            return (
+              <Tag color={color} key={tag}>
+                {tag.toUpperCase()}
+              </Tag>
+            );
+          })}
+        </>
+      ),
+    },
+    {
+      title: 'Action',
+      key: 'action',
+      render: (text, record) => (
+        <Space size="middle">
+          <a>编辑</a>
+          <a>删除</a>
+        </Space>
+      ),
+    },
+];
+  
+// 假数据
+const data =[
+    {
+        key:"1",
+        name:"余总",
+        age:18,
+        address:'人帅有钱',
+        tags:['nice','devlwo']
+    },{
+        key:"2",
+        name:'李总',
+        age:19,
+        address:'人帅有金',
+        tags :["loser"]
+    },{
+        key:"3",
+        name:'徐总',
+        age:18,
+        address:'人帅有money',
+        tags:['cool','teacher']
+    },{
+        key:"4",
+        name:"余总",
+        age:18,
+        address:'人帅有钱',
+        tags:['nice','devlwo']
+    },{
+        key:"5",
+        name:'李总',
+        age:19,
+        address:'人帅有金',
+        tags :["loser"]
+    },{
+        key:"6",
+        name:'徐总',
+        age:18,
+        address:'人帅有money',
+        tags:['cool','teacher']
+    },{
+        key:"7",
+        name:"余总",
+        age:18,
+        address:'人帅有钱',
+        tags:['nice','devlwo']
+    },{
+        key:"8",
+        name:'李总',
+        age:19,
+        address:'人帅有金',
+        tags :["loser"]
+    },{
+        key:"9",
+        name:'徐总',
+        age:18,
+        address:'人帅有money',
+        tags:['cool','teacher']
+    },{
+        key:"10",
+        name:'李总',
+        age:19,
+        address:'人帅有金',
+        tags :["loser"]
+    },{
+        key:"11",
+        name:'徐总',
+        age:18,
+        address:'人帅有money',
+        tags:['cool','teacher']
+    },{
+        key:"12",
+        name:'李总',
+        age:19,
+        address:'人帅有金',
+        tags :["loser"]
+    },{
+        key:"13",
+        name:'徐总',
+        age:18,
+        address:'人帅有money',
+        tags:['cool','teacher']
+    },{
+        key:"14",
+        name:'李总',
+        age:19,
+        address:'人帅有金',
+        tags :["loser"]
+    },{
+        key:"15",
+        name:'徐总',
+        age:18,
+        address:'人帅有money',
+        tags:['cool','teacher']
+    }
+]
+
 function MemberMange(){
     return (
-        <div className="mainInfo">
+        <div className="mainInfo" style={{ width:"100%" }}>
             <div className="BreadClass">
                 <Breadcrumb>
                     <Breadcrumb.Item href="">
@@ -120,7 +266,7 @@ function MemberMange(){
                 <div style={style}></div>
             </div>
             <div className="FromClass">
-                <div className="HeaderInfo" style={{float: "right"}}>
+                <div className="HeaderInfo" style={{float: "left"}}>
                     {/* 搜索框 */}
                     <Search placeholder="查询" onSearch={value => console.log(value)} enterButton style={{ width:200,marginLeft:10 }} />
                     {/* 下拉式 */}
@@ -136,6 +282,9 @@ function MemberMange(){
                     </div>
                     {/* 日期 */}
                     <DatePicker onChange={onChange} style={{marginLeft:10}}/>                               
+                </div>
+                <div className="FormDemo" style={{width:"100%",paddingTop:54}}> 
+                    <Table columns={columns} dataSource={data} />
                 </div>
             </div>
         </div>
