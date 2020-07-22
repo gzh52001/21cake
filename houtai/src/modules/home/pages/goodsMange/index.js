@@ -48,7 +48,7 @@ const CollectionCreateForm = ({ visible, onCreate, onCancel }) =>{
             >
             <Form.Item
                 name="title"
-                label="不知道"
+                label="食物商品"
                 rules={[
                     {
                         required:true,
@@ -58,7 +58,7 @@ const CollectionCreateForm = ({ visible, onCreate, onCancel }) =>{
             >
                 <Input />
             </Form.Item>
-            <Form.Item name="description" label="选填">
+            <Form.Item name="description" label="状态">
                 <Input type="textarea" />
             </Form.Item>
             <Form.Item name="modifier" className="collection-create-form_last-form-item">
@@ -108,48 +108,53 @@ function onChange(date, dateString) {
 // 表格
 const columns = [
     {
-        title:'Name',
-        dataIndex:'name',
-        key:'name',
-        render: text => <a>{text}</a>
-    },{
-        title:'Age',
-        dataIndex:'age',
-        ket:'age'
-    },{
-        title:'Address',
-        dataIndex:'address',
-        key:'address'
-    },{
-        title:'Tags',
-        dataIndex:'tags',
-        key:'tags',
-        render: tags =>{
-            <>
-                {tags.map(tag => {
-                    let color = tag.length > 5 ? 'geekblue' : 'green';
-                    if(tag === 'loser'){
-                        color = 'volcano';
-                    }
-                    return (
-                        <Tag color={color} key={tag}>
-                            {tag.toUpperCase()}
-                        </Tag>
-                    );
-                })}
-            </>
-        },
-    },{
-        title:'Action',
-        key:'action',
-        return:(text,record) => (
-            <Space size="middle">
-                <a>Invite {record.name}</a>
-                <a>Delete</a>
-            </Space>
-        ),
+      title: 'Name',
+      dataIndex: 'name',
+      key: 'name',
+      render: text => <a>{text}</a>,
+    },
+    {
+      title: 'Age',
+      dataIndex: 'age',
+      key: 'age',
+    },
+    {
+      title: 'Address',
+      dataIndex: 'address',
+      key: 'address',
+    },
+    {
+      title: 'Tags',
+      key: 'tags',
+      dataIndex: 'tags',
+      render: tags => (
+        <>
+          {tags.map(tag => {
+            let color = tag.length > 5 ? 'geekblue' : 'green';
+            if (tag === 'loser') {
+              color = 'volcano';
+            }
+            return (
+              <Tag color={color} key={tag}>
+                {tag.toUpperCase()}
+              </Tag>
+            );
+          })}
+        </>
+      ),
+    },
+    {
+      title: 'Action',
+      key: 'action',
+      render: (text, record) => (
+        <Space size="middle">
+          <a>编辑</a>
+          <a>删除</a>
+        </Space>
+      ),
     },
 ];
+  
 
 // 假数据
 const data =[
@@ -203,6 +208,42 @@ const data =[
         tags :["loser"]
     },{
         key:"9",
+        name:'徐总',
+        age:18,
+        address:'人帅有money',
+        tags:['cool','teacher']
+    },{
+        key:"10",
+        name:'李总',
+        age:19,
+        address:'人帅有金',
+        tags :["loser"]
+    },{
+        key:"11",
+        name:'徐总',
+        age:18,
+        address:'人帅有money',
+        tags:['cool','teacher']
+    },{
+        key:"12",
+        name:'李总',
+        age:19,
+        address:'人帅有金',
+        tags :["loser"]
+    },{
+        key:"13",
+        name:'徐总',
+        age:18,
+        address:'人帅有money',
+        tags:['cool','teacher']
+    },{
+        key:"14",
+        name:'李总',
+        age:19,
+        address:'人帅有金',
+        tags :["loser"]
+    },{
+        key:"15",
         name:'徐总',
         age:18,
         address:'人帅有money',
