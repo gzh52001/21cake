@@ -3,12 +3,12 @@ import { Carousel,WingBlank,Toast} from 'antd-mobile';
 import './home.css'
 import {withRouter} from 'react-router-dom';
 
-import Bread from '../Type/Bread/index';
-import Cake from '../Type/Cake/index';
+// import Bread from '../Type/Bread/index';
+// import Cake from '../Type/Cake/index';
 // import CCake from '../Type/CCake/index';
-import Gift from '../Type/Gift/index';
+// import Gift from '../Type/Gift/index';
 // import IceCream from '../Type/IceCream/index';
-import Tea from '../Type/Tea/index'
+// import Tea from '../Type/Tea/index'
 import http from '../../utils/http'
 
 //成功提示框
@@ -29,27 +29,27 @@ function successToast() {
         typedata:[
           {
             title:'蛋糕',
-            path:'/cake',
+            path:'type/cake',
             img:'https://static.21cake.com//upload/images/145995dff6c6458e0738ee2178a1a0df.png',
-            component:Cake
+            // component:Cake
           },
           {
             title:'面包',
-            path:'/bread',
+            path:'type/bread',
             img:'https://static.21cake.com//upload/images/561ca3d60f16a63299fd16d3e9e0c3c4.png',
-            component:Bread
+            // component:Bread
           },
           {
             title:'下午茶',
-            path:'/tea',
+            path:'type/tea',
             img:'https://static.21cake.com//upload/images/3b70ed637c61fc696faa7e983726ed7d.png',
-            component:Tea
+            // component:Tea
           },
           {
             title:'企业专区',
-            path:'/qiye',
+            path:'type/cake',
             img:'https://static.21cake.com//upload/images/760d7a2fe4c5e1bede87389fc843de7f.png',
-            component:Gift
+            // component:Gift
           }
         ],
       }
@@ -70,7 +70,6 @@ function successToast() {
         })
       }
       showdata=()=>{
-        // console.log(this.state);
         //数据没到就不渲染，数据到了就渲染
         if(this.state.cakedata){
           //传过来的商品
@@ -153,16 +152,12 @@ function successToast() {
         const {typedata} = this.state;
         const {cakedata}=this.state;
         const {wenzhang}=this.state
-        // console.log(this.state.cakedata);
         return (
           <div>
               <WingBlank>
               <Carousel
                 autoplay={true}
                 infinite
-                // slideWidth={1.1}
-              //   beforeChange={(from, to) => console.log(`slide from ${from} to ${to}`)}
-              //   afterChange={index => console.log('slide to', index)}
               >
                 {this.state.lbtdata.map((val,index) => (
                   <a
@@ -175,7 +170,6 @@ function successToast() {
                       alt=""
                       style={{ width: '100%', verticalAlign: 'top' }}
                       onLoad={() => {
-                        // fire window resize event to change height
                         window.dispatchEvent(new Event('resize'));
                         this.setState({ imgHeight: 'auto' });
                       }}
@@ -199,9 +193,9 @@ function successToast() {
                     全程冷链配送
                   </li>
                 </ul>
+                {/* 蛋糕面包下午茶专区 */}
                 <ul className="home-menu-box" id="home-menu">
                   {this.state.typedata.map((val,index) => (
-                    // console.log(val),
                     <li
                       key={val.title}
                       onClick={this.goto.bind(null,val.path)}

@@ -14,12 +14,6 @@ import Login from './pages/login/index';
 import Goods from './pages/Goods/index';
 import AddLocal from './pages/addlocal';
 import Editlocal from './pages/editlocal';
-// import Cake from './pages/Type/Cake/index';
-// import CCake from './pages/Type/CCake/index';
-// import Gift from './pages/Type/Gift/index';
-// import IceCream from './pages/Type/IceCream/index';
-// import Tea from './pages/Type/Tea/index'
-// @withRouter
 class App extends Component {
   state={
     current:'/home',

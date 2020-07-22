@@ -14,26 +14,47 @@ class Type extends Component {
         tabs:[
                 { title: '蛋糕', sub: '1' ,type:'cake'},
                 { title: '面包', sub: '2',type:'bread' },
-                { title: '咖啡下午茶', sub: '3',type:'tea' },
-                { title: '冰淇淋', sub: '4',type:'icecream' },
+                { title: '咖啡下午茶', sub: '3',type:'cake' },
+                { title: '冰淇淋', sub: '4',type:'cake' },
                 { title: '常温蛋糕', sub: '5',type:'cake' },
                 { title: '设计师礼品', sub: '6',type:'cake' },
             ],
         type:'cake',//默认是cake,
         typename:'',
-        typrtitle:''
+        typrtitle:'',
+        initialPage:0
     }
-    componentDidMount(){
-        // console.log(this.state.type);
-        //初始化渲染cake的数据
-        this.getdata(this.state.type)
+    // componentWillMount(i){
+    //     this.setState({initialPage:1})
+    // }
+    async componentWillMount(){
+        //如果首页点击蛋糕、面包就会在这里进行接收
+        let goodtype=this.props.location.pathname.split(`${this.props.match.path}/`)[1]
+        console.log(goodtype);
+        
+        if(goodtype){
+            //先找到传进来的type在tabs中的index然后设置给initialPage
+            for(var i=0;i<this.state.tabs.length;i++){
+                if(this.state.tabs[i].type==goodtype){
+                    await this.setState({initialPage:i});
+                    // console.log("initialPage:"+this.state.initialPage);
+                    this.getdata(goodtype);
+                    // break;
+                }
+            }
+        }else{
+            //初始化渲染cake的数据
+            this.getdata(this.state.type)
+        }
+        
+        
     }
     //切换type的时候
     getdata=(type)=>{
-        // console.log(type);
+        // console.log("initialPage:"+this.state.initialPage);
+        // console.log(this.state.initialPage);
         const data=  http.get(`/good/type/`+type)
         data.then(res=>{
-            // console.log(res.data);
             this.setState({typedata:res.data,type});
             this.showdata(type)
         })
@@ -70,8 +91,6 @@ class Type extends Component {
       }
     //不同类型商品跳转不同页面
     showdata=(type)=>{
-        // console.log(type);
-
         let typename=''
         let typrtitle=''
         switch(type){
@@ -130,15 +149,16 @@ class Type extends Component {
     
     render() {
         const {typedata}=this.state;
+        console.log("initialPage:"+this.state.initialPage);
         return (
             <div className="type">
                 <Tabs tabs={this.state.tabs}
-                initialPage={0}
+                //初始化值
+                initialPage={this.state.initialPage}
                 //高亮字体颜色
                 tabBarActiveTextColor={'#442818'}
                 //切换type
                 onChange={(tab, index) => { this.getdata(tab.type)}}
-                // onTabClick={(tab, index) => { console.log(tab.type); }}
                 >
                     {typedata ? this.showdata.bind(null,this.state.type) : null}
                     
