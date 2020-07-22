@@ -169,16 +169,20 @@ class MemberMange extends Component{
 
     }
 
-    ComponentDidMount(){
+    componentDidMount(){
+        console.log(1)
         http.get('/user/userslist',{page:1,size:6}).then((res)=>{
             console.log(res);
             let data = [...res.data];
             console.log(data);
-            console.log(1)
+            
                 this.setState({userlist:data})
             })
         console.log(this.state.userlist);
     }
+    // componentWillMount(){
+    //     console.log(1)
+    // }
 
     render(){
 
