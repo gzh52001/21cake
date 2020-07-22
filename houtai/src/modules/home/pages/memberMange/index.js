@@ -1,6 +1,7 @@
-import React,{ useState}  from 'react';
+import React,{ useState,Component}  from 'react';
 import {  Breadcrumb,Input,Select,Button,Modal,Form,Radio,DatePicker,Table,Tag,Space } from 'antd';
 import { HomeOutlined, UserOutlined } from '@ant-design/icons';
+import http from '../../../../http';
 
 const { Option } = Select;
 const { Search } = Input;
@@ -154,141 +155,73 @@ const columns = [
     },
 ];
   
-// 假数据
-const data =[
-    {
-        key:"1",
-        name:"余总",
-        age:18,
-        address:'人帅有钱',
-        tags:['nice','devlwo']
-    },{
-        key:"2",
-        name:'李总',
-        age:19,
-        address:'人帅有金',
-        tags :["loser"]
-    },{
-        key:"3",
-        name:'徐总',
-        age:18,
-        address:'人帅有money',
-        tags:['cool','teacher']
-    },{
-        key:"4",
-        name:"余总",
-        age:18,
-        address:'人帅有钱',
-        tags:['nice','devlwo']
-    },{
-        key:"5",
-        name:'李总',
-        age:19,
-        address:'人帅有金',
-        tags :["loser"]
-    },{
-        key:"6",
-        name:'徐总',
-        age:18,
-        address:'人帅有money',
-        tags:['cool','teacher']
-    },{
-        key:"7",
-        name:"余总",
-        age:18,
-        address:'人帅有钱',
-        tags:['nice','devlwo']
-    },{
-        key:"8",
-        name:'李总',
-        age:19,
-        address:'人帅有金',
-        tags :["loser"]
-    },{
-        key:"9",
-        name:'徐总',
-        age:18,
-        address:'人帅有money',
-        tags:['cool','teacher']
-    },{
-        key:"10",
-        name:'李总',
-        age:19,
-        address:'人帅有金',
-        tags :["loser"]
-    },{
-        key:"11",
-        name:'徐总',
-        age:18,
-        address:'人帅有money',
-        tags:['cool','teacher']
-    },{
-        key:"12",
-        name:'李总',
-        age:19,
-        address:'人帅有金',
-        tags :["loser"]
-    },{
-        key:"13",
-        name:'徐总',
-        age:18,
-        address:'人帅有money',
-        tags:['cool','teacher']
-    },{
-        key:"14",
-        name:'李总',
-        age:19,
-        address:'人帅有金',
-        tags :["loser"]
-    },{
-        key:"15",
-        name:'徐总',
-        age:18,
-        address:'人帅有money',
-        tags:['cool','teacher']
+
+
+
+
+class MemberMange extends Component{
+
+    constructor(){
+        super()
+        this.state = {
+            userlist:[],
+        }
+
     }
-]
 
-function MemberMange(){
-    return (
-        <div className="mainInfo" style={{ width:"100%" }}>
-            <div className="BreadClass">
-                <Breadcrumb>
-                    <Breadcrumb.Item href="">
-                    <HomeOutlined />
-                    </Breadcrumb.Item>
-                    <Breadcrumb.Item href="">
-                    <UserOutlined />
-                    <span>MenberMange</span>
-                    </Breadcrumb.Item>
-                    <Breadcrumb.Item>用户管理</Breadcrumb.Item>
-                </Breadcrumb>
-                <div style={style}></div>
-            </div>
-            <div className="FromClass">
-                <div className="HeaderInfo" style={{float: "left"}}>
-                    {/* 搜索框 */}
-                    <Search placeholder="查询" onSearch={value => console.log(value)} enterButton style={{ width:200,marginLeft:10 }} />
-                    {/* 下拉式 */}
-                    <Select defaultValue="lucy" style={{ width: 120,marginLeft:10}} onChange={handleChange}>
-                        <Option value="jack">删除</Option>
-                        <Option value="lucy">上架</Option>
-                        <Option value="Yiminghe">清空</Option>
-                    </Select>
+    ComponentDidMount(){
+        http.get('/user/userslist',{page:1,size:6}).then((res)=>{
+            console.log(res);
+            let data = [...res.data];
+            console.log(data);
+            console.log(1)
+                this.setState({userlist:data})
+            })
+        console.log(this.state.userlist);
+    }
 
-                    {/* 添加功能 */}
-                    <div className="BtnWin"  style={{marginLeft:10,float:"right"}}>
-                        <CollectionsPage />    
+    render(){
+
+        return (
+            <div className="mainInfo" style={{ width:"100%" }}>
+                <div className="BreadClass">
+                    <Breadcrumb>
+                        <Breadcrumb.Item href="">
+                        <HomeOutlined />
+                        </Breadcrumb.Item>
+                        <Breadcrumb.Item href="">
+                        <UserOutlined />
+                        <span>MenberMange</span>
+                        </Breadcrumb.Item>
+                        <Breadcrumb.Item>用户管理</Breadcrumb.Item>
+                    </Breadcrumb>
+                    <div style={style}></div>
+                </div>
+                <div className="FromClass">
+                    <div className="HeaderInfo" style={{float: "left"}}>
+                        {/* 搜索框 */}
+                        <Search placeholder="查询" onSearch={value => console.log(value)} enterButton style={{ width:200,marginLeft:10 }} />
+                        {/* 下拉式 */}
+                        <Select defaultValue="lucy" style={{ width: 120,marginLeft:10}} onChange={handleChange}>
+                            <Option value="jack">删除</Option>
+                            <Option value="lucy">上架</Option>
+                            <Option value="Yiminghe">清空</Option>
+                        </Select>
+    
+                        {/* 添加功能 */}
+                        <div className="BtnWin"  style={{marginLeft:10,float:"right"}}>
+                            <CollectionsPage />    
+                        </div>
+                        {/* 日期 */}
+                        <DatePicker onChange={onChange} style={{marginLeft:10}}/>                               
                     </div>
-                    {/* 日期 */}
-                    <DatePicker onChange={onChange} style={{marginLeft:10}}/>                               
-                </div>
-                <div className="FormDemo" style={{width:"100%",paddingTop:54}}> 
-                    <Table columns={columns} dataSource={data} />
+                    <div className="FormDemo" style={{width:"100%",paddingTop:54}}> 
+                        <Table columns={columns} dataSource={this.state.userlist} />
+                    </div>
                 </div>
             </div>
-        </div>
-    )
+        )
+    }
 }
 
 export default MemberMange;
