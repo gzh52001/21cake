@@ -109,6 +109,7 @@ html, body {
 .container {
   width: 100%;
   margin-top: 10.66667vw;
+  overflow-y: scroll;
 }
 
 .lost-bottom {

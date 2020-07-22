@@ -108,6 +108,7 @@ html,body{
 .container{
   width: 100%;
   margin-top: vw(40);
+  overflow-y: scroll;
   // min-height: 350vw;
   // background-color: red;
 }
