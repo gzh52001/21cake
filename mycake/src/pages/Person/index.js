@@ -12,9 +12,19 @@ class Person extends Component {
         //将登录状态的账号信息存储到state中
        this.setState({phone:localStorage.getItem('phone')})
         //console.log(this.state.phone);
+        let token = localStorage.getItem('token');
+        console.log(token);
+        if(token == null){
+            setTimeout( alert("请先登录"), 1000);
+            this.props.history.push('/sign');
+        }
     }
 
-    goto = (path)=>{
+    goto=(path)=>{
+        this.props.history.push(path);
+    }
+
+    remove = (path)=>{
         this.props.history.push(path);
         localStorage.removeItem('phone');
         localStorage.removeItem('psw');
@@ -71,7 +81,7 @@ class Person extends Component {
             <img className="per_img" src="https://static.21cake.com//upload/images/20200317/7649161442134eb493c5d60fbfe84540.jpeg" alt=""/>
     
             <div className="per_exit">
-                <span onClick={this.goto.bind(null,'/sign')}>退出登录</span>
+                <span onClick={this.remove.bind(null,'/sign')}>退出登录</span>
             </div>
     
             <div className="per_footer">

@@ -1,6 +1,6 @@
 //地址编辑页面
 import React,{Component} from 'react';
-
+import http from '../../utils/http';
 
 
 import { Cascader } from 'antd';
@@ -119,12 +119,26 @@ class Editlocal extends Component{
     }
 
 
-    goto = (path)=>{
+    goto = (path)=>{//点击确定按钮事件
         //跳转到其他页面时，再次显示nav
         document.getElementsByClassName("title-box")[0].style.setProperty('top','0');
         document.getElementsByClassName("container")[0].style.setProperty('margin','vw(40)');
-        this.props.history.push(path);
-        // this.goto.bind(null,'/sign');
+        
+        //获取页面中填写的内容并返回
+        let name = document.getElementsByClassName("name")[0].value;
+        let phone = document.getElementsByClassName("phone")[0].value;
+        let city = document.getElementsByClassName("ant-cascader-picker-label")[0].innerHTML;
+        let local = document.getElementsByClassName("local")[0].value;
+        let house = document.getElementsByClassName("house")[0].value;
+        let username = localStorage.getItem('phone');
+        
+        http.post('/address/add',{name:name,username:username,phone:phone,city:city,address:local,door:house}).then((res)=>{
+        console.log(res)})
+
+        console.log(name,username,phone,city,local,house);
+        
+        //跳转到地址管理页面
+        // this.props.history.push(path);
     }
 
     
@@ -139,29 +153,31 @@ class Editlocal extends Component{
         <ul className='editInput'>
             <li>
                 <label>姓名</label>
-                <input type="text" placeholder="收货人姓名"/>
+                <input className="name" type="text" placeholder="收货人姓名"/>
             </li>
+
             <li>
                 <label>手机</label>
-                <input type="text" placeholder="收货人手机号"/>
+                <input className="phone" type="text" placeholder="收货人手机号"/>
             </li>
+
             <li>
                 <label>城市</label>
                 <Cascader options={options} onChange={onChange} placeholder="请选择城市" />
-                {/* <input type="text"/> */}
+                {/* 选择地址的span标签类名为  .ant-cascader-picker-label */}
             </li>
-            {/* <Cascader/> */}
 
-            
 
             <li>
                 <label>地址</label>
-                <textarea name="" id="" cols="14" rows="6" placeholder="请填写小区/写字楼/学校等"></textarea>
+                <textarea className="local" name="" id="" cols="14" rows="6" placeholder="请填写小区/写字楼/学校等"></textarea>
             </li>
+
             <li>
                 <label>门牌号</label>
-                <input type="text" placeholder="例：5号楼201室"/>
+                <input className="house" type="text" placeholder="例：5号楼201室"/>
             </li>
+
         </ul>
         <div className="set-default">
             <label>设为默认</label>
