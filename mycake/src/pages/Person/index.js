@@ -63,12 +63,12 @@ class Person extends Component {
     
             <ul className="per_list">
                 <li>
-                    <a href="###">
+                    <a onClick={this.goto.bind(null,'/Shopcar')}>
                         <span>待付订单</span><span className="iconfont iconiconfontjiantou5"></span>
                     </a>
                 </li>
                 <li>
-                    <a href="###">
+                    <a onClick={this.goto.bind(null,'/Shopcar')}>
                         <span>全部订单</span><span className="iconfont iconiconfontjiantou5"></span>
                     </a>
                 </li>

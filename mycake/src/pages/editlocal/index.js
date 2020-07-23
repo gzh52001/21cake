@@ -137,8 +137,8 @@ class Editlocal extends Component{
 
         console.log(name,username,phone,city,local,house);
         
-        //跳转到地址管理页面
-        // this.props.history.push(path);
+        // 跳转到地址管理页面
+        this.props.history.push(path);
     }
 
     
