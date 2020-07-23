@@ -107,6 +107,10 @@
   text-align: center;
 }
 
+.shopcar .cart-pro-list {
+  margin-bottom: 200px;
+}
+
 .shopcar .cart-pro-list li {
   background: #fff;
   margin-bottom: 4vw;
@@ -162,6 +166,54 @@
   margin-top: 2.66667vw;
   display: block;
   font-size: 2.93333vw;
+}
+
+.shopcar .cart-pro-list li .cart-pro-number {
+  position: absolute;
+  height: 26px;
+  width: 78px;
+  overflow: hidden;
+  top: 80px;
+  right: 20px;
+}
+
+.shopcar .cart-pro-list li .cart-pro-number a {
+  background: #f0f0f0;
+  font-weight: bolder;
+  display: block;
+  height: 26px;
+  width: 26px;
+  font-size: 26px;
+  line-height: 26px;
+  text-align: center;
+  color: #442818;
+  float: left;
+}
+
+.shopcar .cart-pro-list li .cart-pro-number .action-quantity-minus img {
+  margin-top: 12px;
+  display: block;
+  width: 12px;
+  margin-left: 7px;
+}
+
+.shopcar .cart-pro-list li .cart-pro-number .action-quantity-plus img {
+  display: block;
+  width: 12px;
+  margin-top: 7px;
+  margin-left: 7px;
+}
+
+.shopcar .cart-pro-list li .cart-pro-number span {
+  background: #f7f7f7;
+  color: #969696;
+  font-size: 12px;
+  display: block;
+  float: left;
+  height: 26px;
+  width: 26px;
+  line-height: 26px;
+  text-align: center;
 }
 
 .shopcar .cart-pro-list li .laid-count {
