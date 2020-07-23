@@ -167,6 +167,21 @@ class Shopcar extends Component {
             })
         }
     }
+
+    //结算事件
+    jiesuan=()=>{
+        let token = localStorage.getItem('token')
+        console.log(token);
+        if(token==null){
+            alert('请先登录')
+            this.props.history.push('/sign')
+        }else{
+            http.get('/user/verify',{token:token}).then((res)=>{
+                console.log(res);
+            })
+        }
+    }
+
     //判断有没有商品，如果没有商品就渲染空页面，有就渲染出来
     gogoods=()=>{
         if(this.state.goodslist.length){
@@ -223,7 +238,7 @@ class Shopcar extends Component {
                         
                     ]}
                     rightContent={[
-                        <a key='0'  className='place-order-but'  onClick={this.openchange}>去结算</a>
+                        <a key='0'  className='place-order-but'  onClick={this.jiesuan.bind()}>去结算</a>
                     ]}>
                     <div className='pay-money' id='cart-total-amount'>
                         <div className='guodudiv' style={{float:'right',height:'100%',textAlign:'right'}}>¥
