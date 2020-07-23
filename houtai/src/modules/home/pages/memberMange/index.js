@@ -160,32 +160,32 @@ const columns = [
 
 
 class MemberMange extends Component{
+  state={
+    
+  }
 
-    constructor(){
-        super()
-        this.state = {
-            userlist:[],
-        }
-
-    }
+    // constructor(){
+    //     super()
+        
+    //   }
+          // state = {
+          //     userlist:[],
+          // }
 
     componentDidMount(){
-        console.log(1)
-        http.get('/user/userslist',{page:1,size:6}).then((res)=>{
-            console.log(res);
+        
+      http.get('/user/userslist',{page:1,size:6}).then((res)=>{
             let data = [...res.data];
-            console.log(data);
-            
-                this.setState({userlist:data})
-            })
-        console.log(this.state.userlist);
+            this.setState({userlist:data})
+          })
+
+          // console.log(this.state.userlist);
     }
-    // componentWillMount(){
-    //     console.log(1)
-    // }
+    
 
     render(){
-
+      const {userlist}=this.state
+      console.log(userlist);
         return (
             <div className="mainInfo" style={{ width:"100%" }}>
                 <div className="BreadClass">
@@ -220,7 +220,8 @@ class MemberMange extends Component{
                         <DatePicker onChange={onChange} style={{marginLeft:10}}/>                               
                     </div>
                     <div className="FormDemo" style={{width:"100%",paddingTop:54}}> 
-                        <Table columns={columns} dataSource={this.state.userlist} />
+                      {userlist ? <Table columns={columns} dataSource={this.state.userlist} /> : null}
+                        
                     </div>
                 </div>
             </div>
