@@ -30,7 +30,7 @@ class Type extends Component {
     async componentWillMount(){
         //如果首页点击蛋糕、面包就会在这里进行接收
         let goodtype=this.props.location.pathname.split(`${this.props.match.path}/`)[1]
-        console.log(goodtype);
+        // console.log(goodtype);
         
         if(goodtype){
             //先找到传进来的type在tabs中的index然后设置给initialPage
@@ -149,7 +149,6 @@ class Type extends Component {
     
     render() {
         const {typedata}=this.state;
-        console.log("initialPage:"+this.state.initialPage);
         return (
             <div className="type">
                 <Tabs tabs={this.state.tabs}

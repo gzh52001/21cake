@@ -138,7 +138,18 @@ function successToast() {
           goodmsg.num++;
           //然后存到数据库，购物车那边再调用
           console.log(goodmsg);
-          http.post('/shopcar/addgoods',{gid:goodmsg.gid,img:goodmsg.img,num:goodmsg.num,cname:goodmsg.chtitle,ename:goodmsg.egtitle,weight:goodmsg.weight,price:goodmsg.price}).then(res=>{
+          http.post('/shopcar/addgoods',{
+            gid:goodmsg.gid,
+            img:goodmsg.img,
+            cname:goodmsg.chtitle,
+            ename:goodmsg.egtitle,
+            weight:goodmsg.weight,
+            weight1:1,
+            weight2:goodmsg.weight2,
+            weight3:goodmsg.weight3,
+            weight4:goodmsg.weight4,
+            price:goodmsg.price
+          }).then(res=>{
             console.log(res);
           //成功后弹出提醒
           if(res.flag){
