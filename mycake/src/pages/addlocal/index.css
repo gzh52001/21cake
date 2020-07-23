@@ -4,14 +4,14 @@ body {
 }
 
 .addLocalbox {
-  width: 100%;
+  width: 100vw;
   margin-top: 12.26667vw;
 }
 
 .addLocalbox > img {
   width: 13.33333vw;
   height: 13.33333vw;
-  margin: 53.33333vw 43.46667vw 2.66667vw;
+  margin: 53.33333vw 43.2vw 2.66667vw;
 }
 
 .addLocalbox > span {

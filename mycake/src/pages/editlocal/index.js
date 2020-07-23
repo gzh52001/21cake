@@ -132,6 +132,7 @@ class Editlocal extends Component{
         let house = document.getElementsByClassName("house")[0].value;
         let username = localStorage.getItem('phone');
         
+        //发送
         http.post('/address/add',{name:name,username:username,phone:phone,city:city,address:local,door:house}).then((res)=>{
         console.log(res)})
 
