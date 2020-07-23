@@ -39,6 +39,12 @@ class Sign extends Component{
         }
     }
 
+    //在密码栏按下回车按钮事件
+    enter=(event)=>{
+        if(event.keyCode ==13){
+            this.sign()
+        }
+    }
 
     //点击登录按钮事件
     sign=()=>{
@@ -55,7 +61,7 @@ class Sign extends Component{
                 localStorage.setItem('phone',spho);
                 localStorage.setItem('psw',spsw);
                 localStorage.setItem('token',res.data.token);
-
+                setTimeout( alert("登录成功"), 1000);
                 this.props.history.push('/person');
                 
             }else{
@@ -63,6 +69,8 @@ class Sign extends Component{
             }
         })
     }
+
+
 
     render(){
         return(
@@ -74,7 +82,7 @@ class Sign extends Component{
                         {/* <!-- 隐藏边框：style border：none --> */}
                     </li>
                     <li>
-                        <input className="spsw" onBlur={this.serr2} type="password" placeholder="填写密码"/>
+                        <input className="spsw" onBlur={this.serr2} onKeyDown={this.enter} type="password" placeholder="填写密码"/>
                     </li>
                     <div className="erroBox">
                             <p className="errmsg-pho"><i></i> &nbsp; 请输入正确手机号码</p>

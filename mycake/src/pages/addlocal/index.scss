@@ -5,18 +5,14 @@
 body{
     width: 100%;
     height: 100%;
-    // background-color: #F6F6F6;
 }
 .addLocalbox{
-    width: 100%;
-    // height: 100%;
+    width: vw(375);
     margin-top: vw(46);
-    // text-align: center;
-    // // position: relative;
     >img{
         width: vw(50);
         height: vw(50);
-        margin: vw(200) vw(163) vw(10);
+        margin: vw(200) vw(162) vw(10);
     }
     >span{
         text-align: center;

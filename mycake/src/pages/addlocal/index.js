@@ -1,11 +1,19 @@
-//空的地址管理页面
+//地址管理页面
 import React,{Component} from 'react';
 
 import './base.css'
 import './index.css'
+import http from '../../utils/http';
 
 class AddLocal extends Component{
     
+    componentDidMount(){
+        //数据渲染前获取地址
+        http.get('/address/check/13632945150',{}).then((res)=>{
+            console.log(1);
+        })
+    }
+
     goto = (path)=>{
         this.props.history.push(path);
         // this.goto.bind(null,'/sign');

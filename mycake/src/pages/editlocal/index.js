@@ -132,22 +132,29 @@ class Editlocal extends Component{
         let house = document.getElementsByClassName("house")[0].value;
         let username = localStorage.getItem('phone');
         
+        //发送
         http.post('/address/add',{name:name,username:username,phone:phone,city:city,address:local,door:house}).then((res)=>{
         console.log(res)})
 
         console.log(name,username,phone,city,local,house);
         
-        //跳转到地址管理页面
-        // this.props.history.push(path);
+        // 跳转到地址管理页面
+        this.props.history.push(path);
     }
 
+    //左上角a标签返回按钮事件
+    goback=()=>{
+        document.getElementsByClassName("title-box")[0].style.setProperty('top','0');
+        document.getElementsByClassName("container")[0].style.setProperty('margin','vw(40)');
+        this.props.history.push('/addlocal');
+    }
     
 
     render(){
         return(
             <div className="box">
         <div className="editTitle">
-            <a onClick={this.goto.bind(null,'/addlocal')}></a>
+            <a onClick={this.goback}></a>
             <h2>编辑配送地址</h2>
         </div>
         <ul className='editInput'>

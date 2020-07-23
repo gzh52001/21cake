@@ -95,6 +95,8 @@ class Login extends Component{
         }else{
             document.getElementsByClassName("errmsg-pho")[0].style.display = "none";
             this.setState({m1:true});
+
+            //this.state.m1 = true
         }
 
         //验证账号是否已被注册
