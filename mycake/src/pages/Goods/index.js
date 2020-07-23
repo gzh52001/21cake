@@ -269,7 +269,7 @@ class Goods extends Component {
               weight3:this.state.datamsg[0].weight3,
               weight4:this.state.datamsg[0].weight4,
               price:this.state.datamsg[0].price}).then(res=>{
-            console.log(res);
+            console.log(res.data.p);
           //成功后弹出提醒
           if(res.flag){
             successToast()
