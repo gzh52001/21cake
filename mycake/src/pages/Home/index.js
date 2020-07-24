@@ -2,13 +2,6 @@ import React, { Component } from 'react'
 import { Carousel,WingBlank,Toast} from 'antd-mobile';
 import './home.css'
 import {withRouter} from 'react-router-dom';
-
-// import Bread from '../Type/Bread/index';
-// import Cake from '../Type/Cake/index';
-// import CCake from '../Type/CCake/index';
-// import Gift from '../Type/Gift/index';
-// import IceCream from '../Type/IceCream/index';
-// import Tea from '../Type/Tea/index'
 import http from '../../utils/http'
 
 //成功提示框

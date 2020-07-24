@@ -178,6 +178,9 @@ class Shopcar extends Component {
         }else{
             http.get('/user/verify',{token:token}).then((res)=>{
                 console.log(res);
+                if(res.flag){
+                    alert("可以结算啦！！")
+                }
             })
         }
     }

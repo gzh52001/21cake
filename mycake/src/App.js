@@ -1,7 +1,8 @@
-import React , { Component } from 'react';
+import React, { Component, Suspense, lazy } from 'react'
 import { NavBar,Drawer, List} from 'antd-mobile';
 import 'antd-mobile/dist/antd-mobile.css';
-import {Switch, Route, Redirect,withRouter} from 'react-router-dom';
+// import {Switch, Route, Redirect,withRouter} from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch, Redirect ,withRouter} from "react-router-dom"
 // import './icon/iconfont/iconfont'
 import './App.css'
 import Home from './pages/Home/index';
@@ -14,6 +15,17 @@ import Login from './pages/login/index';
 import Goods from './pages/Goods/index';
 import AddLocal from './pages/addlocal';
 import Editlocal from './pages/editlocal';
+// const Home = lazy(()=> import("./pages/Home/index"))
+// const Type = lazy(()=> import("./pages/Type/index"))
+// const Person = lazy(()=> import("./pages/Person/index"))
+// const Shopcar = lazy(()=> import("./pages/Shopcar/index"))
+// const Sign = lazy(()=> import("./pages/sign/index"))
+// const Login = lazy(()=> import("./pages/login/index"))
+// const Goods = lazy(()=> import("./pages/Goods/index"))
+// const AddLocal = lazy(()=> import("./pages/addlocal/index"))
+// const Editlocal = lazy(()=> import("./pages/editlocal/index"))
+
+
 class App extends Component {
   state={
     current:'/home',
@@ -96,12 +108,14 @@ class App extends Component {
   titleMsg=()=>{
     if(!this.state.open){
       let iconTitle = document.getElementsByClassName('icon-title')[0];
-      iconTitle.style="background:url(https://static.21cake.com/themes/wap/img/menu-hide.png) no-repeat;background-size: cover;width:16px;height: 16px;"
+      iconTitle.classList.add('icon-titleclose');
+      // iconTitle.style="background:url('./img/navx.png') no-repeat;background-size: cover;width:16px;height: 16px;"
       let amdrawertop =document.getElementsByClassName('am-drawer-top')[0];
       amdrawertop.style="min-height:55px"
     }else{
       let iconTitle = document.getElementsByClassName('icon-title')[0];
-      iconTitle.style="background:url(https://static.21cake.com/themes/wap/img/top-icon.png) no-repeat;background-size: cover;width:16px;height: 16px;"
+      iconTitle.classList.remove('icon-titleclose');
+      // iconTitle.style="background:url('./img/nav1.png') no-repeat;background-size: cover;width:16px;height: 16px;"
       let amdrawertop =document.getElementsByClassName('am-drawer-top')[0];
       amdrawertop.style="min-height:0"
     }
@@ -165,6 +179,8 @@ class App extends Component {
         </div>
         
         <div className="container" >
+        {/* <Router> */}
+            {/* <Suspense fallback={<div>loading...</div>}> */}
             <Switch>
               {
                 menu.map(item => <Route key={item.path} path={item.path} component={item.component} />)
@@ -178,6 +194,8 @@ class App extends Component {
               <Route path='/home' component={Home} />
               <Redirect from='/' to='/home' exact />
             </Switch>
+            {/* </Suspense>
+          </Router> */}
         </div>
         
       </div>

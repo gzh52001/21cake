@@ -196,7 +196,7 @@
             .laid-count{
                 height: vw(46);
                 line-height: vw(46);
-                background: url(https://static.21cake.com/themes/wap/img/cart-laid.png) no-repeat left;
+                background: url(../../static/img/cart-laid.png) no-repeat left;
                 background-size: vw(46) vw(46);
                 padding-left: vw(55);
             }
@@ -205,8 +205,8 @@
                 line-height: vw(30);
                 padding-left: vw(80);
                 height: vw(30);
-                background: url(https://static.21cake.com/themes/wap/img/cart-birthday.jpg) no-repeat left,
-                url(https://static.21cake.com/themes/wap/img/go-right.png) right center no-repeat;
+                background: url(../../static/img/cart-birthday.jpg) no-repeat left,
+                url(../../static/img/go-right.png) right center no-repeat;
                 background-size: vw(66) vw(30),vw(8) vw(12);
                 color: #707070;
             }

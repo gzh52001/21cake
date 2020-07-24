@@ -66,7 +66,7 @@ a, a:visited, a:link {
   margin-top: -0.53333vw;
   display: inline-block;
   vertical-align: middle;
-  background: url(https://static.21cake.com/themes/wap/img/new-home-icon.png) no-repeat;
+  background: url(../../static/img/new-home-icon.png) no-repeat;
   background-size: 24vw auto;
   background-position: 0 -4vw;
 }
@@ -155,7 +155,7 @@ a, a:visited, a:link {
 .mould-goods .mould-goods-content .title-goods i.new-home-more {
   display: inline-block;
   vertical-align: middle;
-  background: url(https://static.21cake.com/activity/wap/home/img/more.png) no-repeat center;
+  background: url(../../static/img/more.png) no-repeat center;
   background-size: auto 1.86667vw;
   margin-top: -0.53333vw;
 }
@@ -238,7 +238,7 @@ a, a:visited, a:link {
 .mould-goods .mould-goods-content ul li .bottom-price-cart button i {
   height: 12vw;
   width: 12vw;
-  background: url(https://static.21cake.com/themes/wap/img/new-home-icon.png) no-repeat;
+  background: url(../../static/img/new-home-icon.png) no-repeat;
   background-position: -9.33333vw 0.8vw;
   background-size: 21.33333vw auto;
 }
@@ -468,7 +468,7 @@ a, a:visited, a:link {
   padding-top: 6.66667vw;
   margin: 0 5.33333vw;
   padding-right: 10.66667vw;
-  background: url(https://static.21cake.com/themes/wap/img/list-empty.png) no-repeat right center;
+  background: url(../../static/img/list-empty.png) no-repeat right center;
   background-size: 9.06667vw 10.13333vw;
   text-align: right;
   line-height: 19.2vw;

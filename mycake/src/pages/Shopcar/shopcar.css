@@ -219,7 +219,7 @@
 .shopcar .cart-pro-list li .laid-count {
   height: 12.26667vw;
   line-height: 12.26667vw;
-  background: url(https://static.21cake.com/themes/wap/img/cart-laid.png) no-repeat left;
+  background: url(../../static/img/cart-laid.png) no-repeat left;
   background-size: 12.26667vw 12.26667vw;
   padding-left: 14.66667vw;
 }
@@ -229,7 +229,7 @@
   line-height: 8vw;
   padding-left: 21.33333vw;
   height: 8vw;
-  background: url(https://static.21cake.com/themes/wap/img/cart-birthday.jpg) no-repeat left, url(https://static.21cake.com/themes/wap/img/go-right.png) right center no-repeat;
+  background: url(../../static/img/cart-birthday.jpg) no-repeat left, url(../../static/img/go-right.png) right center no-repeat;
   background-size: 17.6vw 8vw, 2.13333vw 3.2vw;
   color: #707070;
 }

@@ -18,19 +18,26 @@ html, body {
 }
 
 .icon-title {
-  background: url(https://static.21cake.com/themes/wap/img/top-icon.png) no-repeat;
+  background: url(./static/img/nav1.png) no-repeat;
   background-size: cover;
-  width: 4.8vw;
-  height: 3.73333vw;
+  width: 4.26667vw;
+  height: 4.26667vw;
+}
+
+.icon-titleclose {
+  background: url(./static/img/navx.png) no-repeat;
+  background-size: cover;
+  width: 4.26667vw;
+  height: 4.26667vw;
 }
 
 .icon-header-center {
-  background: url(https://static.21cake.com/themes/wap/img/logo.png) no-repeat;
+  background: url(./static/img/nav3.png) no-repeat;
   background-size: 100%;
 }
 
 .city {
-  background: url(https://static.21cake.com/themes/wap/img/address.png) no-repeat;
+  background: url(./static/img/nav2.png) no-repeat;
   display: inline-block;
   height: 4vw;
   width: 3.2vw;
@@ -42,7 +49,7 @@ html, body {
 }
 
 .top-message {
-  background: url(https://static.21cake.com/themes/wap/img/header_message.png) no-repeat;
+  background: url(./static/img/nav4.png) no-repeat;
   display: inline-block;
   background-size: 5.06667vw 5.06667vw;
   height: 5.86667vw;
@@ -52,7 +59,7 @@ html, body {
 }
 
 .top-cart {
-  background: url(https://static.21cake.com/themes/wap/img/cart.png) no-repeat;
+  background: url(./static/img/nav5.png) no-repeat;
   display: inline-block;
   background-size: cover;
   height: 5.06667vw;
@@ -124,7 +131,7 @@ html, body {
   padding-top: 6.66667vw;
   margin: 0 5.33333vw;
   padding-right: 10.66667vw;
-  background: url(https://static.21cake.com/themes/wap/img/list-empty.png) no-repeat right center;
+  background: url(./static/img/list-empty.png) no-repeat right center;
   background-size: 9.06667vw 10.13333vw;
   text-align: right;
   line-height: 19.2vw;
