@@ -16,7 +16,6 @@ import logo from '#/images/logo.png';
 import header from '#/images/header.png';
 
 import Login from '../login'
-// import PropsMange from './pages/props/index';
 import MemberMange from './pages/memberMange/index';
 import GoodsMange from './pages/goodsMange/index';
 

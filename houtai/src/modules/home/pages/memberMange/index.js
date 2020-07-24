@@ -156,22 +156,13 @@ const columns = [
 ];
   
 
-
+// 设置表格标题
 
 
 class MemberMange extends Component{
   state={
     
   }
-
-    // constructor(){
-    //     super()
-        
-    //   }
-          // state = {
-          //     userlist:[],
-          // }
-
     componentDidMount(){
         
       http.get('/user/userslist',{page:1,size:6}).then((res)=>{
