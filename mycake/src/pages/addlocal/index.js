@@ -11,7 +11,7 @@ class AddLocal extends Component{
         //数据渲染前获取地址
         let username = localStorage.getItem("username")
 
-        http.get('/address/check/' + username).then((res)=>{
+        http.get('/address/check/' + username,{}).then((res)=>{
             console.log(res);
         })
     }
