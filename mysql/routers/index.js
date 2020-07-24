@@ -10,14 +10,35 @@ router.use(bodyParser.json());//转json数据
 router.use(bodyParser.urlencoded({extended: false}));//转键值对数据
 //只要设置两个中间键，无论你是json数据还是键值对数据，对会转成对象形式
 
+//CORS跨域：方便和小伙伴共享接口：加上这段话，再设置防火墙，别人就可以访问你的接口了(记得保证服务器开启)
+//把这个路由配置放在所有路由的前面，方便调用next操作
+router.use((req, res, next) => {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Content-Type,Content-Length, Authorization, Accept,X-Requested-With");
+    res.header("Access-Control-Allow-Methods", "PUT,PATCH,POST,GET,DELETE,OPTIONS");
+
+    // 跨域请求CORS中的预请求
+    if (req.method == "OPTIONS") { //特殊请求：发送了请求头的那些请求
+        res.sendStatus(200); /*让options请求快速返回*/
+    } else {
+        next();
+    }
+})
+
 //导入子路由
 const userRouter = require('./modules/userRouter');
 const goodsRouter = require('./modules/goodsRouter');
 const breadRouter = require('./modules/breadRouter');
+const wenzhangRouter = require('./modules/wenzhangRouter');
+const shopcarRouter = require('./modules/shopcarRouter');
+const addressRouter = require('./modules/addressRouter');
 
 router.use('/user',userRouter);//启用路由
 router.use('/good',goodsRouter);//启用路由
 router.use('/bread',breadRouter);//启用路由
+router.use('/wz',wenzhangRouter);//启用路由
+router.use('/shopcar',shopcarRouter);
+router.use('/address',addressRouter);
 
 //用户管理 userRouter.js
     //验证用户名是否存在
