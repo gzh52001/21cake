@@ -42,6 +42,7 @@ class Goods extends Component {
         this.setState({open:!this.state.open,havechange:!this.state.havechange})
         
     }
+    // 
     close=()=>{
         let goodsdrawer=document.getElementsByClassName("goods-drawer")[0];
         goodsdrawer.style="display:none"
@@ -50,21 +51,20 @@ class Goods extends Component {
     async componentDidMount(){
         //识别是那个商品，然后请求数据
         let gid= this.props.location.pathname.split(`${this.props.match.path}/`)[1];
-        // console.log(gid);
         const {data}=await http.get('/good/getgood/'+gid);
-        // console.log(data);
         this.setState({
+            //数据
             datamsg:[...data.p],
+            //轮播图图片
             datalbt:[data.p[0].img0,data.p[0].img1,data.p[0].img2,data.p[0].img3]
           });
+          //默认是规格1
           this.changeweight(1)
     }
+    //改变规格
     changeweight=(idx)=>{
         //设置规格
         this.setState({weight:idx});
-        // console.log(this.state);
-        // console.log(this.state.weight);这state设置是等我们点击事件结束才设置，所以此处log出来的还是原来的
-        // console.log(idx);
         switch(idx){
             //idx是一的话就高亮设置到1同事this.state.weight为1
             case 1: this.checkweight(1)
@@ -108,9 +108,6 @@ class Goods extends Component {
         let cakeprice = document.getElementsByClassName('details-price')[0]
         cakeprice.innerHTML=`¥${this.state.datamsg[0].price*idx}.00`;
         //改变datamsg[0]的weight值
-        // this.setState({
-        //     datamsg:{}
-        // });
         switch(idx){
             case 1: this.state.datamsg[0].weight1=1 ;this.state.datamsg[0].weight2=0 ;this.state.datamsg[0].weight3=0;this.state.datamsg[0].weight4=0
                 break;
@@ -121,9 +118,9 @@ class Goods extends Component {
             case 4: this.state.datamsg[0].weight4=1 ;this.state.datamsg[0].weight1=0;this.state.datamsg[0].weight2=0;this.state.datamsg[0].weight3=0
                 break;
         }
-        // console.log(this.state.datamsg[0]);
         this.setState({datamsg:this.state.datamsg});
     }
+    //轮播图
     showlbt=()=>{
         if(this.state.datalbt.length){
             return (
@@ -154,10 +151,9 @@ class Goods extends Component {
             )
         }
     }
+    //页面结构，然后加到render里面进行渲染
     showdatamsg=()=>{
-        // console.log("进来showdatamsg"+this.state.weight);
         if(this.state.datamsg.length){
-            // console.log(this.state.datamsg[0]);
             return (
                 <div className='details-box'>
                     <div className='pro-title'>

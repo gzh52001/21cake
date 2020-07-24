@@ -86,11 +86,11 @@ function successToast() {
                   </h3>
                   <ul>
                     <li>
-                      <a href={'http://localhost:3000/#/goods/'+item.gid}>
+                      <a  onClick={this.goto.bind(null,'/goods/'+item.gid)}>
                         <img src={item.img}/>
                       </a>
                       <div className='bottom-price-cart'>
-                        <a href={'http://localhost:3000/#/goods/'+item.gid}>
+                        <a onClick={this.goto.bind(null,'/goods/'+item.gid)}>
                           <h4>
                             <span className="title">{item.chtitle}</span>
                             <span className="price">{item.price}</span>
