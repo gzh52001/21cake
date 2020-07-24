@@ -9,19 +9,25 @@ const router = express.Router();
 //添加新地址
 router.post('/add',async (req,res)=>{
     console.log(1111);
-    let {name,username,phone,city,address,door} = req.body;
+    let {name,username,phone,city,address,door} = req.query;
     try{
         console.log('有人来添加路径了');
         console.log("姓名"+name,"账号"+username,"电话号码"+phone,"城市"+city,"街道"+address,"门牌号"+door);
         let sql = `INSERT INTO address(name,username,phone,city,address,door) VALUES('${name}','${username}','${phone}','${city}','${address}','${door}')`;
+        // console.log(sql);
+        let sql2 = `SELECT * FROM address WHERE username='${username}'`;
         let p = await query(sql);
-        console.log(p);
+        let p1 = await query(sql2);
+        // console.log(p);
         let inf = {}
         if(p.affectedRows){//大于0就是成功
             inf = {
                 code:2000,
                 flag:true,
                 message:'添加路径成功',
+                data:{
+                    p1
+                }
             }
         }else{
             //其他为失败
@@ -64,18 +70,18 @@ router.get('/verify', (req,res)=>{
 });
 
 //获取地址列表
-router.get('/check/:username',async (req,res)=>{
+router.get('/check',async (req,res)=>{
     console.log(1111);
-    let username = req.params.username;
+    let username = req.query;
     try{
         console.log(username+'来查询地址了');
         // console.log("姓名"+username,"电话号码"+phone,"城市"+city,"街道"+address,"门牌号"+door);
         let sql = `SELECT * FROM address WHERE username='${username}'`;
         console.log(sql);
         let p = await query(sql);
-        console.log(p);
+        console.log(p.length);
         let inf = {}
-        if(p.length){//大于0就是成功
+        if(p.length){
             inf = {
                 code:2000,
                 flag:true,
@@ -89,7 +95,10 @@ router.get('/check/:username',async (req,res)=>{
             inf = {
                 code:3000,
                 flag:false,
-                message:'显示路径失败'
+                message:'显示路径失败',
+                data:{
+                    p
+                }
             }
         }
         res.send(inf);
@@ -132,6 +141,40 @@ router.put('/edit/:uid',async (req,res)=>{
                 code:3000,
                 flag:false,
                 message:'修改失败'
+            }   
+        }
+        res.send(inf);
+    }catch(err){
+        let inf = {
+            code:err.errno,
+            flag:false,
+            message:'登录失败'
+        }
+        res.send(inf);
+    }
+});
+
+//删除数据
+router.delete('/del/:uid',async (req,res)=>{
+    let id = req.params.uid
+    try{
+        console.log('有人来删除了');
+        let sql = `DELETE from address WHERE uid=${id}`;
+        let inf = {}
+        let p = await query(sql);
+        if(p.affectedRows){
+            //修改成功
+            inf = {
+                code: 2000,
+                flag: true,
+                message: '删除成功',
+            }
+        }else{
+            //修改失败
+            inf = {
+                code:3000,
+                flag:false,
+                message:'删除失败'
             }   
         }
         res.send(inf);
