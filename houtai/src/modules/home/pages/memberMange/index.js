@@ -1,15 +1,10 @@
 import React,{ useState,Component}  from 'react';
-import {  Breadcrumb,Input,Select,Button,Modal,Form,Radio,DatePicker,Table,Tag,Space } from 'antd';
+import {  Breadcrumb,Input,Button,Modal,Form,Radio,Table } from 'antd';
 import { HomeOutlined, UserOutlined } from '@ant-design/icons';
 import http from '../../../../http';
 
-const { Option } = Select;
 const { Search } = Input;
 
-// 下拉框
-function handleChange(value) {
-    console.log(`selected ${value}`);
-}
 
 // 样式
 const style ={
@@ -100,80 +95,106 @@ const CollectionsPage = () => {
       </div>
     );
 };
-// 日期
-function onChange(date, dateString) {
-    console.log(date, dateString);
-}
-
-// 表格
-const columns = [
-    {
-      title: 'Name',
-      dataIndex: 'name',
-      key: 'name',
-      render: text => <a>{text}</a>,
-    },
-    {
-      title: 'Age',
-      dataIndex: 'age',
-      key: 'age',
-    },
-    {
-      title: 'Address',
-      dataIndex: 'address',
-      key: 'address',
-    },
-    {
-      title: 'Tags',
-      key: 'tags',
-      dataIndex: 'tags',
-      render: tags => (
-        <>
-          {tags.map(tag => {
-            let color = tag.length > 5 ? 'geekblue' : 'green';
-            if (tag === 'loser') {
-              color = 'volcano';
-            }
-            return (
-              <Tag color={color} key={tag}>
-                {tag.toUpperCase()}
-              </Tag>
-            );
-          })}
-        </>
-      ),
-    },
-    {
-      title: 'Action',
-      key: 'action',
-      render: (text, record) => (
-        <Space size="middle">
-          <a>编辑</a>
-          <a>删除</a>
-        </Space>
-      ),
-    },
-];
-  
 
 // 设置表格标题
+const titleDisplayMap={
+  username:'账号',
+  psw:'密码',
+  sex:'性别',
+  birthday:'生日',
+  balance: "余额",
+  uid:'id'
+}
 
 
-class MemberMange extends Component{
+export default class MemberMange extends Component{
   state={
-    
+      dataSource:[],
+      columns:[],
+      total:0,
+      visible:false,
+      data_id:'',// 用于动态获取删除的商品的id
+      page:1,
+      size:14
   }
-    componentDidMount(){
-        
-      http.get('/user/userslist',{page:1,size:6}).then((res)=>{
-            let data = [...res.data];
-            this.setState({userlist:data})
-          })
+  // 点击时出现对话窗口
+  showModal = (e)=>{
+      let id = e.target.parentNode.parentNode.parentNode.parentNode.getAttribute("data-row-key")
+      // console.log('点击删除时当前行的id',id);
+      this.setState({
+        visible: true,
+        data_id:id
+      });
+      // console.log(id,this.state.data_id);
+  };
 
-          // console.log(this.state.userlist);
-    }
-    
+  // 点击确定时的执行操作
+  handleOk(){
+    let idx = this.state.data_id
+    // console.log('点击OK要删除的行的idx',idx);
+    http.remove(`/user/del/${idx}`,{
+      id:idx
+    }).then(res =>{
+        console.log(res);
+        if(res.code){
+          let {dataSource} =this.state;
+          let data =dataSource.filter(item=>item.uid!=idx);
+          // console.log(data);
+          this.setState({
+            visible:false,
+            dataSource:data
+          });
+        }
+    })
+  }
+  // 点击取消时的操作
+  handleCancel = e => {
+    this.setState({
+      visible:false
+    });
+  };
 
+  // 请求数据商品数据
+  componentDidMount(){
+      let {size} = this.state;
+      http.get('/user/userslist',{page:1,size}).then(data=>{
+        const data2 = data.data;
+        const all = data2.length;
+
+        // 切割数据的标题
+        const columnsKey = Object.keys(data2[0]).filter(item => item ==="username" || item === "psw" || item === "sex" || item === "birthday" || item === "balance" || item === "uid")
+
+        // 设置数据格式
+        const columns = columnsKey.map(item =>{
+          return {
+            dataIndex:item,
+            title:titleDisplayMap[item],
+            key:item
+          }
+        })
+        // 增加编辑删除列
+        columns.push({
+          title:'操作',
+          key:'handle',
+          render:(text,record) =>{
+            return (
+              <div>
+                <Button>编辑</Button>
+                <Button onClick={(e) => this.showModal(e)}>删除</Button>
+              </div>
+            )
+          }
+        })
+
+        // 设置数据
+        this.setState({
+          total:all,
+          columns,
+          dataSource:data2
+        })
+      })
+
+  }
     render(){
       const {userlist}=this.state
       console.log(userlist);
@@ -196,22 +217,38 @@ class MemberMange extends Component{
                     <div className="HeaderInfo" style={{float: "left"}}>
                         {/* 搜索框 */}
                         <Search placeholder="查询" onSearch={value => console.log(value)} enterButton style={{ width:200,marginLeft:10 }} />
-                        {/* 下拉式 */}
-                        <Select defaultValue="lucy" style={{ width: 120,marginLeft:10}} onChange={handleChange}>
-                            <Option value="jack">删除</Option>
-                            <Option value="lucy">上架</Option>
-                            <Option value="Yiminghe">清空</Option>
-                        </Select>
     
                         {/* 添加功能 */}
                         <div className="BtnWin"  style={{marginLeft:10,float:"right"}}>
                             <CollectionsPage />    
-                        </div>
-                        {/* 日期 */}
-                        <DatePicker onChange={onChange} style={{marginLeft:10}}/>                               
+                        </div>                                               
                     </div>
+                    {/* 表单 */}
                     <div className="FormDemo" style={{width:"100%",paddingTop:54}}> 
-                      {userlist ? <Table columns={columns} dataSource={this.state.userlist} /> : null}
+                      <Table 
+                        dataSource = { this.state.dataSource }
+                        columns = { this.state.columns }
+                        rowKey = { record => record.uid }
+                        width = { '120' }
+
+                        pagination ={
+                          {
+                            position : ['bottomCenter'],
+                            total : this.state.total,//数据总数
+                            defaultPageSize: 5, // 默认每页条数
+                            hideOnSinglePage: true,//只有一页时是否隐藏分页器
+                            showQuickJumper: true,// 是否可以快速跳转至某也
+                          }
+                        }
+                      />
+                      <Modal
+                        title="该操作不可逆，请谨慎执行！"
+                        visible = {this.state.visible}
+                        onOk = {() => this.handleOk()}
+                        onCancel = {this.handleCancel.bind(this)}
+                      >
+                          
+                      </Modal>
                         
                     </div>
                 </div>
@@ -219,5 +256,3 @@ class MemberMange extends Component{
         )
     }
 }
-
-export default MemberMange;

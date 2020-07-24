@@ -224,6 +224,7 @@ export default class GoodsMange extends Component{
                             <CollectionsPage />    
                         </div>                             
                     </div>
+                    {/* 表单 */}
                     <div className="FormDemo" style={{width:"100%",paddingTop:54}}> 
                         <Table
                             dataSource={this.state.dataSource}
