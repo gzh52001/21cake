@@ -113,16 +113,18 @@ class Editlocal extends Component{
     //识别当前页面若为地址编辑页，则隐藏nav
         if(this.setState.path == '/editlocal'){
             // console.log('1');
+            // document.getElementById("root")[0].style.setProperty('top','-45px');
             document.getElementsByClassName("title-box")[0].style.setProperty('top','-100px');
-            document.getElementsByClassName("container")[0].style.setProperty('margin','0');
+            document.getElementsByClassName("container")[0].style.setProperty('margin-top','0');
         }
     }
 
 
     goto = (path)=>{//点击确定按钮事件
         //跳转到其他页面时，再次显示nav
+        
         document.getElementsByClassName("title-box")[0].style.setProperty('top','0');
-        document.getElementsByClassName("container")[0].style.setProperty('margin','vw(40)');
+        document.getElementsByClassName("container")[0].style.setProperty('margin-top','vw(40)');
         
         //获取页面中填写的内容并返回
         let name = document.getElementsByClassName("name")[0].value;
@@ -131,10 +133,12 @@ class Editlocal extends Component{
         let local = document.getElementsByClassName("local")[0].value;
         let house = document.getElementsByClassName("house")[0].value;
         let username = localStorage.getItem('phone');
-        
+        console.log(username);
         //发送
+        // http.post('/address/add',{name:name,username:username,phone:phone,city:city,address:local,door:house}).then((res)=>{
+        // console.log(res)})
         http.post('/address/add',{name:name,username:username,phone:phone,city:city,address:local,door:house}).then((res)=>{
-        console.log(res)})
+            console.log(res);})
 
         console.log(name,username,phone,city,local,house);
         
@@ -145,7 +149,7 @@ class Editlocal extends Component{
     //左上角a标签返回按钮事件
     goback=()=>{
         document.getElementsByClassName("title-box")[0].style.setProperty('top','0');
-        document.getElementsByClassName("container")[0].style.setProperty('margin','vw(40)');
+        document.getElementsByClassName("container")[0].style.setProperty('margin-top','40px');
         this.props.history.push('/addlocal');
     }
     
