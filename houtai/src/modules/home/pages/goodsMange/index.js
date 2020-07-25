@@ -1,10 +1,18 @@
 import React,{ useState,Component} from 'react';
-import { Breadcrumb,Input,Button,Modal,Form,Radio,Table } from 'antd';
+import { Breadcrumb,Input,Button,Modal,Form,Table } from 'antd';
 import { HomeOutlined, UserOutlined  } from '@ant-design/icons';
 import http from '../../../../http'
 
 
 const { Search } = Input;
+// 设置表格标题
+const titleDisplayMap={
+    egtitle:'商品英文名称',
+    chtitle:'商品中文名称',
+    price:'商品价格',
+    weight:'库存',
+    gid:'id'
+}
 
 
 // 样式
@@ -28,6 +36,7 @@ const CollectionCreateForm = ({ visible, onCreate, onCancel }) =>{
                   .then(values =>{
                       form.resetFields();
                       onCreate(values);
+                      console.log(values);
                   })
                   .catch(info =>{
                       console.log('Validate Faled:',info);
@@ -39,12 +48,12 @@ const CollectionCreateForm = ({ visible, onCreate, onCancel }) =>{
                 layout="vertical"
                 name="form_in_modal"
                 initialValues={{
-                    modifier:'加冰',
+                    modifier:'',
                 }}
-            >
+            >   
             <Form.Item
-                name="title"
-                label="食物商品"
+                name="chtitle"
+                label="商品名称"
                 rules={[
                     {
                         required:true,
@@ -54,17 +63,16 @@ const CollectionCreateForm = ({ visible, onCreate, onCancel }) =>{
             >
                 <Input />
             </Form.Item>
-            <Form.Item name="description" label="状态">
-                <Input type="textarea" />
-            </Form.Item>
-            <Form.Item name="modifier" className="collection-create-form_last-form-item">
-                <Radio.Group>
-                <Radio value="public">加冰</Radio>
-                <Radio value="private">去冰</Radio>
-                </Radio.Group>
-            </Form.Item>
+                <Form.Item name="price" label="商品价格">
+                    <Input type="textarea" />
+                </Form.Item>
+                <Form.Item name="modifier" label="buzhidao">
+                    <Input type="textarea" />
+                </Form.Item>
+                <Form.Item name="modifier" className="collection-create-form_last-form-item">
+                </Form.Item>
             </Form>
-        </Modal>
+        </Modal>    
     );
 };
 const CollectionsPage = () => {
@@ -97,14 +105,6 @@ const CollectionsPage = () => {
 };
 
 
-// 设置表格标题
-const titleDisplayMap={
-    egtitle:'商品英文名称',
-    chtitle:'商品中文名称',
-    price:'商品价格',
-    weight:'库存',
-    gid:'id'
-}
 
 export default class GoodsMange extends Component{
     state = {
@@ -238,7 +238,6 @@ export default class GoodsMange extends Component{
                                     total: this.state.total,//数据总数
                                     defaultPageSize:  5,//默认每页条数
                                     // pageSize:  this.page,//每页条数
-
                                     hideOnSinglePage: true,//只有一页时是否隐藏分页器
                                     showQuickJumper: true,//是否可以快速跳转至某页
                                 }
@@ -260,4 +259,4 @@ export default class GoodsMange extends Component{
     
 }
 
-// export default GoodsMange;
+// export default GoodsMange;   
