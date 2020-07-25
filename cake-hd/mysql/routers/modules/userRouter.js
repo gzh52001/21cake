@@ -201,7 +201,7 @@ router.put('/edit/:uid',async (req,res)=>{
 router.delete('/del/:uid',async (req,res)=>{
     let id = req.params.uid
     try{
-        console.log('有人来删除了');
+        console.log('有人来删除id为'+id);
         let sql = `DELETE from reg WHERE uid=${id}`;
         let inf = {}
         let p = await query(sql);
