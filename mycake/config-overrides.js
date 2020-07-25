@@ -6,7 +6,7 @@ module.exports = function override(config, env) {
     
     config = injectBabelPlugin(
         "@babel/plugin-syntax-dynamic-import",
-        config
+        "ggggg"
     );
     return config;
   }

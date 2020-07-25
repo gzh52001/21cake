@@ -194,8 +194,8 @@ class App extends Component {
               <Route path='/home' component={Home} />
               <Redirect from='/' to='/home' exact />
             </Switch>
-            {/* </Suspense>
-          </Router> */}
+            {/* </Suspense> */}
+          {/* </Router> */}
         </div>
         
       </div>
