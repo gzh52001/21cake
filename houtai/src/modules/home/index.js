@@ -102,7 +102,6 @@ class Home extends React.Component {
                     <div className="logo">
                         <a href="###">
                             <img src={logo} style={{ height: '100%' }} />
-                            <span>21cake管理平台</span>
                         </a>
                     </div>
                     <div className="avatar">

@@ -12,57 +12,64 @@ const style={
     padding:'8px'
 }
 
-// 点击弹窗
+// 添加功能的弹窗
 const CollectionCreateForm = ({ visible, onCreate, onCancel }) =>{
-    const [form] = Form.useForm();  
+    const [form] = Form.useForm();
     return(
         <Modal
             visible={visible}
             title="添加商品"
             okText="添加"
-            canceText="退出"
+            cancelText="取消"
             onCancel={onCancel}
             onOk={() =>{
                 form 
                   .validateFields()
                   .then(values =>{
-                      form.resetFields();
-                      onCreate(values);
+                      console.log(values.price);
+                      http.post('/good/addgoods',{title:values.title,price:values.price,weight:values.weight}).then(res=>{
+                          console.log(res);
+                          if(res.flag){
+                            // visible=false;
+                            alert("添加成功")
+                          }else{
+                            alert("添加失败")
+                          }
+                      })
+                    //   form.resetFields();
+                    //   onCreate(values);
                   })
                   .catch(info =>{
                       console.log('Validate Faled:',info);
                   });
-            }}
-        >
+            }}>
             <Form
-                form = {form}
-                layout="vertical"
-                name="form_in_modal"
-                initialValues={{
-                    modifier:'加冰',
-                }}
-            >
-            <Form.Item
-                name="title"
-                label="食物商品"
-                rules={[
-                    {
-                        required:true,
-                        message:'请填写内容',
-                    },
-                ]}
-            >
-                <Input />
-            </Form.Item>
-            <Form.Item name="description" label="状态">
-                <Input type="textarea" />
-            </Form.Item>
-            <Form.Item name="modifier" className="collection-create-form_last-form-item">
-                <Radio.Group>
-                <Radio value="public">加冰</Radio>
-                <Radio value="private">去冰</Radio>
-                </Radio.Group>
-            </Form.Item>
+            form = {form}
+            layout="vertical"
+            name="form_in_modal"
+            initialValues={{
+                modifier:'添加商品',
+            }}>
+                <Form.Item
+                    name="title"
+                    label="商品名称"
+                    rules={[
+                        {
+                            required:true,
+                            message:'请填写内容',
+                        },]}>
+                    <Input />
+                </Form.Item>
+                <Form.Item 
+                name="price" 
+                label="价钱">
+                    <Input type="textarea" />
+                </Form.Item>
+                <Form.Item 
+                name="weight" 
+                label="规格">
+                    <Input type="textarea" />
+                </Form.Item>
             </Form>
         </Modal>
     );
@@ -135,7 +142,7 @@ export default class GoodsMange extends Component{
           id:idx
         }).then(res=>{
             console.log(res);
-            if(res.code){
+            if(res.flag){
                 let {dataSource}=this.state;
                 let data =dataSource.filter(item=>item.gid!=idx);
                 console.log(data);
@@ -154,7 +161,21 @@ export default class GoodsMange extends Component{
           visible: false,
         });
       };
-    
+    //查询功能
+    Search=(goodsname)=>{
+        //发送请求到
+        // console.log(goodsname);
+        http.get('/good/searchgoods',{goodsname}).then(res=>{
+            console.log(res);
+            if(res.flag){
+                this.setState({dataSource:res.data.p,page:res.data.p.length,total:res.data.p.length});
+            }else{
+                alert("抱歉！没有找到！")
+            }
+            
+            // console.log(res.data.p.length,this.state.size);
+        })
+    }
        
 
     // 请求数据商品数据
@@ -218,13 +239,13 @@ export default class GoodsMange extends Component{
                 <div className="FromClass">
                     <div className="HeaderInfo" style={{float: "left"}}>
                         {/* 搜索框 */}
-                        <Search placeholder="查询" onSearch={value => console.log(value)} enterButton style={{ width:200,marginLeft:10 }} />
+                        <Search placeholder="商品名称" onSearch={value => this.Search(value)} enterButton style={{ width:200,marginLeft:10 }} />
                         {/* 添加功能 */}
                         <div className="BtnWin"  style={{marginLeft:10,float:"right"}}>
                             <CollectionsPage />    
                         </div>                             
                     </div>
-                    {/* 表单 */}
+                    {/* 底部跳转表单 */}
                     <div className="FormDemo" style={{width:"100%",paddingTop:54}}> 
                         <Table
                             dataSource={this.state.dataSource}
