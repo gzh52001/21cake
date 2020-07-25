@@ -19,16 +19,25 @@ function Sign(props) {
         
         console.log(username,password);
 
-        http.post('/user/reg',{username:username,psw:password}).then((res)=>{
-            console.log(res);
-            if(res.flag ==true){
-                setTimeout( alert("注册成功"), 1000);
-                props.history.push('/login');
-                
-            }else{
+        //验证用户名是否已被注册
+        http.get('/user/checkname',{username:username}).then((res)=>{
+            console.log(res.flag);
+            if(res.flag == false){
                 alert("注册失败，用户名已被使用");
+            }else{
+                http.post('/user/reg',{username:username,psw:password}).then((res)=>{
+                    console.log(res);
+                    if(res.flag ==true){
+                        setTimeout( alert("注册成功"), 1000);
+                        props.history.push('/login');
+                                
+                    }
+                })
             }
+        
         })
+
+       
 
     }
 
