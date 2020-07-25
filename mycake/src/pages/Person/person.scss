@@ -1,0 +1,183 @@
+//个人中心样式
+@function vw($px) {
+    @return ($px / 750) *200vw 
+}
+
+
+
+body{
+	width: 100%;
+	display: flex;
+    flex-direction: column;
+}
+    
+    // background-color: #F9F9F9;
+    
+    .personHeader{
+        width: 100%;
+        height: vw(44);
+        // margin-top: vw(46);
+        border-bottom: vw(1) solid #FBEFF0;
+        h2{
+            text-align: center;
+            font-size: vw(16);
+            line-height: vw(44);
+        }
+    }
+
+    .person_info{
+        width: 100%;
+        margin-top: vw(23);
+        color: #8E6A55;
+
+        .per_logo{
+            text-align: center;
+            height: vw(74);
+            img{
+                width: vw(70);
+                height: vw(70);
+            }
+        }
+    }
+
+    .per_msg{
+        font-size: vw(12);
+        text-align: center;
+        color: #442818;
+
+        >li:nth-child(1){
+            height: vw(25);
+            vertical-align: middle;
+        }
+        .phone{
+            height: vw(25);
+            vertical-align: middle;
+            background-image: url(../../static/img/Phone.png);
+            background-repeat: no-repeat;;
+            background-size: vw(10) vw(14);
+            background-position: vw(130) vw(1);
+
+        }
+        .changeMsg{
+            height: vw(31);
+            button{
+                margin-top: vw(4);
+                background: #684029;
+                color: #FBFBFA;
+                height: vw(31);
+                width: vw(140);
+                font-size: vw(12);
+                border-radius: vw(4);
+            }
+        }
+    }    
+
+    .per_pay{
+        margin-top: vw(20);
+        font-size: vw(12);
+        height: vw(60);
+        color: #8E6A55;
+        border-top: vw(1) solid #EFEFEF;
+        border-bottom: vw(12) solid #F9F9F9;
+        ul{
+            padding: vw(5) 0;
+            display: block;
+            float: left;
+            width: vw(186);
+            height: vw(50);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            text-align: center;
+        }
+        >ul:nth-child(1){
+            border-right: vw(1) solid #EFEFEF;
+        }
+    }
+
+    // per_list
+    .per_list{
+        width: 100%;
+        height: vw(142);
+        >li:nth-child(3){
+            >a{
+                border: none;
+            }
+        }
+        >li{
+            width: 100%;
+            height: vw(42);
+            background-repeat: no-repeat;
+            background-size: vw(23);
+            background-position: vw(12) center;
+            >a{
+                color: #8E6A55;
+                font-size: vw(14);
+                display: block;
+                height: vw(41);
+                margin-left: vw(44);
+                border-bottom: 1px solid #F0F0F0;
+                margin-right: vw(12);
+                >span{
+                    line-height: vw(41);
+                }
+                >span:nth-child(2){
+                    color: #D6C3BA;
+                    float: right;
+                    font-size: vw(16);
+                }
+            }
+        }
+        >li:nth-child(1){
+            background-image: url(../../static/img/per_list1.png);
+        }
+        >li:nth-child(2){
+            background-image: url(../../static/img/per_list2.png);
+        }
+        >li:nth-child(3){
+            background-image: url(../../static/img/per_list3.png);
+        }
+    }
+
+    // per_img底部图片
+    .per_img{
+        padding: vw(15) vw(12);
+        background-color: #F6F6F6;
+        width: vw(351);
+    }
+
+    //per_exit退出按钮
+    .per_exit{
+        width: 100%;
+        height: vw(47);
+        font-size: vw(14);
+        text-align: center;
+        >span{
+            line-height: vw(47);
+        }
+    }
+
+    //per_footer底部
+    .per_footer{
+        width: 100%;
+        height: vw(153);
+        background-color: #414141;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        >p{
+            font-size: vw(11);
+            line-height: vw(26);
+        }
+        >p:nth-child(1){
+            color:#A77746;
+        }
+        >p:nth-child(2){
+            color:#C6A37C;
+        }
+    }
+
+
+
+
