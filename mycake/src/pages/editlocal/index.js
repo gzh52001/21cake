@@ -4,7 +4,6 @@ import http from '../../utils/http';
 
 
 import { Cascader } from 'antd';
-import 'antd/dist/antd.css';
 
 import './base.css'
 import './index.css'

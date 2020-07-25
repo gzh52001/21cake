@@ -1,7 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 // import { Button } from 'antd-mobile';
-import 'antd-mobile/dist/antd-mobile.css';  // or 'antd-mobile/dist/antd-mobile.less'//引入anted-mobile ui框架
+// import 'antd-mobile/dist/antd-mobile.css';  // or 'antd-mobile/dist/antd-mobile.less'//引入anted-mobile ui框架
+
+// import 'antd/dist/antd.css';
 
 import { HashRouter,BrowserRouter } from 'react-router-dom';//引入哈希组件
 import App from './App';//引入APP插件

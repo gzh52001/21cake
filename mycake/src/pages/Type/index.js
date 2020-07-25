@@ -159,7 +159,9 @@ class Type extends Component {
                 //切换type
                 onChange={(tab, index) => { this.getdata(tab.type)}}
                 >
-                    {typedata ? this.showdata.bind(null,this.state.type) : null}
+                    
+                    {typedata ? this.showdata.bind(null,this.state.type) : <div style={{minHeight:500}}></div>}
+                    
                     
                 </Tabs>
                 <div className='lost-bottom'>

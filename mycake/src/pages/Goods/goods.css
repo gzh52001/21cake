@@ -171,6 +171,7 @@ body, html {
 
 .goods .details-box .select-card .details-options-card .details-options {
   overflow: hidden;
+  padding: 0;
   width: 100%;
 }
 
@@ -205,6 +206,7 @@ body, html {
 .goods .details-box .select-card .store-info {
   background-color: #fff;
   margin-bottom: 3.73333vw;
+  padding: 0;
 }
 
 .goods .details-box .select-card .store-info li {

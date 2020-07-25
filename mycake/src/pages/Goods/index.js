@@ -316,7 +316,7 @@ class Goods extends Component {
             <div className="goods">
                 {/* 有数据才渲染没数据不渲染 */}
                 {datalbt ? this.showlbt(): null}
-                {datamsg ? this.showdatamsg(): null}
+                {datamsg ? this.showdatamsg(): <div style={{minHeight:600}}></div>}
                 <div className='footer'>
                     <ul>
                     <li id='appDownloadLink'>

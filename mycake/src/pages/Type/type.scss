@@ -30,8 +30,8 @@
   }
   .list-pro-box{
     display: block;
-
     transform-origin: 0 0;
+    min-height: vw(200);
     opacity: 1;
     transform: scale(1,1);
     h1,h2,h3,h4,h5,h6{

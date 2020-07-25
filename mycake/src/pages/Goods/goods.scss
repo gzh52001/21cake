@@ -150,6 +150,7 @@ body,html{
                 }
                 .details-options{
                     overflow: hidden;
+                    padding: 0;
                     width: 100%;
                     li{
                         float: left;
@@ -190,6 +191,7 @@ body,html{
             .store-info{
                 background-color: #fff;
                 margin-bottom: vw(14);
+                padding: 0;
                 li{
                     overflow: hidden;
                     margin-bottom: vw(8);

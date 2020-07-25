@@ -28,6 +28,7 @@ body {
 .type .list-pro-box {
   display: block;
   transform-origin: 0 0;
+  min-height: 53.33333vw;
   opacity: 1;
   transform: scale(1, 1);
 }

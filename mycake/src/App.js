@@ -1,29 +1,29 @@
 import React, { Component, Suspense, lazy } from 'react'
 import { NavBar,Drawer, List} from 'antd-mobile';
-import 'antd-mobile/dist/antd-mobile.css';
+// import 'antd-mobile/dist/antd-mobile.css';
 // import {Switch, Route, Redirect,withRouter} from 'react-router-dom';
 import { BrowserRouter as Router, Route, Switch, Redirect ,withRouter} from "react-router-dom"
 // import './icon/iconfont/iconfont'
 import './App.css'
-import Home from './pages/Home/index';
-import Type from './pages/Type/index';
-import Person from './pages/Person/index';
+// import Home from './pages/Home/index';
+// import Type from './pages/Type/index';
+// import Person from './pages/Person/index';
 
-import Shopcar from './pages/Shopcar/index'
-import Sign from './pages/sign/index';
-import Login from './pages/login/index';
-import Goods from './pages/Goods/index';
-import AddLocal from './pages/addlocal';
-import Editlocal from './pages/editlocal';
-// const Home = lazy(()=> import("./pages/Home/index"))
-// const Type = lazy(()=> import("./pages/Type/index"))
-// const Person = lazy(()=> import("./pages/Person/index"))
-// const Shopcar = lazy(()=> import("./pages/Shopcar/index"))
-// const Sign = lazy(()=> import("./pages/sign/index"))
-// const Login = lazy(()=> import("./pages/login/index"))
-// const Goods = lazy(()=> import("./pages/Goods/index"))
-// const AddLocal = lazy(()=> import("./pages/addlocal/index"))
-// const Editlocal = lazy(()=> import("./pages/editlocal/index"))
+// import Shopcar from './pages/Shopcar/index'
+// import Sign from './pages/sign/index';
+// import Login from './pages/login/index';
+// import Goods from './pages/Goods/index';
+// import AddLocal from './pages/addlocal';
+// import Editlocal from './pages/editlocal';
+const Home = lazy(()=> import("./pages/Home/index"))
+const Type = lazy(()=> import("./pages/Type/index"))
+const Person = lazy(()=> import("./pages/Person/index"))
+const Shopcar = lazy(()=> import("./pages/Shopcar/index"))
+const Sign = lazy(()=> import("./pages/sign/index"))
+const Login = lazy(()=> import("./pages/login/index"))
+const Goods = lazy(()=> import("./pages/Goods/index"))
+const AddLocal = lazy(()=> import("./pages/addlocal/index"))
+const Editlocal = lazy(()=> import("./pages/editlocal/index"))
 
 
 class App extends Component {
@@ -180,7 +180,7 @@ class App extends Component {
         
         <div className="container" >
         {/* <Router> */}
-            {/* <Suspense fallback={<div>loading...</div>}> */}
+            <Suspense fallback={<div>loading...</div>}>
             <Switch>
               {
                 menu.map(item => <Route key={item.path} path={item.path} component={item.component} />)
@@ -194,7 +194,7 @@ class App extends Component {
               <Route path='/home' component={Home} />
               <Redirect from='/' to='/home' exact />
             </Switch>
-            {/* </Suspense> */}
+            </Suspense>
           {/* </Router> */}
         </div>
         
