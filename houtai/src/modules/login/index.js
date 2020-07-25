@@ -19,9 +19,14 @@ function Login(props) {
         
         console.log(username,password);
 
+        //向后台验证账号密码是否正确
         http.get('/user/login',{username:username,psw:password}).then((res)=>{
             console.log(res);
             if(res.flag ==true){
+                //将账号，密码和token存到本地的localstorage中，可用于保存登录状态
+                localStorage.setItem('username',username);
+                localStorage.setItem('psw',password);
+                localStorage.setItem('token',res.data.token);
                 setTimeout( alert("登录成功"), 1000);
                 props.history.push('/home');
                 
