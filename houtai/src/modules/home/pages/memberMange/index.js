@@ -115,8 +115,13 @@ export default class MemberMange extends Component{
       visible:false,
       data_id:'',// 用于动态获取删除的商品的id
       page:1,
-      size:14
+      size:14,
+      text:1
   }
+  // componentDidMount(){
+  //   let a = document.getElementsByClassName('ant-btn ant-input-search-button ant-btn-primary')[0];
+  //   a.onClick = this.check()
+  // }
   // 点击时出现对话窗口
   showModal = (e)=>{
       let id = e.target.parentNode.parentNode.parentNode.parentNode.getAttribute("data-row-key")
@@ -195,9 +200,30 @@ export default class MemberMange extends Component{
       })
 
   }
+
+  //搜索用户信息
+  async check(){
+    try{
+      //let b = document.getElementsByClassName('ant-input')[0].value;
+      //this.setState({
+      //  text:b
+      //})
+      let id = this.state.text;
+      console.log(id);
+      let p = await http.get(`/user/user/${id}`);
+      console.log(p);
+      let data = p.data.p;
+      console.log(data);
+      this.setState({
+        dataSource:data
+      });
+    }catch(err){
+      console.log(err);
+    }
+  }
     render(){
       const {userlist}=this.state
-      console.log(userlist);
+      // console.log(userlist);
         return (
             <div className="mainInfo" style={{ width:"100%" }}>
                 <div className="BreadClass">
@@ -216,8 +242,7 @@ export default class MemberMange extends Component{
                 <div className="FromClass">
                     <div className="HeaderInfo" style={{float: "left"}}>
                         {/* 搜索框 */}
-                        <Search placeholder="查询" onSearch={value => console.log(value)} enterButton style={{ width:200,marginLeft:10 }} />
-    
+                        <Search placeholder="查询" onSearch={value=>{console.log(value)}} enterButton style={{ width:200,marginLeft:10 }} onClick={()=>this.check()}/>
                         {/* 添加功能 */}
                         <div className="BtnWin"  style={{marginLeft:10,float:"right"}}>
                             <CollectionsPage />    
