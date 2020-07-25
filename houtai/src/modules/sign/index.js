@@ -10,33 +10,31 @@ import "../../http"
 import Home from '../home'
 import http from '../../http';
 
-function Login(props) {
+function Sign(props) {
 
-    function login(){
+    function tosign(){
         //获取账号密码
         let username = document.getElementsByClassName("ant-input")[0].value;
         let password = document.getElementsByClassName("ant-input")[1].value;
         
         console.log(username,password);
 
-        http.get('/user/login',{username:username,psw:password}).then((res)=>{
+        http.post('/user/reg',{username:username,psw:password}).then((res)=>{
             console.log(res);
             if(res.flag ==true){
-                setTimeout( alert("登录成功"), 1000);
-                props.history.push('/home');
+                setTimeout( alert("注册成功"), 1000);
+                props.history.push('/login');
                 
             }else{
-                alert("登录失败，用户名或密码错误");
+                alert("注册失败，用户名已被使用");
             }
         })
 
     }
 
-    
-    function tosign(){
-                props.history.push('/sign');
-            }
-
+    function tologin(){
+        props.history.push('/login');
+    }
 
     function onFinish(){
         props.history.push('/home'); 
@@ -50,7 +48,7 @@ function Login(props) {
                 // onFinish={onFinish}
                 // onValuesChange={this.onCodeChange}
             >
-                <h1>21cake管理平台</h1>
+                <h1>21cake注册页面</h1>
                 <Form.Item
                     name="username"
                     rules={[{ required: false, message: '请输入用户名!' }]}
@@ -70,17 +68,16 @@ function Login(props) {
                
 
                 <Form.Item>
-                    <Button onClick={login} type="primary" htmlType="submit" className="login-form-button">
-                        登录
+                    <Button onClick={tosign} type="primary" htmlType="submit" className="login-form-button">
+                        注册
                 </Button>
                 </Form.Item>
-                <a className = "tosign" onClick={tosign}><span>去注册</span></a>
+                <a className = "tologin" onClick={tologin}><span>去登录</span></a>
             </Form>
             <Route path='/home' component={Home} />
-            
         </div>
     )
 }
 
 
-export default Login;
+export default Sign;
