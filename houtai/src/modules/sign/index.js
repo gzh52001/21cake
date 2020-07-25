@@ -16,29 +16,32 @@ function Sign(props) {
         //获取账号密码
         let username = document.getElementsByClassName("ant-input")[0].value;
         let password = document.getElementsByClassName("ant-input")[1].value;
-        
         console.log(username,password);
-
-        //验证用户名是否已被注册
-        http.get('/user/checkname',{username:username}).then((res)=>{
-            console.log(res.flag);
-            if(res.flag == false){
-                alert("注册失败，用户名已被使用");
-            }else{
-                http.post('/user/reg',{username:username,psw:password}).then((res)=>{
-                    console.log(res);
-                    if(res.flag ==true){
-                        setTimeout( alert("注册成功"), 1000);
-                        props.history.push('/login');
-                                
-                    }
-                })
-            }
         
-        })
+        //正则验证手机号规则
+        let rule1 = /^[1][3,4,5,7,8][0-9]{9}$/;
+        if(rule1.test(username)==false){
+            alert("请输入正确的手机号")
+        }else{
+            //验证用户名是否已被注册
+            http.get('/user/checkname',{username:username}).then((res)=>{
+                console.log(res.flag);
+                if(res.flag == false){
+                    alert("注册失败，用户名已被使用");
+                }else{
+                    http.post('/user/reg',{username:username,psw:password}).then((res)=>{
+                        console.log(res);
+                        if(res.flag ==true){
+                            setTimeout( alert("注册成功"), 1000);
+                            props.history.push('/login');
+                                    
+                        }
+                    })
+                }
+            
+            })
 
-       
-
+        }
     }
 
     function tologin(){

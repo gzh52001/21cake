@@ -108,6 +108,16 @@ const titleDisplayMap={
 
 
 export default class MemberMange extends Component{
+
+   //页面渲染前验证登录状态
+   componentDidMount(){
+    let username = localStorage.getItem('username');
+    if(username == null){
+        setTimeout(alert("请先登录"), 1000)
+        this.props.history.push('/login');
+    }
+}
+
   state={
       dataSource:[],
       columns:[],
