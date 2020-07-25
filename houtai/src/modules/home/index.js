@@ -20,6 +20,16 @@ import MemberMange from './pages/memberMange/index';
 import GoodsMange from './pages/goodsMange/index';
 
 class Home extends React.Component {
+
+    //页面渲染前先验证登录状态
+    componentDidMount(){
+        let username = localStorage.getItem('username');
+        if(username == null){
+            setTimeout(alert("请先登录"), 1000)
+            this.props.history.push('/login');
+        }
+    }
+
     constructor() {
         super(),
         this.state = {
@@ -81,7 +91,10 @@ class Home extends React.Component {
     };
     // 退出
     logout = ()=>{
+
+        localStorage.clear();
         this.props.history.push('/login');
+        
     }
     // 个人资料
     // about = ()=>{
