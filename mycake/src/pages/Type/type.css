@@ -1,0 +1,246 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.type .container {
+  z-index: 5000;
+}
+
+.type div {
+  font-size: 3.73333vw;
+  color: #707070;
+}
+
+.type a {
+  border-bottom: #442818 0.53333vw solid;
+  color: #442818;
+}
+
+.type .am-tabs-tab-bar-wrap .am-tabs-default-bar-underline {
+  border: #442818 0.29333vw solid;
+}
+
+.type .am-tabs * {
+  box-sizing: content-box;
+}
+
+.type .list-pro-box {
+  display: block;
+  transform-origin: 0 0;
+  min-height: 53.33333vw;
+  opacity: 1;
+  transform: scale(1, 1);
+}
+
+.type .list-pro-box h1, .type .list-pro-box h2, .type .list-pro-box h3, .type .list-pro-box h4, .type .list-pro-box h5, .type .list-pro-box h6 {
+  margin: 0;
+  padding: 0;
+  font-size: 3.2vw;
+  color: #442818;
+}
+
+.type .list-pro-box h2 {
+  padding: 2.13333vw 0;
+  text-align: center;
+  font-size: 4vw;
+  height: 8vw;
+  margin: 0 auto;
+  line-height: 4vw;
+  background: rgba(213, 191, 167, 0.1);
+  border-bottom: 0.26667vw solid #e9e9e9;
+}
+
+.type .list-pro-box h2 span {
+  font-size: 2.66667vw;
+  display: block;
+  line-height: 3.46667vw;
+  margin-top: 0.53333vw;
+  color: #D5BFA7;
+}
+
+.type .list-pro-box .pro-list-title {
+  text-align: center;
+}
+
+.type .list-pro-box .list-box {
+  padding-left: 1.33333vw;
+  padding-right: 5.33333vw;
+}
+
+.type .list-pro-box .list-box div {
+  margin: 0;
+  padding: 0;
+  font-size: 3.2vw;
+  color: #442818;
+}
+
+.type .list-pro-box .list-box ul {
+  margin: 0;
+  padding: 0;
+  font-size: 3.2vw;
+  color: #442818;
+  overflow: hidden;
+  margin-bottom: 5.33333vw;
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+}
+
+.type .list-pro-box .list-box ul li {
+  margin: 0;
+  padding: 0;
+  font-size: 3.2vw;
+  color: #442818;
+  width: 50%;
+  float: left;
+}
+
+.type .list-pro-box .list-box ul li a {
+  display: block;
+  overflow: hidden;
+}
+
+.type .list-pro-box .list-box ul li a:visited, .type .list-pro-box .list-box ul li a:link, .type .list-pro-box .list-box ul li a {
+  text-decoration: none;
+  cursor: pointer;
+  color: #442818;
+}
+
+.type .list-pro-box .list-box ul li .list-goods-pdleft {
+  padding-left: 4vw;
+}
+
+.type .list-pro-box .list-box ul li .list-goods-pdleft .list-pro-content {
+  width: 100%;
+  margin: 0 auto;
+  position: relative;
+}
+
+.type .list-pro-box .list-box ul li .list-goods-pdleft .list-pro-content a {
+  border-bottom: 0;
+}
+
+.type .list-pro-box .list-box ul li .list-goods-pdleft .list-pro-content .list-pro-img {
+  height: 48vw;
+  width: 100%;
+}
+
+.type .list-pro-box .list-box ul li .list-goods-pdleft .list-pro-content .list-pro-img img {
+  opacity: 1;
+  width: 100%;
+  border: 0;
+}
+
+.type .list-pro-box .list-box ul li .list-goods-pdleft .list-pro-content h3 {
+  font-size: 3.2vw;
+  line-height: 1.2em;
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.type .list-pro-box .list-box ul li .list-goods-pdleft .list-pro-content h3 span {
+  font-size: 3.2vw;
+  display: block;
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.type .list-pro-box .list-box ul li .list-goods-pdleft .list-pro-content .price {
+  color: #bb9772;
+  display: block;
+  margin-top: 1.33333vw;
+  max-width: 80%;
+  line-height: 4.26667vw;
+}
+
+.type .list-pro-box .list-box ul li .list-goods-pdleft .list-pro-content .label {
+  position: absolute;
+  top: 4vw;
+  left: 0;
+}
+
+.type .list-pro-box .list-box ul li .list-goods-pdleft .list-pro-content .label img {
+  width: 10.66667vw;
+}
+
+.type .list-pro-box .list-box ul li .list-goods-pdleft .list-pro-content .cart-add {
+  display: block;
+  width: 14%;
+  position: absolute;
+  z-index: 1000000;
+  right: 0;
+  bottom: 0;
+  font-size: 3.2vw;
+}
+
+.type .list-pro-box .list-box ul li .list-goods-pdleft .list-pro-content .cart-add img {
+  width: 100%;
+  vertical-align: bottom;
+  display: inline-block;
+}
+
+.type .lost-bottom {
+  margin: 0;
+  padding: 0;
+  font-size: 3.2vw;
+  color: #442818;
+}
+
+.type .lost-bottom div {
+  height: 19.2vw;
+  padding-top: 6.66667vw;
+  margin: 0 5.33333vw;
+  padding-right: 10.66667vw;
+  background: url(https://static.21cake.com/themes/wap/img/list-empty.png) no-repeat right center;
+  background-size: 9.06667vw 10.13333vw;
+  text-align: right;
+  line-height: 19.2vw;
+  color: #d5d5d5;
+}
+
+.type .footer {
+  background: #414141;
+  padding: 8vw 2.66667vw;
+}
+
+.type .footer ul {
+  overflow: hidden;
+  margin-left: -2%;
+  list-style: none;
+}
+
+.type .footer ul li {
+  margin: 0;
+  padding: 0;
+  font-size: 3.2vw;
+  color: #442818;
+  float: left;
+  width: 23%;
+  margin-left: 2%;
+  margin-bottom: 6.13333vw;
+}
+
+.type .footer ul a:visited, .type .footer ul a:link, .type .footer ul a {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.type .footer ul a {
+  height: 8vw;
+  display: block;
+  border: 0.26667vw solid #979797;
+  color: #979797;
+  line-height: 8vw;
+  text-align: center;
+}
+
+.type .footer p {
+  text-align: center;
+  color: #a0a0a0;
+  line-height: 4.26667vw;
+}

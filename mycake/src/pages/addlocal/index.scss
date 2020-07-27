@@ -1,0 +1,37 @@
+//空的地址页样式
+@function vw($px){
+    @return($px/750)*200vw
+}
+body{
+    width: 100%;
+    height: 100%;
+}
+.addLocalbox{
+    // display: none;
+    width: vw(375);
+    margin-top: vw(46);
+    >img{
+        width: vw(50);
+        height: vw(50);
+        margin: vw(200) vw(162) vw(10);
+    }
+    >span{
+        text-align: center;
+        font-size: vw(12);
+        color: #707070;
+        display: block;
+        // margin-left: vw(50);
+    }
+    .addLocal{
+        width: 100%;
+        height: vw(46);
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        background-color: #684029;
+        color: #fff;
+        font-size: vw(14);
+        line-height: vw(46);
+        text-align: center;
+    }
+}

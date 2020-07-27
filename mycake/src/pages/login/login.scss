@@ -1,0 +1,102 @@
+//注册样式
+@function vw($px) {
+    @return ($px / 750) *200vw 
+}
+
+html,body{
+    height: 100%;
+    width: 100%;
+    display: flex;
+	flex-direction: column;
+}
+// 头部nav
+// #loginNav{
+//     width: 100%;
+//     height: vw(48);
+// }
+
+//login-box
+#login-box{
+    margin-top: vw(60);
+    padding: vw(0) vw(28);
+    h2{
+        font-size: vw(15);
+        color: #442818;
+        text-align: center;
+    }
+    ul{
+        width: 100%;
+        height: vw(282);
+        margin-top: vw(25);
+        input{
+            width: 100%;
+            // height: vw(25);
+            padding: vw(10) 0;
+            border-bottom: vw(1) solid #DFDFDF;
+        }
+        input::-webkit-input-placeholder{   // 谷歌
+            color:#D5BFA7;
+            // font-size:12px;
+        }
+        .pas2{
+            border-bottom: none;
+        }
+        
+        .am-list-line{
+            padding-right: 0;
+        }
+        .am-list-item, .am-list-item-middle{
+            padding-left: 0;
+            width: vw(318);
+        }
+        .date-picker-list{
+            width: 100%;
+        } 
+        .am-list-content{
+            color:#D5BFA7;
+            font-size: vw(12);
+        }
+
+
+        .erroBox{
+           vertical-align: middle;
+           height: vw(47);
+        //    display: none;
+            >p{
+                >i{
+                    background: url(../../static/img/tip.png);
+                    background-repeat: no-repeat;
+                    background-position: vw(0)  vw(14);
+                    background-size: vw(18) vw(18);
+                    display: block;
+                    width: vw(18);
+                    height: vw(47);
+                    line-height: vw(18);
+                    float: left;
+                }
+                // height: vw(47);
+                line-height: vw(47);
+                color: #FF714D;
+                font-size: vw(12);
+                display: none;
+            }
+        }
+        button{
+            width: 100%;
+            height: vw(42);
+            // margin-top: vw(47);
+            color: white;
+            background-color: #442818;
+        }
+    }
+    .gotosign{
+        >a{
+            color:black;
+        }
+        color: black;
+        float: right;
+        margin-top: vw(20);
+    }
+    
+}
+

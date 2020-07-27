@@ -1,0 +1,16 @@
+{
+  "id": "1948179",
+  "name": "ReactProject",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon",
+  "description": "React项目",
+  "glyphs": [
+    {
+      "icon_id": "584251",
+      "name": "右箭头",
+      "font_class": "iconfontjiantou5",
+      "unicode": "e635",
+      "unicode_decimal": 58933
+    }
+  ]
+}
