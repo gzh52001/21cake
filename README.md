@@ -1,4 +1,5 @@
-# 21cake
+21cake
+
 项目名称：21cake官网 组长：叶文浩 组员：徐立平 李彬 余涵
 
 #### 1、项目定位，项目基本功能
@@ -35,13 +36,46 @@ React 、react-dom 、 react-router-dom
 
  
 
-#### 3、代码目录结构说明
+#### 3、代码目录结构说明 
 
- 
+前端项目目录
 
-![img](file:///C:\Users\HP\AppData\Local\Temp\ksohtml5724\wps1.jpg) 
-
- 
+F:.
+├─build
+│  ├─font_wg1i1v5b0co
+│  ├─img
+│  └─static
+│      ├─css
+│      ├─js
+│      └─media
+├─config
+│  └─jest
+├─public
+│  ├─font_wg1i1v5b0co
+│  └─img
+├─scripts
+└─src
+    ├─pages
+    │  ├─addlocal
+    │  ├─editlocal
+    │  ├─Goods
+    │  ├─Home
+    │  ├─login
+    │  ├─Person
+    │  ├─Shopcar
+    │  ├─sign
+    │  └─Type
+    │      ├─Bread
+    │      ├─Cake
+    │      ├─CCake
+    │      ├─Gift
+    │      ├─IceCream
+    │      └─Tea
+    ├─static
+    │  └─img
+    ├─store
+    └─utils
+        └─font_wg1i1v5b0co
 
 - 项目组：
   - 组长：叶文浩  
@@ -79,37 +113,25 @@ React 、react-dom 、 react-router-dom
 
 ​	功能：也可以在此页面直接添加商品到购物车
 
-![1595639215179](C:\Users\HP\AppData\Roaming\Typora\typora-user-images\1595639215179.png)
-
 **分类页面**：可跳转到首页、商品详情页、购物车页面、个人页面
 
 ​	功能：选择不同分类的商品、添加商品到购物车、进入商品详情页面选购
 
-![1595639246595](C:\Users\HP\AppData\Roaming\Typora\typora-user-images\1595639246595.png)
-
 **商品详情页面**：包含对应的商品数据
 
-​	功能：可浏览对应商品的详情数据、可以选择不同规格的商品、把商品加入购物车![1595639268060](C:\Users\HP\AppData\Roaming\Typora\typora-user-images\1595639268060.png)
+​	功能：可浏览对应商品的详情数据、可以选择不同规格的商品、把商品加入购物车
 
   
 
 **个人信息页面**：个人信息展示可跳转到地址管理页面
 
-​	功能：展示个人信息、对个人信息进行修改、退出登录、进入地址管理页面进行管理![1595639296202](C:\Users\HP\AppData\Roaming\Typora\typora-user-images\1595639296202.png)
+​	功能：展示个人信息、对个人信息进行修改、退出登录、进入地址管理页面进行管理
 
 
 
 **登录注册页面** ：用户进行登录注册
 
-​	功能：用户可以进行登录、注册，验证密码，验证登录状态![1595639316146](C:\Users\HP\AppData\Roaming\Typora\typora-user-images\1595639316146.png)
-
-![1595639333540](C:\Users\HP\AppData\Roaming\Typora\typora-user-images\1595639333540.png)
-
- 
-
- 
-
-
+​	功能：用户可以进行登录、注册，验证密码，验证登录状态
 
 #### 5、常见问题说明
 
